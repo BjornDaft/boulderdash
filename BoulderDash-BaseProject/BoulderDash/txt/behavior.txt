@@ -1,0 +1,49 @@
+comportment:
+
+behaviorGravity:
+	target:
+		-object fall if case under him was empty
+		-can kill player/ennemy if fall is upper 1 case
+	affect:
+		-rock
+		-diamond
+behaviorUnreach:
+	target:
+		-player/ennemy cannot cross this case
+	affect:
+		-player
+		-ennemy1
+		-ennemy2
+behaviorExplode:
+	target:
+		-object desapear him and all object on range of 1
+		-can kill player/ennemy
+	affect:
+		-ennemy1
+		-player
+behaviorKiller:
+	target:
+		-object explode if player touch it
+	affect:
+		-ennemy1
+		-ennemy2
+behaviorReward:
+	target
+		-object all his neighborood on range of 1 will transform into diamond
+	affect:
+		-ennemy2
+behaviorPush:
+	target:
+		-object can being push if player try to cross his position
+		-the direction depending on player's position (left or right only)
+	affect:
+		-Rock
+
+behaviorSupidMoving:
+	target:
+		-ennemy move along the right wall.
+	affect:
+		-ennemy
+
+
+
