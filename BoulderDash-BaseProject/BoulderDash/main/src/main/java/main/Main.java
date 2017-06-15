@@ -30,5 +30,4 @@ public abstract class Main {
             exception.printStackTrace();
         }
     }
-
-}/*teeetetetettkjfk< qeroyjhlieori g*/
+}
