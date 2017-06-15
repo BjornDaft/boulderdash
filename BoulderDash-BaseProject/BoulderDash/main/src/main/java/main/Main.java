@@ -20,6 +20,7 @@ public abstract class Main {
      * @param args
      *            the arguments
      */
+	//hello
     public static void main(final String[] args) {
         final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
 
