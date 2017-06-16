@@ -73,4 +73,13 @@ public class ControllerFacade implements IController {
     public IModel getModel() {
         return this.model;
     }
+
+	
+	public void orderPerform(UserOrder userOrder) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setViewSystem(IView viewSystem){
+		
+	}
 }
