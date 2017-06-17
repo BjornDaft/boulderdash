@@ -37,7 +37,8 @@ public class Statics implements IStatics{
 		return null;
 	}
 	
-	public Model getModel(){
+	public ModelFacade getModel(){
+		return null;
 		
 	}
 	

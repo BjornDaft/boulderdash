@@ -3,7 +3,6 @@ package model;
 import java.util.ArrayList;
 import java.util.Observable;
 
-import jpu2016.dogfight.model.Sky;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
