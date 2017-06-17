@@ -19,9 +19,11 @@ public class GraphicsBuilder implements IGraphicsBuilder{
 		 
 	 }
 	 public int getGlobalWidth(){
+		return 0;
 		 
 	 }
 	 public int getGlobalHeight(){
+		return 0;
 		 
 	 }
 }

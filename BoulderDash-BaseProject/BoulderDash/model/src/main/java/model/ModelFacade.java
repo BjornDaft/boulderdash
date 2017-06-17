@@ -1,9 +1,9 @@
 package model;
 
-import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Observable;
 
-import model.dao.ExampleDAO;
+import jpu2016.dogfight.model.Sky;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -11,40 +11,54 @@ import model.dao.ExampleDAO;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public class ModelFacade implements IModel {
+public class ModelFacade extends Observable implements IModelFacade {
+	
+	private Ground ground;
+	private final ArrayList<IMobile> mobiles;
 
-    /**
+	/**
      * Instantiates a new model facade.
      */
     public ModelFacade() {
-        super();
+    	this.mobiles = new ArrayList<>();
     }
 
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getExampleById(int)
-     */
-    @Override
-    public Example getExampleById(final int id) throws SQLException {
-        return ExampleDAO.getExampleById(id);
-    }
+	@Override
+	public void buildArea(Dimension dimension) {
+		// TODO Auto-generated method stub
+		this.ground = new Ground(dimension);
+	}
 
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getExampleByName(java.lang.String)
-     */
-    @Override
-    public Example getExampleByName(final String name) throws SQLException {
-        return ExampleDAO.getExampleByName(name);
-    }
+	@Override
+	public IArea getArea() {
+		// TODO Auto-generated method stub
+		return this.ground;
+	}
 
-    /*
-     * (non-Javadoc)
-     * @see model.IModel#getAllExamples()
-     */
-    @Override
-    public List<Example> getAllExamples() throws SQLException {
-        return ExampleDAO.getAllExamples();
-    }
+	@Override
+	public void addMobile(IMobile mobile) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeMobile(IMobile mobile) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public ArrayList<IMobile> getMobiles() {
+		// TODO Auto-generated method stub
+		return this.mobiles;
+	}
+
+	@Override
+	public void setMobilesHavesMoved() {
+		// TODO Auto-generated method stub
+		
+	}
+
+ 
 
 }

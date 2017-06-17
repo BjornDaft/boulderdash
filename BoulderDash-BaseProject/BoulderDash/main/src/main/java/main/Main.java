@@ -23,7 +23,7 @@ public abstract class Main {
 	//hello
     public static void main(final String[] args) {
         final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
-
+        System.out.println("queue");
         try {
             controller.start();
         } catch (final SQLException exception) {

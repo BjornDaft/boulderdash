@@ -5,12 +5,13 @@ import java.awt.event.KeyEvent;
 
 import controller.IController;
 
+
 public class EventPerformer implements IEventPerformer{
 	public EventPerformer(IController orderPerformer){
 		
 	}
 	
-	private UserOrder keyCodeToUserOrder(int keyOrder){
+	private IUserOrder keyCodeToUserOrder(int keyOrder){
 		
 	}
 
