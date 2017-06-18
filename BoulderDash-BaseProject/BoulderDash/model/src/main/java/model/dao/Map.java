@@ -9,7 +9,7 @@ public class Map implements Serializable {
 	private int id;
 	private int width;
     private int height;
-    private String codemap;
+    private String mapCode;
     private int nbdiamond;
 
 
@@ -20,7 +20,7 @@ public class Map implements Serializable {
     this.id = id;	
     this.width = width;
 	this.height = height;
-	this.codemap = codemap;
+	this.mapCode = codemap;
 	this.nbdiamond = nbdiamond;
     }
 
@@ -33,8 +33,8 @@ public class Map implements Serializable {
 	return this.width;
     }
   
-  public String getCodemap() {
-    return this.codemap;
+  public String getMapCode() {
+    return this.mapCode;
   }
   
   public int getId(){

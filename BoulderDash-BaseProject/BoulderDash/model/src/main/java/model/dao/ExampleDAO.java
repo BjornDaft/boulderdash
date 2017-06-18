@@ -14,6 +14,9 @@ import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import model.Mud;
+import model.Wall;
+
 
 public class ExampleDAO {
 	
@@ -58,6 +61,7 @@ public class ExampleDAO {
 	}
  
  decrypt();
+
  // use this to generate the map : generatelvl();   
     
 }
@@ -74,11 +78,18 @@ public static void decrypt(){
 	      
 	      System.out.println("Lvl name = " + map1.getName());
 	      System.out.println("Id = " + map1.getId());
-	      System.out.println("Nbdiamond = " + map1.getNbdiamond());
-	      
+	      System.out.println("Nbdiamond = " + map1.getNbdiamond());	      
 	      System.out.println("width = " + map1.getWidth());
 	      System.out.println("height = " + map1.getHeight());
-	      System.out.println("code map = " + map1.getCodemap());
+	      System.out.println("code map = " + map1.getMapCode());
+	      
+		  int width = map1.getWidth();
+		  int height = map1.getHeight();
+		  String mapCode = map1.getMapCode();
+		  
+		  generateObjectsFromMap(width, height, mapCode);
+
+	      
 	    } catch (final java.io.IOException e) {
 	      e.printStackTrace();
 	    } catch (final ClassNotFoundException e) {
@@ -92,6 +103,11 @@ public static void decrypt(){
 	        ex.printStackTrace();
 	      }
 	    }
+	    
+
+	    
+	    
+	    
 	  }
 	
 
@@ -126,5 +142,67 @@ public static void decrypt(){
 	      }
 	    }
 	}
+	
+	 public static void generateObjectsFromMap(int width, int height, String string){
+		
+		 int a=0,i=0,j=0;
+	        
+	        char n;
+
+	        Object[][] tab= new Object[width][height];
+
+	        try{
+	            if (string.length()!=width*height){
+	                throw new Exception("Tristan, ta map pue, y a pas le bon nombre de caractères, y en a "+string.length()+" au lieu de "+width*height);
+	            }
+
+	            for(j=0;j<height;j++){
+	                for(i=0;i<width;i++){
+	                    
+	                    n=string.charAt(a);
+	                    if (n=='O'){
+	                        tab[i][j]=new Mud(i,j);
+	                    }
+	                    else if (n=='W'){
+	                        tab[i][j]=new Wall(i,j);
+	                    }
+	                    else if (n=='R'){
+	                        tab[i][j]=new Rock(i,j);
+	                    }
+	                    else if (n=='E'){
+	                        tab[i][j]=new Ennemy(i,j);
+	                    }
+	                    else if (n=='D'){
+	                        tab[i][j]=new Diamond(i,j);
+	                    }
+	                    else if (n=='X'){
+	                        tab[i][j]=new Void(i,j);
+	                    }
+	                    else if (n=='P'){
+	                        tab[i][j]=new Player(i,j);
+	                    }
+	                    else if (n=='S'){
+	                        tab[i][j]=new Exit(i,j);
+	                    }
+	                    else{
+	                        a++;
+	                        throw new Exception("Tristan, ta map pue, tu t'es fail de caractère, le "+a+"ème c'est un "+n+", petit sac");
+	                    }
+	                    a++;
+	                }
+	            }
+	        }
+	        catch(Exception e) {
+	            System.err.println(e.getMessage());
+	            System.exit(1);
+	    }
+		 
+		 
+		 
+		 
+	 }
+
+	
+	
 }
 
