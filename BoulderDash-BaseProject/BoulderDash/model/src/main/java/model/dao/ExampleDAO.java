@@ -14,8 +14,6 @@ import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.Mud;
-import model.Wall;
 
 
 public class ExampleDAO {
@@ -24,17 +22,20 @@ public class ExampleDAO {
 	// to test : public static void main(final String argv[]) throws SQLException, IOException {
  	public static void getMap(int idLvl) throws SQLException, IOException{
  	// to test : int idLvl = "what you want to force to start"
+ 		
+ 	// This function will received the serialized map from database.
+ 		
     PrintWriter writer = null;
 	try {
 		writer = new PrintWriter(new OutputStreamWriter(new BufferedOutputStream(new FileOutputStream("RECEIVED.txt"))));
 	} catch (FileNotFoundException e1) {
 		e1.printStackTrace();
 	}
-    BoulderDashBDDConnector co = new BoulderDashBDDConnector();
+    BoulderDashBDDConnector co = new BoulderDashBDDConnector(); // Initializing connection
 
     
 
-    co.open();
+    co.open(); // Make connection
     
     co.executeQuery("SELECT * FROM example");
     try (ResultSet resultSet = co.executeQuery("SELECT name FROM example WHERE id =" + idLvl)) {
@@ -67,6 +68,7 @@ public class ExampleDAO {
 }
   
 public static void decrypt(){
+	// This function will create an object map1 from binary received
 		
 	    ObjectInputStream ois = null;
 	     
@@ -88,7 +90,7 @@ public static void decrypt(){
 		  String mapCode = map1.getMapCode();
 		  
 		  generateObjectsFromMap(width, height, mapCode);
-
+		  // This function will get the mapCode, then create an array of object using width and height
 	      
 	    } catch (final java.io.IOException e) {
 	      e.printStackTrace();
@@ -113,7 +115,7 @@ public static void decrypt(){
 
 
 	public static void generatelvl(){
-		
+		// Test function, used to generate a binary of the map
 		
 		
 	    final Map map1 = new Map("LELELE", 10, 18, 12, "REOOOOOOOOOOOOOOORPREOOOOOOOOOOOOORSDOREOOOOOOOOOOORODRDOREOOOOOOOOORODRORDOREOOOOOOORODROOORDOREOOOOORODROOOOORDOREOOORODROOOOOOORDOREORODROOOOOOOOORDORRODROOOOOOOOOOORDOOOROOOOOO", 1);
@@ -144,7 +146,8 @@ public static void decrypt(){
 	}
 	
 	 public static void generateObjectsFromMap(int width, int height, String string){
-		
+	 // This function will get the mapCode, then create an array of object using width and height, only used into decrypt().
+
 		 int a=0,i=0,j=0;
 	        
 	        char n;
