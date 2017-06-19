@@ -5,8 +5,11 @@ public class Wall extends Statics {
 	public boolean isBorderMap(){
 		return true;
 	}
-	public Wall(Position position, Dimension dimension, String image){
-		
+	private int posX;
+	private int posY;
+	public Wall(int posX, int posY){
+	this.posX = posX;
+	this.posY = posY;
+
 	}
-	
 }

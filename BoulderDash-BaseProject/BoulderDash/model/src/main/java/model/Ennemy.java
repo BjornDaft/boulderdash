@@ -1,10 +1,10 @@
 package model;
 
-public class Mud {
-	private static String IMAGE = "Mud";
+public class Ennemy {
+
 	private int posX;
 	private int posY;
-	public Mud(int posX, int posY){
+	public Ennemy(int posX, int posY){
 	this.posX = posX;
 	this.posY = posY;
 
