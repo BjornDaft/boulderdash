@@ -4,9 +4,9 @@ public class Diamond {
 
 	private int posX;
 	private int posY;
-	public Diamond(int posX, int posY){
-	this.posX = posX;
-	this.posY = posY;
+	public Diamond(Position position){
+		this.posX = position.getX();
+		this.posY = position.getY();
 
 	}
 }

@@ -7,9 +7,9 @@ public class Wall extends Statics {
 	}
 	private int posX;
 	private int posY;
-	public Wall(int posX, int posY){
-	this.posX = posX;
-	this.posY = posY;
+	public Wall(Position position){
+	this.posX = position.getX();
+	this.posY = position.getY();
 
 	}
 }

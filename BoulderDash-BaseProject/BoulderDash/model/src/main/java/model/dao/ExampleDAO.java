@@ -15,11 +15,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.Diamond;
+import model.Direction;
 import model.Empty;
 import model.Ennemy;
 import model.Exit;
 import model.Mud;
 import model.Player;
+import model.Position;
 import model.Rock;
 import model.Wall;
 
@@ -180,29 +182,30 @@ public class ExampleDAO {
 	                for(i=0;i<width;i++){
 	                    
 	                    n=string.charAt(a);
+	                    Position position = new Position(i,j);
 	                    if (n=='O'){
-	                        tab[i][j]=new Mud(i,j);
+	                        tab[i][j]=new Mud(position);
 	                    }
 	                    else if (n=='W'){
-	                        tab[i][j]=new Wall(i,j);
+	                        tab[i][j]=new Wall(position);
 	                    }
 	                    else if (n=='R'){
-	                        tab[i][j]=new Rock(i,j);
+	                        tab[i][j]=new Rock(position,Direction.DOWN);
 	                    }
 	                    else if (n=='E'){
-	                        tab[i][j]=new Ennemy(i,j);
+	                        tab[i][j]=new Ennemy(position,Direction.RIGHT,true);
 	                    }
 	                    else if (n=='D'){
-	                        tab[i][j]=new Diamond(i,j);
+	                        tab[i][j]=new Diamond(position);
 	                    }
 	                    else if (n=='X'){
-	                        tab[i][j]=new Empty(i,j);
+	                        tab[i][j]=new Empty(position);
 	                    }
 	                    else if (n=='P'){
-	                        tab[i][j]=new Player(i,j);
+	                        tab[i][j]=new Player(position,Direction.RIGHT);
 	                    }
 	                    else if (n=='S'){
-	                        tab[i][j]=new Exit(i,j);
+	                        tab[i][j]=new Exit(position);
 	                    }
 	                    else{
 	                        a++;

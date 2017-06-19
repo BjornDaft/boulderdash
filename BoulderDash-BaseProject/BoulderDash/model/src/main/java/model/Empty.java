@@ -4,9 +4,9 @@ public class Empty {
 
 	private int posX;
 	private int posY;
-	public Empty(int posX, int posY){
-	this.posX = posX;
-	this.posY = posY;
+	public Empty(Position position){
+		this.posX = position.getX();
+		this.posY = position.getY();
 
 	}
 }
