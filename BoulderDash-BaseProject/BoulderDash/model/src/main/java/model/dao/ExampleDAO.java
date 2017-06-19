@@ -27,12 +27,14 @@ import model.Wall;
 public class ExampleDAO {
 	
 
-	// to test : public static void main(final String argv[]) throws SQLException, IOException {
+	/**
+	 * This function will received the serialized map from database.
+	 * @param idLvl 	Id du niveau choisi.
+	 */
  	public static void getMap(int idLvl) throws SQLException, IOException{
  	// to test : int idLvl = "what you want to force to start"
- 		
- 	// This function will received the serialized map from database.
- 		
+    // to test : public static void main(final String argv[]) throws SQLException, IOException {
+ 	
     PrintWriter writer = null;
 	try {
 		writer = new PrintWriter(new OutputStreamWriter(new BufferedOutputStream(new FileOutputStream("RECEIVED.txt"))));
@@ -48,12 +50,12 @@ public class ExampleDAO {
     co.executeQuery("SELECT * FROM example");
     try (ResultSet resultSet = co.executeQuery("SELECT name FROM example WHERE id =" + idLvl)) {
 
-    	while(resultSet.next()) { // for each row
- 		   // take the blob
+    	while(resultSet.next()) {
+
  		   Blob blob = resultSet.getBlob("name");
  		   BufferedInputStream is = new BufferedInputStream(blob.getBinaryStream());
  		   FileOutputStream fos = new FileOutputStream("RECEIVED.txt");
- 		   // you can set the size of the buffer
+
  		   byte[] buffer = new byte[2048];
  		   int r = 0;
  		   while((r = is.read(buffer))!=-1) {
@@ -75,8 +77,10 @@ public class ExampleDAO {
     
 }
   
-public static void decrypt(){
-	// This function will create an object map1 from binary received
+	/**
+	 * This function will create an object map1 from binary received
+	 */
+ 	public static void decrypt(){
 		
 	    ObjectInputStream ois = null;
 	     
@@ -121,10 +125,10 @@ public static void decrypt(){
 	  }
 	
 
-
-	public static void generatelvl(){
-		// Test function, used to generate a binary of the map
-		
+	/**
+	 * Test function, used to generate a binary of the map
+	 */
+	public static void generatelvl(){		
 		
 	    final Map map1 = new Map("LELELE", 10, 18, 12, "REOOOOOOOOOOOOOOORPREOOOOOOOOOOOOORSDOREOOOOOOOOOOORODRDOREOOOOOOOOORODRORDOREOOOOOOORODROOORDOREOOOOORODROOOOORDOREOOORODROOOOOOORDOREORODROOOOOOOOORDORRODROOOOOOOOOOORDOOOROOOOOO", 1);
 	    ObjectOutputStream oos = null;
@@ -153,8 +157,13 @@ public static void decrypt(){
 	    }
 	}
 	
+	/**
+	 * This function will get the mapCode, then create an array of object using width and height, only used into decrypt().
+	 * @param width 	Longueur du niveau choisi.
+	 * @param height 	Hauteur du niveau choisi.
+	 * @param string 	mapCode du niveau choisi.
+	 */
 	 public static void generateObjectsFromMap(int width, int height, String string){
-	 // This function will get the mapCode, then create an array of object using width and height, only used into decrypt().
 
 		 int a=0,i=0,j=0;
 	        
