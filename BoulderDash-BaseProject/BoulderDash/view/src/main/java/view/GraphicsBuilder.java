@@ -12,7 +12,7 @@ public class GraphicsBuilder implements IGraphicsBuilder{
 	public void applyModelToGraphic(Graphics graphics, ImageObserver observer){
 		
 	}
-	 private void buildEmplyGround(){
+	 private void buildEmptyGround(){
 		 
 	 }
 	 private void drawMobile(IMobile mobile, Graphics graphics, ImageObserver observer){

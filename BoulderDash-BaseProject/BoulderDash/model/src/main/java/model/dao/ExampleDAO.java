@@ -153,7 +153,7 @@ public static void decrypt(){
 
 	        try{
 	            if (string.length()!=width*height){
-	                throw new Exception("Tristan, ta map pue, y a pas le bon nombre de caractères, y en a "+string.length()+" au lieu de "+width*height);
+	                throw new Exception("Inexact number of chars, there are "+string.length()+" in place of "+width*height);
 	            }
 
 	            for(j=0;j<height;j++){
@@ -186,7 +186,7 @@ public static void decrypt(){
 	                    }
 	                    else{
 	                        a++;
-	                        throw new Exception("Tristan, ta map pue, tu t'es fail de caractère, le "+a+"ème c'est un "+n+", petit sac");
+	                        throw new Exception("Unrecognized char at position "+a+" (that's a "+n+")");
 	                    }
 	                    a++;
 	                }
