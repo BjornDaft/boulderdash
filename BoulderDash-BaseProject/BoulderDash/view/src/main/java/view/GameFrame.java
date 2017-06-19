@@ -5,7 +5,7 @@ import java.awt.event.KeyListener;
 import java.util.Observable;
 
 public class GameFrame implements KeyListener{
-	public GameFrame(String title, IEventPerformer performer, IGraphicBuilder graphicBuilder, Observable observable){
+	public GameFrame(String title, IEventPerformer performer, IGraphicsBuilder graphicsBuilder, Observable observable){
 		
 	}
 

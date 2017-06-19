@@ -7,6 +7,7 @@ import java.util.Observable;
 import javax.swing.JOptionPane;
 
 import controller.IController;
+import model.IModelFacade;
 
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
