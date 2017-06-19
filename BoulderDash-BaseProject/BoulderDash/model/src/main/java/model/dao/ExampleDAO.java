@@ -14,7 +14,13 @@ import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import model.Diamond;
+import model.Empty;
+import model.Ennemy;
+import model.Exit;
 import model.Mud;
+import model.Player;
+import model.Rock;
 import model.Wall;
 
 
@@ -176,7 +182,7 @@ public static void decrypt(){
 	                        tab[i][j]=new Diamond(i,j);
 	                    }
 	                    else if (n=='X'){
-	                        tab[i][j]=new Void(i,j);
+	                        tab[i][j]=new Empty(i,j);
 	                    }
 	                    else if (n=='P'){
 	                        tab[i][j]=new Player(i,j);

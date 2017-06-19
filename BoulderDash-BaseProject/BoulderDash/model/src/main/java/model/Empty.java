@@ -1,10 +1,10 @@
 package model;
 
-public class Void {
+public class Empty {
 
 	private int posX;
 	private int posY;
-	public Void(int posX, int posY){
+	public Empty(int posX, int posY){
 	this.posX = posX;
 	this.posY = posY;
 
