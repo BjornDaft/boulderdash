@@ -1,6 +1,6 @@
 package model;
 
-public class Ennemy {
+public class Ennemy extends Mobile{
 
 	private int posX;
 	private int posY;
@@ -10,5 +10,8 @@ public class Ennemy {
 		this.posY = position.getY();
 		this.giveReward = giveReward;
 
+	}
+	public Behavior behavior() {
+		return this.behavior = new BehaviorEnemyMove();
 	}
 }

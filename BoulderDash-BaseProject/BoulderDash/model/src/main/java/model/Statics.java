@@ -6,6 +6,7 @@ import java.awt.Point;
 public class Statics implements IStatics{
 	private int HEIGHT = 16;
 	private int WIDTH = 16;
+	protected Behavior behavior;
 	@Override
 	public Point getPosition() {
 		// TODO Auto-generated method stub
@@ -45,7 +46,7 @@ public class Statics implements IStatics{
 	public void setModel(IModelFacade model){
 		
 	}
-	public void behavior(){
-		
+	public Behavior behavior(){
+		return behavior;
 	}
 }

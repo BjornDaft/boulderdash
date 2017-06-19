@@ -1,6 +1,6 @@
 package model;
 
-public class Rock {
+public class Rock extends Mobile{
 
 	private int posX;
 	private int posY;
@@ -8,5 +8,8 @@ public class Rock {
 		this.posX = position.getX();
 		this.posY = position.getY();
 
+	}
+	public Behavior behavior() {
+		return this.behavior = new BehaviorGravity();
 	}
 }

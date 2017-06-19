@@ -3,6 +3,7 @@ package model;
 import java.awt.Image;
 
 public class Mobile implements IMobile{
+	protected Behavior behavior;
 
 	@Override
 	public Direction getDirection() {
@@ -67,6 +68,10 @@ public class Mobile implements IMobile{
 	@Override
 	public void setModel(IModelFacade model) {
 		// TODO Auto-generated method stub
+		
+	}
+	public Behavior behavior(){
+		return this.behavior;
 		
 	}
 

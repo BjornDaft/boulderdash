@@ -1,6 +1,6 @@
 package model;
 
-public class Exit {
+public class Exit extends Statics{
 
 	private static String IMAGE="Exit";
 	private boolean open=false;
@@ -9,5 +9,8 @@ public class Exit {
 	public Exit(Position position){
 		this.posX = position.getX();
 		this.posY = position.getY();
+	}
+	public Behavior behavior() {
+		return this.behavior = new BehaviorExit();
 	}
 }
