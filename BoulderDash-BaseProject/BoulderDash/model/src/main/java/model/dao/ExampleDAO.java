@@ -14,6 +14,7 @@ import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import model.Array;
 import model.Diamond;
 import model.Direction;
 import model.Empty;
@@ -27,15 +28,6 @@ import model.Wall;
 
 
 public class ExampleDAO {
-	
-	/**
-	 * Array of objects initialization
-	 * public static Object[][] tab;
-	 */
-	/**
-	 * Array of chars initialization
-	 */
-	public static char[][] tab;
 
 	/**
 	 * This function will received the serialized map from database.
@@ -126,12 +118,7 @@ public class ExampleDAO {
 	      } catch (final IOException ex) {
 	        ex.printStackTrace();
 	      }
-	    }
-	    
-
-	    
-	    
-	    
+	    }    
 	  }
 	
 
@@ -168,7 +155,7 @@ public class ExampleDAO {
 	}
 	
 	/**
-	 * This function will get the mapCode, then create an array of objects/chars using width and height, only used into decrypt().
+	 * This function will get the mapCode, then create an array of chars using width and height, only used into decrypt().
 	 * @param width 	Longueur du niveau choisi.
 	 * @param height 	Hauteur du niveau choisi.
 	 * @param string 	mapCode du niveau choisi.
@@ -178,55 +165,17 @@ public class ExampleDAO {
 		 int a=0,i=0,j=0;
 	        
 	        char n;
-	        /**
-	         * Array instanciation
-	         */
-	        //tab = new Object[width][height];
-	        tab = new char[width][height];
+	        Array map = new Array(width,height);
 	        
 	        try{
-	            if (string.length()!=width*height){
-	                throw new Exception("Inexact number of chars, there are "+string.length()+" in place of "+width*height);
-	            }
 
 	            for(j=0;j<height;j++){
 	                for(i=0;i<width;i++){
 	                    
 	                    n=string.charAt(a);
 	                    if (n=='O'||n=='W'||n=='R'||n=='E'||n=='D'||n=='X'||n=='P'||n=='S'){
-	                    	tab[j][i]=n;
-	                    }
-	                    /*
-	                     * Conditions for array of objects
-	                     * 
-	                     * Position position = new Position(i,j);
-	                    if (n=='O'){
-	                        tab[i][j]=new Mud(position);
-	                    }
-	                    else if (n=='W'){
-	                        tab[i][j]=new Wall(position);
-	                    }
-	                    else if (n=='R'){
-	                        tab[i][j]=new Rock(position,Direction.DOWN);
-	                    }
-	                    else if (n=='E'){
-	                        tab[i][j]=new Ennemy(position,Direction.RIGHT,true);
-	                    }
-	                    else if (n=='D'){
-	                        tab[i][j]=new Diamond(position);
-	                    }
-	                    else if (n=='X'){
-	                        tab[i][j]=new Empty(position);
-	                    }
-	                    else if (n=='P'){
-	                        tab[i][j]=new Player(position,Direction.RIGHT);
-	                    }
-	                    else if (n=='S'){
-	                        tab[i][j]=new Exit(position);
-	                    }
-	                    */
-	                    
-	                    else{
+	                    	map.setChar(i, j, n);
+	                    }else{
 	                        a++;
 	                        throw new Exception("Unrecognized char at position "+a+" (that's a "+n+")");
 	                    }
@@ -237,14 +186,7 @@ public class ExampleDAO {
 	        catch(Exception e) {
 	            System.err.println(e.getMessage());
 	            System.exit(1);
-	    }
-		 
-		 
-		 
-		 
-	 }
-
-	
-	
+	    }	 
+	 }	
 }
 
