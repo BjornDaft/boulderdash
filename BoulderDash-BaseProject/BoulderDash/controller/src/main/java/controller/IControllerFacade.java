@@ -1,6 +1,6 @@
 package controller;
 
-public interface IController {
+public interface IControllerFacade {
 
 void orderPerform(UserOrder userOrder);
 }

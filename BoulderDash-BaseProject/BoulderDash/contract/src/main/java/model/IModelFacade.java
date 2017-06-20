@@ -1,16 +1,24 @@
 package model;
 
+import java.awt.Dimension;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <h1>The Interface IModel.</h1>
+ * <h1>The Interface IModelFacade.</h1>
  *
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public interface IModel {
-
+public interface IModelFacade {
+	public void buildArea(final Dimension dimension);
+	public IArea getArea();
+	public void addMobile(final IMobile mobile);
+	public void removeMobile(final IMobile mobile);
+	public ArrayList<IMobile> getMobiles();
+	public void setMobilesHavesMoved();
+}
     /**
      * Gets the example by id.
      *
@@ -19,7 +27,7 @@ public interface IModel {
      * @return the example by id
      * @throws SQLException
      *             the SQL exception
-     */
+     *
     Example getExampleById(int id) throws SQLException;
 
     /**
@@ -30,7 +38,7 @@ public interface IModel {
      * @return the example by name
      * @throws SQLException
      *             the SQL exception
-     */
+     *
     Example getExampleByName(String name) throws SQLException;
 
     /**
@@ -39,6 +47,5 @@ public interface IModel {
      * @return the all examples
      * @throws SQLException
      *             the SQL exception
-     */
-    List<Example> getAllExamples() throws SQLException;
-}
+     *
+    List<Example> getAllExamples() throws SQLException;*/

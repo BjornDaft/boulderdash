@@ -3,16 +3,16 @@ package view;
 
 import java.awt.event.KeyEvent;
 
-import controller.IController;
+import controller.IControllerFacade;
 import controller.Order;
 import controller.UserOrder;
 
 
 public class EventPerformer implements IEventPerformer{
 	
-	private final IController orderPerformer;
+	private final IControllerFacade orderPerformer;
 	
-	public EventPerformer(IController orderPerformer){
+	public EventPerformer(IControllerFacade orderPerformer){
 		this.orderPerformer = orderPerformer;
 	}
 	
