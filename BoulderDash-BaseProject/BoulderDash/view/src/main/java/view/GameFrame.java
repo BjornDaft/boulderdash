@@ -11,17 +11,17 @@ public class GameFrame implements KeyListener{
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
+		  int key = e.getKeyCode();
 		
 	}
 	@Override
 	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
+		  int key = e.getKeyCode();
 		
 	}
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
+		  int key = e.getKeyCode();
 		
 	}
 }
