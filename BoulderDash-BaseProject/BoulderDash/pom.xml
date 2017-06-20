@@ -21,7 +21,6 @@
      </plugins>
   </build>
   <modules>
-    <module>contract</module>
     <module>controller</module>
     <module>model</module>
     <module>view</module>
