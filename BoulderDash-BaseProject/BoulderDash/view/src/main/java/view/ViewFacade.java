@@ -6,7 +6,7 @@ import java.util.Observable;
 
 import javax.swing.JOptionPane;
 
-import controller.IController;
+import controller.IControllerFacade;
 import model.IModelFacade;
 
 /**
@@ -15,18 +15,18 @@ import model.IModelFacade;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public class ViewFacade implements IView {
+public class ViewFacade implements IViewFacade {
 
     /**
      * Instantiates a new view facade.
      */
-    public ViewFacade(IController orderPerformer, IModelFacade Model, Observable observable) {
+    public ViewFacade(IControllerFacade orderPerformer, IModelFacade Model, Observable observable) {
        
     }
 
     /*
      * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * @see view.IViewFacade#displayMessage(java.lang.String)
      */
     
     private void run(){

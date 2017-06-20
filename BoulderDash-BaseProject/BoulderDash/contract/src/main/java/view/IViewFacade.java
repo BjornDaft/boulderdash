@@ -1,12 +1,12 @@
 package view;
 
 /**
- * <h1>The Interface IView.</h1>
+ * <h1>The Interface IViewFacade.</h1>
  *
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public interface IView {
+public interface IViewFacade {
 
     /**
      * Display message.
@@ -14,5 +14,7 @@ public interface IView {
      * @param message
      *            the message
      */
-    void displayMessage(String message);
+
+    public void displayMessage(String message);
+	public void closeAll();
 }

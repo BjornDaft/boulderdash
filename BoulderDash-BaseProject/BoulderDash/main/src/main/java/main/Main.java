@@ -21,9 +21,11 @@ public abstract class Main {
      *            the arguments
      */
 	//hello
+	/*private final IViewFacade view;
+	private final IModelFacade model;*/
     public static void main(final String[] args) {
         final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
-        System.out.println("queue");
+
         try {
             controller.start();
         } catch (final SQLException exception) {

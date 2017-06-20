@@ -22,7 +22,6 @@ public class ModelFacade extends Observable implements IModelFacade {
     	this.mobiles = new ArrayList<>();
     }
 
-	@Override
 	public void buildArea(Dimension dimension) {
 		// TODO Auto-generated method stub
 		this.ground = new Ground(dimension);
@@ -34,7 +33,6 @@ public class ModelFacade extends Observable implements IModelFacade {
 		return this.ground;
 	}
 
-	@Override
 	public void addMobile(IMobile mobile) {
 		// TODO Auto-generated method stub
 		
@@ -57,6 +55,8 @@ public class ModelFacade extends Observable implements IModelFacade {
 		// TODO Auto-generated method stub
 		
 	}
+
+
 
  
 
