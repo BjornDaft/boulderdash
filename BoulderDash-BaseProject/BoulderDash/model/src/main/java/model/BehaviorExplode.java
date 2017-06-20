@@ -1,18 +1,17 @@
 package model;
 
 
-
 public class BehaviorExplode extends Behavior {
 	int i, j;
 	boolean alive = false;
-	public void behavior() {
-		if (tab[posX--][posY] ='P' || tab[posX ++][posY] =='P' || tab[posX][posY ++] =='P' || tab[posX][posY --] =='P' || tab[posX][posY --] =='R' || tab[posX][posY--] =='D')
+	public void behavior(Position position) {
+		if (this.array.getChar(posX--, posY)=='P' ||this.array.getChar(posX, posY++)=='P'||this.array.getChar(posX++, posY)=='P'||this.array.getChar(posX, posY--)=='P' || this.array.getChar(posX, posY--)=='D')
 		 {
-		 	for(i = posX --;i = posX ++; i++)
+		 	for(i = posX --;i <= posX ++; i++)
 		 		{
-		 		for(tposY = posY --;tposY =posY ++; tposY ++)
+		 		for(j = posY --;j <= posY ++;j ++)
 		 			{
-		 			tab[i][j] = "X";
+		 			this.array.setChar(i, j, 'X');
 		 			}
 		 		}
 		 	Ennemy.setIsAlive(alive);

@@ -9,7 +9,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class BehaviorRewardTest {
-
+	private int i, j;
+	private char expectedTab[][];
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -20,6 +21,7 @@ public class BehaviorRewardTest {
 
 	@Before
 	public void setUp() throws Exception {
+		expectedTab[j][i] ='X' ;//{{'W','W','W','W','W'},{'W','X','X','X','W'},{'W','X','X','X','W'},{'W','X','X','X','W'},{'W','W','W','W','W'}};
 	}
 
 	@After
@@ -28,7 +30,10 @@ public class BehaviorRewardTest {
 
 	@Test
 	public void testBehavior() {
-		fail("Not yet implemented");
+		final char tab[][]= {{'W','W','W','W','W'},{'W','O','P','O','W'},{'W','O','E','O','W'},{'W','O','O','O','W'},{'W','W','W','W','W'}};
+		for(j=1; j<3; j ++) {
+			for(i=1; i<3; i++) {
+				assertEquals(expectedTab[j][i],tab[j][i]);
+			}
+		}
 	}
-
-}

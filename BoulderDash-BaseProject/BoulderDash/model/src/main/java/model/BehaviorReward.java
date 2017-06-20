@@ -1,20 +1,19 @@
 package model;
 
 public class BehaviorReward extends Behavior {
-	int tposX, tposY;
-	public void behavior() 
-	{
-		if (tab[posX--][posY] ="P" || tab[posX ++][posY] =="P" || tab[posX][posY ++] =="P" || tab[posX][posY --] =="P" || tab[posX][posY --] =="R")
+	int i, j;
+	boolean alive = false;
+	public void behavior(Position position) {
+		if (this.array.getChar(posX--, posY)=='P' ||this.array.getChar(posX, posY++)=='P'||this.array.getChar(posX++, posY)=='P'||this.array.getChar(posX, posY--)=='P' || this.array.getChar(posX, posY--)=='D')
 		 {
-		 	for(tposX = posX --,tposX =posX ++, tposX ++)
+		 	for(i = posX --;i <= posX ++; i++)
 		 		{
-		 		for(tposY = posY --,tposY =posY ++, tposY ++)
+		 		for(j = posY --;j <= posY ++;j ++)
 		 			{
-		 			tab[tposX][tposY] = "D";
-		 			new Diamond(position);
+		 			this.array.setChar(i, j, 'D');
 		 			}
 		 		}
+		 	Ennemy.setIsAlive(alive);
 		 }
-		
 	}
 }
