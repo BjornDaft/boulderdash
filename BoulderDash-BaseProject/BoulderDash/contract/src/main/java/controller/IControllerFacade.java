@@ -1,11 +1,11 @@
 package controller;
 
 /**
- * <h1>The Interface IController.</h1>
+ * <h1>The Interface IControllerFacade.</h1>
  * 
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public interface IController {
+public interface IControllerFacade {
 	public void orderPerform(UserOrder userOrder);
 }
