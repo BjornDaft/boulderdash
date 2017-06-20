@@ -33,7 +33,7 @@ public abstract class Main {
         
         final ExampleDAO connection = new ExampleDAO();
         try {
-        	connection.getMap(1);
+        	ExampleDAO.getMap(1);
         }
         catch (final SQLException exception){
         	exception.getMessage();
