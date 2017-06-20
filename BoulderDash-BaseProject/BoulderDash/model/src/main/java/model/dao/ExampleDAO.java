@@ -28,6 +28,14 @@ import model.Wall;
 
 public class ExampleDAO {
 	
+	/**
+	 * Array of objects initialization
+	 * public static Object[][] tab;
+	 */
+	/**
+	 * Array of chars initialization
+	 */
+	public static char[][] tab;
 
 	/**
 	 * This function will received the serialized map from database.
@@ -160,7 +168,7 @@ public class ExampleDAO {
 	}
 	
 	/**
-	 * This function will get the mapCode, then create an array of object using width and height, only used into decrypt().
+	 * This function will get the mapCode, then create an array of objects/chars using width and height, only used into decrypt().
 	 * @param width 	Longueur du niveau choisi.
 	 * @param height 	Hauteur du niveau choisi.
 	 * @param string 	mapCode du niveau choisi.
@@ -170,9 +178,12 @@ public class ExampleDAO {
 		 int a=0,i=0,j=0;
 	        
 	        char n;
-
-	        Object[][] tab= new Object[width][height];
-
+	        /**
+	         * Array instanciation
+	         */
+	        //tab = new Object[width][height];
+	        tab = new char[width][height];
+	        
 	        try{
 	            if (string.length()!=width*height){
 	                throw new Exception("Inexact number of chars, there are "+string.length()+" in place of "+width*height);
@@ -182,7 +193,13 @@ public class ExampleDAO {
 	                for(i=0;i<width;i++){
 	                    
 	                    n=string.charAt(a);
-	                    Position position = new Position(i,j);
+	                    if (n=='O'||n=='W'||n=='R'||n=='E'||n=='D'||n=='X'||n=='P'||n=='S'){
+	                    	tab[j][i]=n;
+	                    }
+	                    /*
+	                     * Conditions for array of objects
+	                     * 
+	                     * Position position = new Position(i,j);
 	                    if (n=='O'){
 	                        tab[i][j]=new Mud(position);
 	                    }
@@ -207,6 +224,8 @@ public class ExampleDAO {
 	                    else if (n=='S'){
 	                        tab[i][j]=new Exit(position);
 	                    }
+	                    */
+	                    
 	                    else{
 	                        a++;
 	                        throw new Exception("Unrecognized char at position "+a+" (that's a "+n+")");
