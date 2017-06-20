@@ -56,11 +56,7 @@ public class ModelFacade extends Observable implements IModelFacade {
 		
 	}
 
-	@Override
-	public void buildArea(java.awt.Dimension dimension) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
  
 
