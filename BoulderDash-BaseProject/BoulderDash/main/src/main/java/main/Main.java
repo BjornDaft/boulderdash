@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import controller.ControllerFacade;
 import model.ModelFacade;
+import model.dao.ExampleDAO;
 import view.ViewFacade;
 
 /**
@@ -23,11 +24,20 @@ public abstract class Main {
 	//hello
     public static void main(final String[] args) {
         final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
-        System.out.println("queue");
+        System.out.println("test");
         try {
             controller.start();
         } catch (final SQLException exception) {
             exception.printStackTrace();
+        }
+        
+        final ExampleDAO connection = new ExampleDAO();
+        try {
+        	connection.getMap(1);
+        }
+        catch (final SQLException exception){
+        	exception.getMessage();
+        	
         }
     }
 }
