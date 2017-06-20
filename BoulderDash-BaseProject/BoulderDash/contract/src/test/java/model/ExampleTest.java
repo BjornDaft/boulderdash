@@ -8,8 +8,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import modelcontract.Example;
-
 public class ExampleTest {
     private Example example;
 

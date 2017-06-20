@@ -16,7 +16,7 @@ public class ModelFacade extends Observable implements IModelFacade {
 	private final ArrayList<IMobile> mobiles;
 
 	/**
-     * Instantiates a new modelcontract facade.
+     * Instantiates a new model facade.
      */
     public ModelFacade() {
     	this.mobiles = new ArrayList<>();

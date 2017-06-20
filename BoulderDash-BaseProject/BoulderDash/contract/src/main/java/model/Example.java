@@ -1,4 +1,4 @@
-package modelcontract;
+package model;
 
 /**
  * <h1>The Class Example.</h1>
