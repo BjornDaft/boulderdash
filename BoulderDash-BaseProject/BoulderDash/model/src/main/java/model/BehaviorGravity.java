@@ -1,40 +1,53 @@
 package model;
 
+import java.util.Random;
+
 import model.dao.ExampleDAO;
 
 public class BehaviorGravity extends Behavior {
-
-	public void behavior()
+	
+	public void behavior(Position position)
 	{
-	While (tab[posX][posY++] == "X" || tab[posX][posY++] == "R" || tab[posX][posY++] == "D")
+	while(this.array.getChar(posX, posY++) == 'X' || this.array.getChar(posX, posY++) == 'R' || this.array.getChar(posX, posY++) == 'D')  
 		{
-		if(tab[posX][posY++] = "X")
+		if(this.array.getChar(posX, posY++) == 'X')
 			{
-			tab[posX][posY++] = "R";
-			tab[posX][posY] = "X";
-			setPosY(getPosY() ++);
+			this.array.setChar(posX, posY++, 'R');
+			this.array.setChar(posX, posY, 'X');
+			position.setY(posY++);
 			}
-		if (tab[posX][posY++] =="R" || tab[posX][posY++] =="D")
+		if (this.array.getChar(posX, posY++) =='R' || this.array.getChar(posX, posY++) =='D')
 			{
-			if(tab[posX++][posY++]== "X" && tab[posX++][posY]=="X")
+			if(this.array.getChar(posX++, posY++) == 'X' && this.array.getChar(posX++, posY)=='X')
 				{
-				tab[posX++][posY]="R";
-				tab[posX][posY]="X";
+				this.array.setChar(posX++, posY, 'R');
+				this.array.setChar(posX, posY, 'X');
 				posX++;
 				}
-			else if(tab[posX--][posY--]=="X" && tab[posX--][posY]=="X")
+			else if(this.array.getChar(posX--, posY++)=='X' && this.array.getChar(posX++, posY)=='X')
 				{
-				tab[posX][posY++]="R";
-				tab[posX++][posY++]="X";
+				this.array.setChar(posX, posY++, 'R');
+				this.array.setChar(posX++, posY++, 'X');
 				posX--;
 				}
-			else if(tab[posX--][posY--]=="X" && tab[posX--][posY]=="X" )
+			else if(this.array.getChar(posX--, posY++)=='X' && this.array.getChar(posX--, posY)=='X' && this.array.getChar(posX++, posY++) =='X' && this.array.getChar(posX++, posY)=='X')
 				{
-
+				Random rand =new Random();
+				boolean gauche = rand.nextBoolean();
+				if (gauche = true) {
+					this.array.setChar(posX++, posY, 'R');
+					this.array.setChar(posX, posY, 'X');
+					posX++;
 				}
-			else
+				else {
+					this.array.setChar(posX, posY++, 'R');
+					this.array.setChar(posX++, posY++, 'X');
+					posX--;
+				}
+				}
+			else if(this.array.getChar(posX--, posY) != 'X' && this.array.getChar(posX++, posY)!='X')
 				{
-				
+				break;
 				}
 			}
 		}
