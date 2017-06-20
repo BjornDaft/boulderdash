@@ -1,9 +1,7 @@
 package controller;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
-
 
 import model.Example;
 import model.IModel;
@@ -77,40 +75,10 @@ public class ControllerFacade implements IController {
     }
 
 	
-    @Override
-	public void orderPerform(final IUserOrder userOrder) {
-		if (userOrder != null) {
-			final IMobile plane = this.ModelFacade.getMobileByPlayer(userOrder.getPlayer());
-			if (plane != null) {
-				Direction direction;
-				switch (userOrder.getOrder()) {
-					case UP:
-						direction = Direction.UP;
-						break;
-					case RIGHT:
-						direction = Direction.RIGHT;
-						break;
-					case DOWN:
-						direction = Direction.DOWN;
-						break;
-					case LEFT:
-						direction = Direction.LEFT;
-						break;
-					case SHOOT:
-						try {
-							this.lauchMissile(userOrder.getPlayer());
-						} catch (final IOException e) {
-							e.printStackTrace();
-						}
-					case NOP:
-					default:
-						direction = this.ModelFacade.getMobileByPlayer(userOrder.getPlayer()).getDirection();
-						break;
-				}
-				plane.setDirection(direction);
-			}
-		}
-    }
+	public void orderPerform(UserOrder userOrder) {
+		// TODO Auto-generated method stub
+		
+	}
 	public void setViewSystem(IView viewSystem){
 		
 	}
