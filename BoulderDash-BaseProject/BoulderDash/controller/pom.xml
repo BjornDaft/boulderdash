@@ -5,7 +5,7 @@
     <artifactId>boulderdash</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>controller</artifactId>
+  <artifactId>controllercontract</artifactId>
   <name>boulderdash.controller</name>
   <dependencies>
     <dependency>

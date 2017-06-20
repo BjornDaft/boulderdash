@@ -3,8 +3,8 @@ package view;
 import java.awt.Graphics;
 import java.awt.image.ImageObserver;
 
-import model.IMobile;
-import model.IModelFacade;
+import modelcontract.IMobile;
+import modelcontract.IModelFacade;
 
 public class GraphicsBuilder implements IGraphicsBuilder{
 	

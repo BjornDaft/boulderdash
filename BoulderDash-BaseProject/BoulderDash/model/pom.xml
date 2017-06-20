@@ -5,7 +5,7 @@
     <artifactId>boulderdash</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>model</artifactId>
+  <artifactId>modelcontract</artifactId>
   <name>boulderdash.model</name>
   <dependencies>
     <dependency>

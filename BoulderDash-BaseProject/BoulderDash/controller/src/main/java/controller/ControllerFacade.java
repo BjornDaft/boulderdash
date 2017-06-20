@@ -3,9 +3,10 @@ package controller;
 import java.sql.SQLException;
 import java.util.List;
 
-import model.Example;
-import model.IModel;
-import view.IView;
+import controllercontract.IController;
+import modelcontract.Example;
+import modelcontract.IModel;
+import viewcontract.IView;
 
 /**
  * <h1>The Class ControllerFacade provides a facade of the Controller component.</h1>
@@ -15,19 +16,19 @@ import view.IView;
  */
 public class ControllerFacade implements IController {
 
-    /** The view. */
+    /** The viewcontract. */
     private final IView  view;
 
-    /** The model. */
+    /** The modelcontract. */
     private final IModel model;
 
     /**
-     * Instantiates a new controller facade.
+     * Instantiates a new controllercontract facade.
      *
-     * @param view
-     *            the view
-     * @param model
-     *            the model
+     * @param viewcontract
+     *            the viewcontract
+     * @param modelcontract
+     *            the modelcontract
      */
     public ControllerFacade(final IView view, final IModel model) {
         super();
@@ -57,18 +58,18 @@ public class ControllerFacade implements IController {
     }
 
     /**
-     * Gets the view.
+     * Gets the viewcontract.
      *
-     * @return the view
+     * @return the viewcontract
      */
     public IView getView() {
         return this.view;
     }
 
     /**
-     * Gets the model.
+     * Gets the modelcontract.
      *
-     * @return the model
+     * @return the modelcontract
      */
     public IModel getModel() {
         return this.model;

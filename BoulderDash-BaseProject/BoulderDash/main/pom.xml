@@ -15,17 +15,17 @@
     </dependency>
     <dependency>
       <groupId>fr.exia</groupId>
-      <artifactId>controller</artifactId>
+      <artifactId>controllercontract</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>fr.exia</groupId>
-      <artifactId>view</artifactId>
+      <artifactId>viewcontract</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>fr.exia</groupId>
-      <artifactId>model</artifactId>
+      <artifactId>modelcontract</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>

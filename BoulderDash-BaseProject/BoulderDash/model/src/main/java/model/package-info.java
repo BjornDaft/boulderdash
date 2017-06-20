@@ -1,5 +1,5 @@
 /**
- * Provides all classes for the controller component.
+ * Provides all classes for the controllercontract component.
  * 
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0

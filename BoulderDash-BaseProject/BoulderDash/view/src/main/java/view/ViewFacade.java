@@ -6,8 +6,9 @@ import java.util.Observable;
 
 import javax.swing.JOptionPane;
 
-import controller.IController;
-import model.IModelFacade;
+import controllercontract.IController;
+import modelcontract.IModelFacade;
+import viewcontract.IView;
 
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
@@ -18,7 +19,7 @@ import model.IModelFacade;
 public class ViewFacade implements IView {
 
     /**
-     * Instantiates a new view facade.
+     * Instantiates a new viewcontract facade.
      */
     public ViewFacade(IController orderPerformer, IModelFacade Model, Observable observable) {
        
@@ -26,7 +27,7 @@ public class ViewFacade implements IView {
 
     /*
      * (non-Javadoc)
-     * @see view.IView#displayMessage(java.lang.String)
+     * @see viewcontract.IView#displayMessage(java.lang.String)
      */
     
     private void run(){
