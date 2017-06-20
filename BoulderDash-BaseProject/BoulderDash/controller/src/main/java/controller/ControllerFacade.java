@@ -82,4 +82,8 @@ public class ControllerFacade implements IController {
 	public void setViewSystem(IView viewSystem){
 		
 	}
+	
+	private void gameloop(){
+		
+	}
 }
