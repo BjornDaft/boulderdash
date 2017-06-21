@@ -70,6 +70,15 @@ public class Statics implements IStatics{
 
 	}
 
+	public int getwidth() {
+		
+		return 0;
+	}
+	
+	public int getHeight() {
+		
+		return 0;
+	}
 	private void buildAllimages(final String imageName) throws IOException {
 		this.images = new Image;
 

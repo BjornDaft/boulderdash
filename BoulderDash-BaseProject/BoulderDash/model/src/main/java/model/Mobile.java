@@ -10,6 +10,7 @@ import javax.imageio.ImageIO;
 public class Mobile implements IMobile {
 	protected Behavior behavior;
 	protected Position position;
+	protected Direction direction;
 	protected Array array;
 	private Image images[];
 	private IModelFacade model;
