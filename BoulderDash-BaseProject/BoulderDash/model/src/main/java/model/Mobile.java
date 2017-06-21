@@ -3,19 +3,17 @@ package model;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-import model.behavior.*;
-
+import model.behavior.Behavior;
 import javax.imageio.ImageIO;
 
 public class Mobile implements IMobile {
 	protected Behavior behavior;
-	protected Position position;
-	protected Array array;
+	private Direction direction;
+	private Position position;
 	private Image images[];
 	private IModelFacade model;
-	protected int posX, posY;
 
-	public Mobile(final Direction direction, final Position position, final String image) {
+	public Mobile(final Direction direction, final Position position, final String image, Behavior behavior) {
 		this.direction = direction;
 		this.position = position;
 
@@ -71,7 +69,7 @@ public class Mobile implements IMobile {
 		}
 	}
 
-	// à corriger
+	// ï¿½ corriger
 	private void moveUp() {
 		this.position.setY(this.position.getY() - 1);
 	}
@@ -108,25 +106,25 @@ public class Mobile implements IMobile {
 		return this.model;
 	}
 
-	public Behavior behavior(Position position, Array array) {
+	public Behavior behavior() {
 		return this.behavior;
 
 	}
 
-	private void buildAllimages(final String imageName) throws IOException {
+	private void buildAllimages(final int Up) throws IOException {
 		this.images = new Image[4];
 
 		File f = new File(".");
 		System.out.println(f.getCanonicalPath() + "/");
 
 		this.images[Direction.UP.ordinal()] = ImageIO
-				.read(new File(f.getCanonicalPath() + "/images/" + imageName + "_UP.png"));
+				.read(new File(f.getCanonicalPath() + "/Image/BoulderDash.png"));
 		this.images[Direction.RIGHT.ordinal()] = ImageIO
-				.read(new File(f.getCanonicalPath() + "/images/" + imageName + "_RIGHT.png"));
+				.read(new File(f.getCanonicalPath() + "/Image/BoulderDash.png"));
 		this.images[Direction.DOWN.ordinal()] = ImageIO
-				.read(new File(f.getCanonicalPath() + "/images/" + imageName + "_DOWN.png"));
+				.read(new File(f.getCanonicalPath() + "/Image/BoulderDash.png"));
 		this.images[Direction.LEFT.ordinal()] = ImageIO
-				.read(new File(f.getCanonicalPath() + "/images/" + imageName + "_LEFT.png"));
+				.read(new File(f.getCanonicalPath() + "/Image/BoulderDash.png"));
 	}
 
 	@Override
@@ -141,4 +139,9 @@ public class Mobile implements IMobile {
 		return 0;
 	}
 
+
+
 }
+
+
+

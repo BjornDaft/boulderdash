@@ -15,4 +15,8 @@ public interface IStatics {
 	public void setModel(IModelFacade model);
 
 	void placeInArea(IArea area);
+
+	int getHeight();
+
+	int getWidth();
 }

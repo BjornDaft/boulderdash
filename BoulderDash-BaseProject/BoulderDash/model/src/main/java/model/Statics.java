@@ -2,27 +2,26 @@ package model;
 
 import java.awt.Image;
 import java.awt.Point;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import model.behavior.*;
-
+import model.behavior.Behavior;
 import javax.imageio.ImageIO;
-
 
 public class Statics implements IStatics{
 	
 	protected Behavior behavior;
-	protected Position position;
-	private Image images;
-	private IModelFacade model;
-	protected int posX, posY;
+	private Position position;
 
-	public Statics(final Position position, final String image) {
+	private IModelFacade model;
+	private BufferedImage image;
+
+	public Statics(final Position position, final int imagePositionX, final int imagePositionY) {
 		
 		this.position = position;
 
 		try {
-			this.buildAllimages(image);
+			this.buildImage(imagePositionX, imagePositionY);
 		} catch (final IOException e) {
 			e.printStackTrace();
 		}
@@ -41,7 +40,7 @@ public class Statics implements IStatics{
 	@Override
 	public Image getImage() {
 		// TODO Auto-generated method stub
-		return this.images;
+		return this.image;
 	}
 
 
@@ -70,14 +69,45 @@ public class Statics implements IStatics{
 
 	}
 
-	private void buildAllimages(final String imageName) throws IOException {
-		this.images = new Image;
+	private void buildImage(final int imagePositionX, final int imagePositionY) throws IOException {
 
 		File f = new File(".");
 		System.out.println(f.getCanonicalPath() + "/");
 
-		this.images = ImageIO
-				.read(new File(f.getCanonicalPath() + "/images/" + imageName + "_UP.png"));
+
+		BufferedImage imageSource = ImageIO.read(new File(f.getCanonicalPath() + "/Image/BoulderDash.png"));
+		this.image = (imageSource).getSubimage( imagePositionX*16 , imagePositionY * 16, 16, 16);
+	}
+
+
+
+
+
+	@Override
+	public int getWidth() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+
+
+	@Override
+	public int getHeight() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+
+
+
+	@Override
+	public void placeInArea() {
+		// TODO Auto-generated method stub
 		
 	}
 }
+
+
