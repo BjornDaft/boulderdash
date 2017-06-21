@@ -1,7 +1,8 @@
 package model.behavior;
 
 import java.util.Random;
-import model.*;
+import model.Position;
+import model.Array;
 
 public class BehaviorGravity extends Behavior {
 	
@@ -10,60 +11,61 @@ public class BehaviorGravity extends Behavior {
 		posX = position.getX();
 		posY = position.getY();
 		
-	while(this.array.getChar(posX, posY) == 'X' || this.array.getChar(posX, posY++) == 'R' || this.array.getChar(posX, posY++) == 'D')  
+	while(array.getChar(posX, posY) == 'X' || array.getChar(posX, posY++) == 'R' || array.getChar(posX, posY++) == 'D')  
 		{
-		if(this.array.getChar(posX, posY++) == 'X')
+		if(array.getChar(posX, posY++) == 'X')
 		{
-			this.fallDown(null);
+			this.fallDown(position, array);
 			}
-		if (this.array.getChar(posX, posY++) =='R' || this.array.getChar(posX, posY++) =='D')
+		if (array.getChar(posX, posY++) =='R' || array.getChar(posX, posY++) =='D')
 			{
-			this.verticalFall();
+			this.verticalFall(position, array);
 			}
 		}
+	
 	}
-	public void verticalFall() {
-		if(this.array.getChar(posX++, posY++) == 'X' && this.array.getChar(posX++, posY)=='X')
+	public void verticalFall(Position position, Array array) {
+		if(array.getChar(posX++, posY++) == 'X' && array.getChar(posX++, posY)=='X')
 		{
-			this.fallRight(null);
+			this.fallRight(position, array);
 		}
-	else if(this.array.getChar(posX--, posY++)=='X' && this.array.getChar(posX++, posY)=='X')
+	else if(array.getChar(posX--, posY++)=='X' && array.getChar(posX++, posY)=='X')
 		{
-			this.fallLeft(null);
+			this.fallLeft(position, array);
 		}
-	else if(this.array.getChar(posX--, posY++)=='X' && this.array.getChar(posX--, posY)=='X' && this.array.getChar(posX++, posY++) =='X' && this.array.getChar(posX++, posY)=='X')
+	else if(array.getChar(posX--, posY++)=='X' && array.getChar(posX--, posY)=='X' && array.getChar(posX++, posY++) =='X' && array.getChar(posX++, posY)=='X')
 		{
-			this.randomFall();
+			this.randomFall(position, array);
 		}
-	else if(this.array.getChar(posX--, posY) != 'X' && this.array.getChar(posX++, posY)!='X')
+	else if(array.getChar(posX--, posY) != 'X' && array.getChar(posX++, posY)!='X')
 		{
 		return;
 		}
 	}
-	public void fallDown(Position position) {
+	public void fallDown(Position position, Array array) {
 
-		this.array.setChar(posX, posY++, 'R');
-		this.array.setChar(posX, posY, 'X');
+		array.setChar(posX, posY++, 'R');
+		array.setChar(posX, posY, 'X');
 		position.setY(posY ++);
 	}
-	public void fallLeft(Position position) {
-		this.array.setChar(posX--, posY, 'R');
-		this.array.setChar(posX, posY, 'X');
+	public void fallLeft(Position position, Array array) {
+		array.setChar(posX--, posY, 'R');
+		array.setChar(posX, posY, 'X');
 		position.setY(posX--);
 	}
-	public void fallRight(Position position) {
-		this.array.setChar(posX++, posY, 'R');
-		this.array.setChar(posX, posY, 'X');
+	public void fallRight(Position position, Array array) {
+		array.setChar(posX++, posY, 'R');
+		array.setChar(posX, posY, 'X');
 		position.setX(posX++);
 	}
-	public void randomFall() {
+	public void randomFall(Position position, Array array) {
 		Random rand =new Random();
 		boolean gauche = rand.nextBoolean();
 		if (gauche == true) {
-			this.fallLeft(null);
+			this.fallLeft(position, array);
 		}
 		else {
-			this.fallRight(null);
+			this.fallRight(position, array);
 		}
 	}
 }
