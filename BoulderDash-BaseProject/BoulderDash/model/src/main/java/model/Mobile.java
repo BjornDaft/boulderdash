@@ -8,14 +8,8 @@ import javax.imageio.ImageIO;
 
 public class Mobile implements IMobile {
 	protected Behavior behavior;
-<<<<<<< HEAD
 	private Direction direction;
 	private Position position;
-=======
-	protected Position position;
-	protected Direction direction;
-	protected Array array;
->>>>>>> branch 'master' of https://github.com/BjornDaft/boulderdash
 	private Image images[];
 	private IModelFacade model;
 
