@@ -1,12 +1,12 @@
 package view;
 
-
-
 import java.util.Observable;
 
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 import controller.IControllerFacade;
+
 import model.IModelFacade;
 
 /**
@@ -15,32 +15,45 @@ import model.IModelFacade;
  * @author Jean-Aymeric DIET jadiet@cesi.fr
  * @version 1.0
  */
-public class ViewFacade implements IViewFacade {
+public class ViewFacade implements IViewFacade, Runnable {
 
-    /**
-     * Instantiates a new view facade.
-     */
-    public ViewFacade(IControllerFacade orderPerformer, IModelFacade Model, Observable observable) {
-       
-    }
+	private final GraphicsBuilder graphicsBuilder;
+	private final EventPerformer eventPerformer;
+	private final Observable observable;
+	private GameFrame gameFrame;
+	
+	
+	/**
+	 * Instantiates a new view facade.
+	 * 
+	 * 
+	 */
+	public ViewFacade(IControllerFacade orderPerformer, IModelFacade model, Observable observable) {
+		this.observable = (Observable) model;
+		this.graphicsBuilder = new GraphicsBuilder(model);
+		this.eventPerformer = new EventPerformer(orderPerformer);
+		SwingUtilities.invokeLater(this);
+	}
 
-    /*
-     * (non-Javadoc)
-     * @see view.IViewFacade#displayMessage(java.lang.String)
-     */
-    
-    private void run(){
-    	
-    }
-    @Override
-    public final void displayMessage(final String message) {
-        JOptionPane.showMessageDialog(null, message);
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see view.IViewFacade#displayMessage(java.lang.String)
+	 */
+
+	public void run() {
+		this.gameFrame = new GameFrame("Boulder Dash", this.eventPerformer, this.graphicsBuilder, this.observable);
+	}
+
+	@Override
+	public final void displayMessage(final String message) {
+		JOptionPane.showMessageDialog(null, message);
+	}
 
 	@Override
 	public void closeAll() {
 		// TODO Auto-generated method stub
-		
+		this.gameFrame.dispose();
 	}
 
 }
