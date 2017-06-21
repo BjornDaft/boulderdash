@@ -1,4 +1,4 @@
-package model;
+package model.behavior;
 
 public class BehaviorReward extends Behavior {
 	int i, j;

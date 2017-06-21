@@ -1,6 +1,6 @@
-package model;
+package model.behavior;
 
-import Map.
+import model.Player;
 
 public class BehaviorExit extends Behavior{
 
