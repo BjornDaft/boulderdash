@@ -3,5 +3,5 @@ package model.behavior;
 import model.*;
 
 public interface IBehavior {
-	public void behavior(Position position, Array array);
+	public Behavior behavior(Position position, Array array);
 }
