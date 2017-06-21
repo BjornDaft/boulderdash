@@ -1,17 +1,19 @@
 package model;
 
-import model.behavior.Behavior;
 
-public class Rock extends Mobile{
 
-	private int posX;
-	private int posY;
-	public Rock(Position position, Direction direction){
-		this.posX = position.getX();
-		this.posY = position.getY();
+public class Rock extends Element implements IGravity {
+	private static int IMAGEPOSITIONX = 9;
+	private static int IMAGEPOSITIONY = 0;
+	
+	public Rock(Position position, final int imagePositionX, final int imagePositionY) {
+		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
 
 	}
-	public Behavior behavior(Position position, Array array) {
-		return this.behavior = new model.behavior.BehaviorGravity();
+
+	@Override
+	public void gravity() {
+		// TODO Auto-generated method stub
+		
 	}
 }

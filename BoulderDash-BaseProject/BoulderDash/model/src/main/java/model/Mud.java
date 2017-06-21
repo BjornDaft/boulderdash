@@ -1,12 +1,11 @@
 package model;
 
-public class Mud {
-	private static String IMAGE = "Mud";
-	private int posX;
-	private int posY;
-	public Mud(Position position){
-		this.posX = position.getX();
-		this.posY = position.getY();
+public class Mud extends Element {
+	private static int IMAGEPOSITIONX = 7;
+	private static int IMAGEPOSITIONY = 0;
+	
+	public Mud(Position position, final int imagePositionX, final int imagePositionY) {
+		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
 
 	}
 }

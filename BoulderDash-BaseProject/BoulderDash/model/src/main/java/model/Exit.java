@@ -1,27 +1,13 @@
 package model;
 
-import model.behavior.*;
 
-public class Exit extends Statics{
 
-	private static String IMAGE="Exit";
-	private static boolean open=false;
-	private static int expectedDiamond;
-	public Exit(Position position){
-		this.posX = position.getX();
-		this.posY = position.getY();
-		this.position = new Position(posX, posY); 
-	}
-	public Behavior behavior() {
-		return this.behavior = new model.behavior.BehaviorExit();
-	}
-	public static int getExpectedDiamond() {
-		return expectedDiamond;
-	}
-	public static void setOpen (boolean openning) {
-		open = openning;
-	}
-	public static boolean getOpen() {
-		return open;
+public class Exit extends Element {
+	private static int IMAGEPOSITIONX = 13;
+	private static int IMAGEPOSITIONY = 1;
+	
+	public Exit(Position position, final int imagePositionX, final int imagePositionY) {
+		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
+
 	}
 }

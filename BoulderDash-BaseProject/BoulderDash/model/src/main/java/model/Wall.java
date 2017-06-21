@@ -1,15 +1,11 @@
 package model;
 
-public class Wall extends Statics {
-	private static String IMAGE = "Wall";
-	public boolean isBorderMap(){
-		return true;
-	}
-	private int posX;
-	private int posY;
-	public Wall(Position position){
-	this.posX = position.getX();
-	this.posY = position.getY();
+public class Wall extends Element {
+	private static int IMAGEPOSITIONX = 6;
+ private static int IMAGEPOSITIONY = 0;
 
+
+	public Wall(Position position, final int imagePositionX, final int imagePositionY){
+		super(position, IMAGEPOSITIONX,IMAGEPOSITIONY );
 	}
 }

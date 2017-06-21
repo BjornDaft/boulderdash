@@ -1,31 +1,39 @@
 package model;
 
-import model.behavior.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
-public class Player extends Mobile{
+import javax.imageio.ImageIO;
 
-	private int posX;
-	private int posY;
-	private static int collectedDiamond;
-	private static boolean isAlive;
-	public Player(Position position, Direction direction){
-		this.posX = position.getX();
-		this.posY = position.getY();
+public class Player extends Element implements IMove {
+	private static int IMAGEPOSITIONXUP = 2;
+	private static int IMAGEPOSITIONYUP = 2;
+	private static int IMAGEPOSITIONXDOWN = 4;
+	private static int IMAGEPOSITIONYDOWN = 5;
+	private static int IMAGEPOSITIONXRIGHT = 2;
+	private static int IMAGEPOSITIONYRIGHT = 3;
+	private static int IMAGEPOSITIONXLEFT = 2;
+	private static int IMAGEPOSITIONYLEFT = 1;
+
+	public Player(Position position, final int imagePositionXUP, final int imagePositionYUP, final int imagePositionXDOWN, final int imagePositionYDOWN, final int imagePositionXRIGHT, final int imagePositionYRIGHT, final int imagePositionXLEFT, final int imagePositionYLEFT, Direction direction) {
+		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY,IMAGEPOSITIONXDOWN,IMAGEPOSITIONYDOWN,IMAGEPOSITIONXRIGHT,IMAGEPOSITIONYRIGHT,IMAGEPOSITIONXLEFT,IMAGEPOSITIONYLEFT);
 
 	}
-	public Behavior behavior(Position position, Array array) {
-		return this.behavior = new model.behavior.BehaviorPlayerAction();
+
+	@Override
+	private void buildImage(final int imagePositionX, final int imagePositionY) throws IOException {
+
+		File f = new File(".");
+		System.out.println(f.getCanonicalPath() + "/");
+
+		BufferedImage imageSource = ImageIO.read(new File(f.getCanonicalPath() + "/Image/BoulderDash.png"));
+		this.image = (imageSource).getSubimage(imagePositionX * 16, imagePositionY * 16, 16, 16);
 	}
-	public static int getCollectedDiamond() {
+
+	@Override
+	public void move() {
 		// TODO Auto-generated method stub
-		return collectedDiamond;
-	}
-	public void death(boolean isAlive) {
-		if(isAlive = false ) {
-			System.exit(1);
-		}
-	}
-	public static void setIsAlive(boolean alive) {
-		isAlive = alive;
+		
 	}
 }

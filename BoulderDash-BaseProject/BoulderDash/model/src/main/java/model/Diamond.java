@@ -1,15 +1,14 @@
 package model;
 
-import model.behavior.Behavior;
+public class Diamond extends Element implements IGravity {
+	private static int IMAGEPOSITIONX = 10;
+	private static int IMAGEPOSITIONY = 0;
 
-public class Diamond extends Mobile{
-
-	public Diamond(Position position){
-		this.posX = position.getX();
-		this.posY = position.getY();
-
+	public Diamond(Position position, final int imagePositionX, final int imagePositionY) {
+		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
 	}
-	public Behavior behavior(){
-		return this.behavior = new model.behavior.BehaviorGravity();
+
+	public void gravity() {
+
 	}
 }
