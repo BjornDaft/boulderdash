@@ -1,4 +1,4 @@
-package model;
+package model.behavior;
 
 import static org.junit.Assert.*;
 
