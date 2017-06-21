@@ -46,8 +46,8 @@ public class ControllerFacade implements IControllerFacade {
 	 */
 	public void start() throws SQLException {
 		this.gameLoop();
-		this.setViewFacade.displayMessage("Game Over!");
-		this.viewSystemFacade.closeAll();
+		this.view.displayMessage("Game Over!");
+		this.view.closeAll();
 
 	}
 
