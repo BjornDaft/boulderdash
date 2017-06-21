@@ -1,22 +1,25 @@
 package model.behavior;
-
+import model.Array;
+import model.Ennemy;
+import model.Position;
+import model.Player;
 
 public class BehaviorExplode extends Behavior {
-	int i, j;
-	public void behavior(Position position) {
-		if (this.array.getChar(posX--, posY)=='P' ||this.array.getChar(posX, posY++)=='P'||this.array.getChar(posX++, posY)=='P'||this.array.getChar(posX, posY--)=='P' || this.array.getChar(posX, posY--)=='D')
+	private int i, j; 
+	public void behavior(Position position, Array array) {
+		if (array.getChar(posX--, posY)=='P' ||array.getChar(posX, posY++)=='P'||array.getChar(posX++, posY)=='P'||array.getChar(posX, posY--)=='P' ||array.getChar(posX, posY--)=='D')
 		 {
 		 	for(i = posX --;i <= posX ++; i++)
 		 		{
 		 		for(j = posY --;j <= posY ++;j ++)
 		 			{
-		 			if (this.array.getChar(i, j) == 'P') {
+		 			if (array.getChar(i, j) == 'P') {
 		 				Player.setIsAlive(false);
 		 			}
-		 			this.array.setChar(i, j, 'X');
+		 			array.setChar(i, j, 'X');
 		 			}
 		 		}
-		 	Ennemy.setIsAlive(false);
 		 }
+		
 	}
 }

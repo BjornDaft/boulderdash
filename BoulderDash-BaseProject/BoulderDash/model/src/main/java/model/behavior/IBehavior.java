@@ -1,7 +1,8 @@
 package model.behavior;
 
-import model.*;
+import model.Array;
+import model.Position;
 
 public interface IBehavior {
-	public Behavior behavior(Position position, Array array);
+	public void behavior(Position position, Array array);
 }

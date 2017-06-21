@@ -5,7 +5,7 @@ import model.behavior.*;
 public class Exit extends Statics{
 
 	private static String IMAGE="Exit";
-	private boolean open=false
+	private static boolean open=false;
 	private static int expectedDiamond;
 	public Exit(Position position){
 		this.posX = position.getX();
@@ -18,5 +18,10 @@ public class Exit extends Statics{
 	public static int getExpectedDiamond() {
 		return expectedDiamond;
 	}
-
+	public static void setOpen (boolean openning) {
+		open = openning;
+	}
+	public static boolean getOpen() {
+		return open;
+	}
 }

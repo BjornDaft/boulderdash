@@ -1,19 +1,25 @@
 package model.behavior;
 
+import model.Array;
+import model.Player;
+import model.Position;
+
 public class BehaviorReward extends Behavior {
 	int i, j;
 	boolean alive = false;
-	public void behavior(Position position) {
-		if (this.array.getChar(posX--, posY)=='P' ||this.array.getChar(posX, posY++)=='P'||this.array.getChar(posX++, posY)=='P'||this.array.getChar(posX, posY--)=='P' || this.array.getChar(posX, posY--)=='D')
+	public void behavior(Position position, Array array) {
+		if (array.getChar(posX--, posY)=='P' ||array.getChar(posX, posY++)=='P'||array.getChar(posX++, posY)=='P'||array.getChar(posX, posY--)=='P' ||array.getChar(posX, posY--)=='D')
 		 {
 		 	for(i = posX --;i <= posX ++; i++)
 		 		{
 		 		for(j = posY --;j <= posY ++;j ++)
 		 			{
-		 			this.array.setChar(i, j, 'D');
+		 			if (array.getChar(i, j) == 'P') {
+		 				Player.setIsAlive(false);
+		 			}
+		 			array.setChar(i, j, 'D');
 		 			}
 		 		}
-		 	Ennemy.setIsAlive(alive);
 		 }
 	}
 }
