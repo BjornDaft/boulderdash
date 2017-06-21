@@ -7,15 +7,15 @@ import org.junit.Test;
 public class ArrayTest {
 
 	private Array array = new Array(5, 5);
-	char tab[][];
 
 	@Test
 	public void testGetChar() {
 		try {
-			tab[0][0] = 'B';
-			fail("getChar isnt returning thr right value");
+			char[][] tab = new char[5][5];
+			tab[0][0] = 'Z';
+			fail("Should throw an exception if the char isn't recognized");
 		} catch (final Exception e) {
-			final char expected = 'A';
+			final String expected = "getChar isnt returning the right value, the tab is corrupted";
 			assertEquals(expected, e.getMessage());
 		}
 
@@ -24,10 +24,11 @@ public class ArrayTest {
 	@Test
 	public void testSetChar() {
 		try {
+			char[][] tab = new char[5][5];
 			tab[0][0] = 'N';
-			fail("Char input isnt an allowed one");
+			fail("Should throw an exception if the char input isnt an allowed one");
 		} catch (final Exception e) {
-			final char expected = 'A';
+			final String expected = "You can't set this char";
 			assertEquals(expected, e.getMessage());
 
 		}
