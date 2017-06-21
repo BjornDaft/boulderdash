@@ -9,10 +9,11 @@ import javax.imageio.ImageIO;
 
 public class Mobile implements IMobile {
 	protected Behavior behavior;
-	private Direction direction;
-	private Position position;
+	protected Position position;
+	protected Array array;
 	private Image images[];
 	private IModelFacade model;
+	protected int posX, posY;
 
 	public Mobile(final Direction direction, final Position position, final String image) {
 		this.direction = direction;

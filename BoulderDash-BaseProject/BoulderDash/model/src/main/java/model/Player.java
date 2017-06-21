@@ -1,5 +1,7 @@
 package model;
 
+import model.behavior.*;
+
 public class Player extends Mobile{
 
 	private int posX;
@@ -9,7 +11,7 @@ public class Player extends Mobile{
 		this.posY = position.getY();
 
 	}
-	public Behavior behavior() {
-		return this.behavior = new BehaviorPlayerAction();
+	public Behavior behavior(Position position, Array array) {
+		return this.behavior = new model.behavior.BehaviorPlayerAction();
 	}
 }

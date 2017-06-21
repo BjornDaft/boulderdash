@@ -1,5 +1,7 @@
 package model;
 
+import model.behavior.*;
+
 public class Ennemy extends Mobile{
 
 	private int posX;
@@ -12,6 +14,6 @@ public class Ennemy extends Mobile{
 
 	}
 	public Behavior behavior() {
-		return this.behavior = new BehaviorEnemyMove();
+		return this.behavior = new model.behavior.BehaviorEnemyMove();
 	}
 }

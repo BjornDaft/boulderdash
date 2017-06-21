@@ -4,17 +4,20 @@ import java.awt.Image;
 import java.awt.Point;
 import java.io.File;
 import java.io.IOException;
+import model.behavior.*;
 
 import javax.imageio.ImageIO;
+
 
 public class Statics implements IStatics{
 	
 	protected Behavior behavior;
-	private Position position;
+	protected Position position;
 	private Image images;
 	private IModelFacade model;
+	protected int posX, posY;
 
-	public Static(final Position position, final String image) {
+	public Statics(final Position position, final String image) {
 		
 		this.position = position;
 
