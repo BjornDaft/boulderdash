@@ -3,6 +3,7 @@ package model;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
+import model.behavior.*;
 
 import javax.imageio.ImageIO;
 
@@ -106,7 +107,7 @@ public class Mobile implements IMobile {
 		return this.model;
 	}
 
-	public Behavior behavior() {
+	public Behavior behavior(Position position, Array array) {
 		return this.behavior;
 
 	}
@@ -125,6 +126,18 @@ public class Mobile implements IMobile {
 				.read(new File(f.getCanonicalPath() + "/images/" + imageName + "_DOWN.png"));
 		this.images[Direction.LEFT.ordinal()] = ImageIO
 				.read(new File(f.getCanonicalPath() + "/images/" + imageName + "_LEFT.png"));
+	}
+
+	@Override
+	public int getWidth() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getHeight() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

@@ -1,36 +1,35 @@
 package model.behavior;
 
 import java.util.Random;
-
-import model.Mobile;
-import model.Position;
-import model.dao.ExampleDAO;
+import model.*;
 
 public class BehaviorGravity extends Behavior {
-	private int posX;
-	private int posY;
-	public void behavior()
+	
+	public void behavior(Position position, Array array)
 	{
+		posX = position.getX();
+		posY = position.getY();
+		
 	while(this.array.getChar(posX, posY) == 'X' || this.array.getChar(posX, posY++) == 'R' || this.array.getChar(posX, posY++) == 'D')  
 		{
 		if(this.array.getChar(posX, posY++) == 'X')
 		{
-			this.fallDown();
+			this.fallDown(null);
 			}
 		if (this.array.getChar(posX, posY++) =='R' || this.array.getChar(posX, posY++) =='D')
 			{
-			this.VerticalFall();
+			this.verticalFall();
 			}
 		}
 	}
-	public void VerticalFall() {
+	public void verticalFall() {
 		if(this.array.getChar(posX++, posY++) == 'X' && this.array.getChar(posX++, posY)=='X')
 		{
-			this.fallRight();
+			this.fallRight(null);
 		}
 	else if(this.array.getChar(posX--, posY++)=='X' && this.array.getChar(posX++, posY)=='X')
 		{
-			this.fallLeft();
+			this.fallLeft(null);
 		}
 	else if(this.array.getChar(posX--, posY++)=='X' && this.array.getChar(posX--, posY)=='X' && this.array.getChar(posX++, posY++) =='X' && this.array.getChar(posX++, posY)=='X')
 		{
@@ -41,30 +40,30 @@ public class BehaviorGravity extends Behavior {
 		return;
 		}
 	}
-	public void fallDown() {
+	public void fallDown(Position position) {
 
 		this.array.setChar(posX, posY++, 'R');
 		this.array.setChar(posX, posY, 'X');
-		Position.setY(posY++);
+		position.setY(posY ++);
 	}
-	public void fallLeft() {
+	public void fallLeft(Position position) {
 		this.array.setChar(posX--, posY, 'R');
 		this.array.setChar(posX, posY, 'X');
-		Position.setX(posX--);
+		position.setY(posX--);
 	}
-	public void fallRight() {
+	public void fallRight(Position position) {
 		this.array.setChar(posX++, posY, 'R');
 		this.array.setChar(posX, posY, 'X');
-		Position.setX(posX++);
+		position.setX(posX++);
 	}
 	public void randomFall() {
 		Random rand =new Random();
 		boolean gauche = rand.nextBoolean();
 		if (gauche == true) {
-			this.fallLeft();
+			this.fallLeft(null);
 		}
 		else {
-			this.fallRight();
+			this.fallRight(null);
 		}
 	}
 }

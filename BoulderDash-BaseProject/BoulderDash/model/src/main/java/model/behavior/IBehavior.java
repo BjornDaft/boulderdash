@@ -1,5 +1,7 @@
-package model;
+package model.behavior;
+
+import model.*;
 
 public interface IBehavior {
-	public void behavior();
+	public void behavior(Position position, Array array);
 }
