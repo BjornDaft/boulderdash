@@ -1,4 +1,4 @@
-package model;
+package model.behavior;
 
 
 public class BehaviorExplode extends Behavior {
