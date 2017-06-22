@@ -15,48 +15,48 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.Array;
-import model.Diamond;
-import model.Direction;
-import model.Empty;
-import model.Ennemy;
-import model.Exit;
-import model.Mud;
-import model.Player;
-import model.Position;
-import model.Rock;
-import model.Wall;
-
 
 public class ExampleDAO {
 
 	/**
-	 * This function will received the serialized map from database.
+	 * This function will received the serialized 
+map from database.
 	 * @param idLvl 	Id du niveau choisi.
 	 */
- 	public static void getMap(int idLvl) throws SQLException, IOException{
- 	// to test : int idLvl = "what you want to force to start"
-    // to test : public static void main(final String argv[]) throws SQLException, IOException {
+ 	public static void getMap(int idLvl) throws 
+SQLException, IOException{
+ 	// to test : int idLvl = "what you want to 
+force to start"
+    // to test : public static void main(final String 
+argv[]) throws SQLException, IOException {
  	
     PrintWriter writer = null;
 	try {
-		writer = new PrintWriter(new OutputStreamWriter(new BufferedOutputStream(new FileOutputStream("RECEIVED.txt"))));
+		writer = new PrintWriter(new 
+OutputStreamWriter(new BufferedOutputStream(new 
+FileOutputStream("RECEIVED.txt"))));
 	} catch (FileNotFoundException e1) {
 		e1.printStackTrace();
 	}
-    BoulderDashBDDConnector co = new BoulderDashBDDConnector(); // Initializing connection
+    BoulderDashBDDConnector co = new 
+BoulderDashBDDConnector(); // Initializing connection
 
     
 
     co.open(); // Make connection
     
     co.executeQuery("SELECT * FROM example");
-    try (ResultSet resultSet = co.executeQuery("SELECT name FROM example WHERE id =" + idLvl)) {
+    try (ResultSet resultSet = co.executeQuery("SELECT 
+name FROM example WHERE id =" + idLvl)) {
 
     	while(resultSet.next()) {
 
- 		   Blob blob = resultSet.getBlob("name");
- 		   BufferedInputStream is = new BufferedInputStream(blob.getBinaryStream());
- 		   FileOutputStream fos = new FileOutputStream("RECEIVED.txt");
+ 		   Blob blob = 
+resultSet.getBlob("name");
+ 		   BufferedInputStream is = new 
+BufferedInputStream(blob.getBinaryStream());
+ 		   FileOutputStream fos = new 
+FileOutputStream("RECEIVED.txt");
 
  		   byte[] buffer = new byte[2048];
  		   int r = 0;
@@ -80,7 +80,8 @@ public class ExampleDAO {
 }
   
 	/**
-	 * This function will create an object map1 from binary received
+	 * This function will create an object map1 
+from binary received
 	 */
  	public static void decrypt(){
 		
@@ -88,23 +89,33 @@ public class ExampleDAO {
 	     
 
 	    try {
-	      final FileInputStream fichier = new FileInputStream("RECEIVED.txt");
+	      final FileInputStream fichier = new 
+FileInputStream("RECEIVED.txt");
 	      ois = new ObjectInputStream(fichier);
 	      final Map map1 = (Map) ois.readObject();
 	      
-	      System.out.println("Lvl name = " + map1.getName());
-	      System.out.println("Id = " + map1.getId());
-	      System.out.println("Nbdiamond = " + map1.getNbdiamond());	      
-	      System.out.println("width = " + map1.getWidth());
-	      System.out.println("height = " + map1.getHeight());
-	      System.out.println("code map = " + map1.getMapCode());
+	      System.out.println("Lvl name = " + 
+map1.getName());
+	      System.out.println("Id = " + 
+map1.getId());
+	      System.out.println("Nbdiamond = " + 
+map1.getNbdiamond());	      
+	      System.out.println("width = " + 
+map1.getWidth());
+	      System.out.println("height = " + 
+map1.getHeight());
+	      System.out.println("code map = " + 
+map1.getMapCode());
 	      
 		  int width = map1.getWidth();
 		  int height = map1.getHeight();
 		  String mapCode = map1.getMapCode();
 		  
-		  generateObjectsFromMap(width, height, mapCode);
-		  // This function will get the mapCode, then create an array of object using width and height
+		  generateObjectsFromMap(width, 
+height, mapCode);
+		  // This function will get the 
+mapCode, then create an array of object using width 
+and height
 	      
 	    } catch (final java.io.IOException e) {
 	      e.printStackTrace();
@@ -123,20 +134,27 @@ public class ExampleDAO {
 	
 
 	/**
-	 * Test function, used to generate a binary of the map
+	 * Test function, used to generate a binary of 
+the map
 	 */
 	public static void generatelvl(){		
 		
-	    final Map map1 = new Map("LELELE", 10, 18, 12, "REOOOOOOOOOOOOOOORPREOOOOOOOOOOOOORSDOREOOOOOOOOOOORODRDOREOOOOOOOOORODRORDOREOOOOOOORODROOORDOREOOOOORODROOOOORDOREOOORODROOOOOOORDOREORODROOOOOOOOORDORRODROOOOOOOOOOORDOOOROOOOOO", 1);
+	    final Map map1 = new Map("LELELE", 10, 18, 
+12, 
+"REOOOOOOOOOOOOOOORPREOOOOOOOOOOOOORSDOREOOOOOOOOOOORODRDOREOOOOOOOOORODRORDOREOOOOOOORODROOORDOREOOOOORODROOOOORDOREOOORODROOOOOOORDOREORODROOOOOOOOORDORRODROOOOOOOOOOORDOOOROOOOOO", 
+1);
 	    ObjectOutputStream oos = null;
 	    PrintWriter writer = null;
 		try {
-			writer = new PrintWriter(new OutputStreamWriter(new BufferedOutputStream(new FileOutputStream("RECEIVED.txt"))));
+			writer = new PrintWriter(new 
+OutputStreamWriter(new BufferedOutputStream(new 
+FileOutputStream("RECEIVED.txt"))));
 		} catch (FileNotFoundException e1) {
 			e1.printStackTrace();
 		}
 	    try {
-	      final FileOutputStream fichier = new FileOutputStream("donnees.txt");
+	      final FileOutputStream fichier = new 
+FileOutputStream("donnees.txt");
 	      oos = new ObjectOutputStream(fichier);
 	      oos.writeObject(map1);
 	      oos.flush();
@@ -155,38 +173,22 @@ public class ExampleDAO {
 	}
 	
 	/**
-	 * This function will get the mapCode, then create an array of chars using width and height, only used into decrypt().
-	 * @param width 	Longueur du niveau choisi.
-	 * @param height 	Hauteur du niveau choisi.
-	 * @param string 	mapCode du niveau choisi.
+	 * This function will get the mapCode, then 
+create an array of chars using width and height, only 
+used into decrypt().
+	 * @param width 	Longueur du niveau 
+choisi.
+	 * @param height 	Hauteur du niveau 
+choisi.
+	 * @param string 	mapCode du niveau 
+choisi.
 	 */
-	 public static void generateObjectsFromMap(int width, int height, String string){
+	 public static void generateObjectsFromMap(int 
+width, int height, String string){
+	        Array array = new Array(width,height, 
+string);
 
-		 int a=0,i=0,j=0;
-	        
-	        char n;
-	        Array map = new Array(width,height);
-	        
-	        try{
-
-	            for(j=0;j<height;j++){
-	                for(i=0;i<width;i++){
-	                    
-	                    n=string.charAt(a);
-	                    if (n=='O'||n=='W'||n=='R'||n=='E'||n=='D'||n=='X'||n=='P'||n=='S'){
-	                    	map.setChar(i, j, n);
-	                    }else{
-	                        a++;
-	                        throw new Exception("Unrecognized char at position "+a+" (that's a "+n+")");
-	                    }
-	                    a++;
-	                }
-	            }
 	        }
-	        catch(Exception e) {
-	            System.err.println(e.getMessage());
-	            System.exit(1);
-	    }	 
-	 }	
 }
+
 

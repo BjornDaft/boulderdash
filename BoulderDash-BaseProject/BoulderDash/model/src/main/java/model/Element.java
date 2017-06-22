@@ -14,12 +14,14 @@ public class Element implements IElement {
 	private IModelFacade model;
 	protected BufferedImage image;
 
-	public Element(final Position position, final int imagePositionX, final int imagePositionY) {
+	public Element(final Position position, final 
+int imagePositionX, final int imagePositionY) {
 
 		this.position = position;
 
 		try {
-			this.buildImage(imagePositionX, imagePositionY);
+			
+this.buildImage(imagePositionX, imagePositionY);
 		} catch (final IOException e) {
 			e.printStackTrace();
 		}
@@ -40,8 +42,10 @@ public class Element implements IElement {
 	@Override
 	public void placeInArea(IArea area) {
 		// TODO Auto-generated method stub
-		this.position.setMaxX(area.getDimension().getWidth());
-		this.position.setMaxY(area.getDimension().getHeight());
+		
+this.position.setMaxX(area.getDimension().getWidth());
+		
+this.position.setMaxY(area.getDimension().getHeight());
 
 	}
 
@@ -49,24 +53,34 @@ public class Element implements IElement {
 	public void setModel(IModelFacade model) {
 		// TODO Auto-generated method stub
 		this.model = model;
-		this.getPosition().setMaxX(this.getModelFacade().getArea().getDimension().getWidth());
-		this.getPosition().setMaxY(this.getModelFacade().getArea().getDimension().getHeight());
+		
+this.getPosition().setMaxX(this.getModelFacade().getArea().getDimension().getWidth());
+		
+this.getPosition().setMaxY(this.getModelFacade().getArea().getDimension().getHeight());
 	}
 
 	public IModelFacade getModelFacade() {
 		return this.model;
 	}
 
-	public void buildImage(final int imagePositionX, final int imagePositionY) throws IOException {
+	public void buildImage(final int 
+imagePositionX, final int imagePositionY) throws 
+IOException {
 
 		File f = new File(".");
-		System.out.println(f.getCanonicalPath() + "/");
+		
+System.out.println(f.getCanonicalPath() + "/");
 
-		BufferedImage imageSource = ImageIO.read(new File(f.getCanonicalPath() + "/Image/BoulderDash.png"));
-		this.image = (imageSource).getSubimage(imagePositionX * 16, imagePositionY * 16, 16, 16);
+		BufferedImage imageSource = 
+ImageIO.read(new File(f.getCanonicalPath() + 
+"/Image/BoulderDash.png"));
+		this.image = 
+(imageSource).getSubimage(imagePositionX * 16, 
+imagePositionY * 16, 16, 16);
 	}
 
-	public void gravity(Position position, Array array) {
+	public void gravity(Position position, Array 
+array) {
 		gravity(position, array);
 		
 	}

@@ -1,5 +1,6 @@
 package model;
 
 public interface IMove {
-public void move();
+public void move(Array array);
 }
+
