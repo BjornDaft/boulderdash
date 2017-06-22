@@ -29,7 +29,7 @@ public class ViewFacade implements IViewFacade, Runnable {
 	 * 
 	 * 
 	 */
-	public ViewFacade(IControllerFacade orderPerformer, IModelFacade model, Observable observable) {
+	public ViewFacade(final IControllerFacade orderPerformer, final IModelFacade model) {
 		this.observable = (Observable) model;
 		this.graphicsBuilder = new GraphicsBuilder(model);
 		this.eventPerformer = new EventPerformer(orderPerformer);

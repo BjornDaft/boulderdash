@@ -23,8 +23,7 @@ public class GameFrame extends JFrame implements KeyListener{
 
 
 
-		this.setSize(graphicsBuilder.getGlobalWidth() + this.getInsets().left + this.getInsets().right,
-				graphicsBuilder.getGlobalHeight() + this.getInsets().top + this.getInsets().bottom);
+		this.setSize(1000,1000);
 		this.setLocationRelativeTo(null);
 
 		final GamePanel gamePanel = new GamePanel(graphicsBuilder);

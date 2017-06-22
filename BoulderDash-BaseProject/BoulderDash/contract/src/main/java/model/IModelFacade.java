@@ -1,6 +1,6 @@
 package model;
 
-import java.util.ArrayList;
+
 
 /**
  * <h1>The Interface IModelFacade.</h1>
@@ -12,6 +12,7 @@ public interface IModelFacade {
 	public Object[][] getTab();
 	public void setType(final int i, final int j, final char c);
 	public String getType(final int x, final int y);
+	public Object getElement();
 }
 /**
  * Gets the example by id.

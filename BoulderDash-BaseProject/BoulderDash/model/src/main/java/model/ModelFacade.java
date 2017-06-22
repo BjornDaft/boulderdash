@@ -12,8 +12,7 @@ import java.util.Observable;
  */
 public class ModelFacade extends Observable implements IModelFacade {
 	
-	private Ground ground;
-	private final ArrayList<IMobile> mobiles;
+	
 
 	/**
      * Instantiates a new model facade.
@@ -22,16 +21,6 @@ public class ModelFacade extends Observable implements IModelFacade {
     	this.mobiles = new ArrayList<>();
     }
 
-	public void buildArea(Dimension dimension) {
-		// TODO Auto-generated method stub
-		this.ground = new Ground(dimension);
-	}
-
-	@Override
-	public IArea getArea() {
-		// TODO Auto-generated method stub
-		return this.ground;
-	}
 
 	public void addMobile(IMobile mobile) {
 		// TODO Auto-generated method stub
@@ -50,14 +39,32 @@ public class ModelFacade extends Observable implements IModelFacade {
 		return this.mobiles;
 	}
 
+
 	@Override
-	public void setMobilesHavesMoved() {
+	public Object[][] getTab() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public void setType(int i, int j, char c) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
+	@Override
+	public String getType(int x, int y) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
- 
+
+	@Override
+	public Object getElement() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
