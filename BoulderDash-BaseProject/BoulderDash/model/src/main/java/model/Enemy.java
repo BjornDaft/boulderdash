@@ -3,11 +3,13 @@ package model;
 
 
 public class Enemy extends Element implements IMove {
+	
 	private static int IMAGEPOSITIONX = 16;
 	private static int IMAGEPOSITIONY = 1;
-	private Position position;
+	int x = position.getX();
+	int y = position.getY();
 	
-	public Enemy(Position position) {
+	public Enemy(Position position, Array array) {
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
 		this.position = position;
 	}
@@ -15,8 +17,6 @@ public class Enemy extends Element implements IMove {
 	@Override
 	public void move() {
 
-		int x = position.getX();
-		int y = position.getY();
 		Boolean previousDirectionX;
 		Boolean previousDirectionY;
 		
@@ -56,4 +56,28 @@ public class Enemy extends Element implements IMove {
 			position.setX(y);
 		}
  }
+	public void giveDiamond() {
+		if(array.getType(x,y--) =="Player" || array.getType(x, y++) =="Player" ||array.getType(x++, y) =="Player"|| array.getType(x--, y) == "Player" || array.getType(x, y--) == "Rock") {
+			for(x--;x == x++; x++) {
+				for (y--;x == x++; x++) {
+					if (array.getType(x, y) == "Player") {
+					//	death case
+					}
+					array.setType(x, y, 'D');
+					}
+			}
+		}
+	}
+	public void kill() {
+		if(array.getType(x,y--) =="Player" || array.getType(x, y++) =="Player" ||array.getType(x++, y) =="Player"|| array.getType(x--, y) == "Player" || array.getType(x, y--) == "Rock") {
+			for(x--;x == x++; x++) {
+				for (y--;x == x++; x++) {
+					if (array.getType(x, y) == "Player") {
+					//	death case
+					}
+					array.setType(x, y, 'X');
+					}
+			}
+		}
+	}
 }
