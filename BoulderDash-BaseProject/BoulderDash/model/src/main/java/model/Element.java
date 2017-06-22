@@ -10,7 +10,7 @@ public class Element implements IElement {
 	private Position position;
 
 	private IModelFacade model;
-	private BufferedImage image;
+	protected BufferedImage image;
 
 	public Element(final Position position, final int imagePositionX, final int imagePositionY) {
 
@@ -55,7 +55,7 @@ public class Element implements IElement {
 		return this.model;
 	}
 
-	private void buildImage(final int imagePositionX, final int imagePositionY) throws IOException {
+	public void buildImage(final int imagePositionX, final int imagePositionY) throws IOException {
 
 		File f = new File(".");
 		System.out.println(f.getCanonicalPath() + "/");

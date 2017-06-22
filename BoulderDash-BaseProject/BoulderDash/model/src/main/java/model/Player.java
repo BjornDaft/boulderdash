@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+
 public class Player extends Element implements IMove {
 	private static int IMAGEPOSITIONXUP = 2;
 	private static int IMAGEPOSITIONYUP = 2;
@@ -15,21 +16,40 @@ public class Player extends Element implements IMove {
 	private static int IMAGEPOSITIONYRIGHT = 3;
 	private static int IMAGEPOSITIONXLEFT = 2;
 	private static int IMAGEPOSITIONYLEFT = 1;
-
-	public Player(Position position, final int imagePositionXUP, final int imagePositionYUP, final int imagePositionXDOWN, final int imagePositionYDOWN, final int imagePositionXRIGHT, final int imagePositionYRIGHT, final int imagePositionXLEFT, final int imagePositionYLEFT, Direction direction) {
-		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY,IMAGEPOSITIONXDOWN,IMAGEPOSITIONYDOWN,IMAGEPOSITIONXRIGHT,IMAGEPOSITIONYRIGHT,IMAGEPOSITIONXLEFT,IMAGEPOSITIONYLEFT);
-
+	private Direction direction;
+	
+	
+	public Player(Position position, final int imagePositionXUP, final int imagePositionYUP, final Direction direction){
+			super(position, IMAGEPOSITIONXUP, IMAGEPOSITIONYUP);
+			this.direction = direction;
 	}
 
 	@Override
-	private void buildImage(final int imagePositionX, final int imagePositionY) throws IOException {
+	public void buildImage(final int imagePositionX, final int imagePositionY) throws IOException {
 
 		File f = new File(".");
 		System.out.println(f.getCanonicalPath() + "/");
 
 		BufferedImage imageSource = ImageIO.read(new File(f.getCanonicalPath() + "/Image/BoulderDash.png"));
-		this.image = (imageSource).getSubimage(imagePositionX * 16, imagePositionY * 16, 16, 16);
+	
+		
+		switch (this.direction) {
+		case UP:
+			this.image = (imageSource).getSubimage(IMAGEPOSITIONXUP * 16, IMAGEPOSITIONYUP * 16, 16, 16);
+			break;
+		case RIGHT:
+			this.image = (imageSource).getSubimage(IMAGEPOSITIONXDOWN * 16, IMAGEPOSITIONYDOWN * 16, 16, 16);
+			break;
+		case DOWN:
+			this.image = (imageSource).getSubimage(IMAGEPOSITIONXRIGHT * 16, IMAGEPOSITIONYRIGHT * 16, 16, 16);
+			break;
+		case LEFT:
+			this.image = (imageSource).getSubimage(IMAGEPOSITIONXLEFT * 16, IMAGEPOSITIONYLEFT * 16, 16, 16);
+			break;
+		default:
+			break;}
 	}
+	
 
 	@Override
 	public void move() {
