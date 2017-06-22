@@ -79,4 +79,8 @@ public class Enemy extends Element implements IMove {
 			}
 		}
 	}
+	@Override
+	public void gravity(Position position, Array array) {
+		
+	}
 }
