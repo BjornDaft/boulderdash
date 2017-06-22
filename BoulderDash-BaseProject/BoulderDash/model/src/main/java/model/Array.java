@@ -98,6 +98,7 @@ public class Array {
 
 	public void setType(final int i, final int j, final char c) {
 		this.chartab[i][j] = c;
+		this.tab[i][j] = null;
 		try {
 			switch (c) {
 			case 'O':
