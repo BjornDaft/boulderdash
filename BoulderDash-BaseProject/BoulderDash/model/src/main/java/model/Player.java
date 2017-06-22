@@ -6,7 +6,6 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-
 public class Player extends Element implements IMove {
 	private static int IMAGEPOSITIONXUP = 2;
 	private static int IMAGEPOSITIONYUP = 2;
@@ -17,11 +16,14 @@ public class Player extends Element implements IMove {
 	private static int IMAGEPOSITIONXLEFT = 2;
 	private static int IMAGEPOSITIONYLEFT = 1;
 	private Direction direction;
-	
-	
-	public Player(Position position,final Direction direction){
-			super(position, IMAGEPOSITIONXUP, IMAGEPOSITIONYUP);
-			this.direction = direction;
+
+	int x = position.getX();
+	int y = position.getY();
+
+	public Player(Position position, final Direction direction) {
+		super(position, IMAGEPOSITIONXUP, IMAGEPOSITIONYUP);
+		this.direction = direction;
+		this.position = position;
 	}
 
 	@Override
@@ -31,8 +33,7 @@ public class Player extends Element implements IMove {
 		System.out.println(f.getCanonicalPath() + "/");
 
 		BufferedImage imageSource = ImageIO.read(new File(f.getCanonicalPath() + "/Image/BoulderDash.png"));
-	
-		
+
 		switch (this.direction) {
 		case UP:
 			this.image = (imageSource).getSubimage(IMAGEPOSITIONXUP * 16, IMAGEPOSITIONYUP * 16, 16, 16);
@@ -47,13 +48,29 @@ public class Player extends Element implements IMove {
 			this.image = (imageSource).getSubimage(IMAGEPOSITIONXLEFT * 16, IMAGEPOSITIONYLEFT * 16, 16, 16);
 			break;
 		default:
-			break;}
+			break;
+		}
 	}
-	
 
 	@Override
 	public void move() {
-		// TODO Auto-generated method stub
-		
+
+		if (array.getType(x++, y) == "Avoid") {
+			x++;
+			position.setX(x);
+		}
+		if (array.getType(x, y--) == "Avoid") {
+			y--;
+			position.setY(y);
+		}
+		if (array.getType(x--, y) == "Avoid") {
+			x--;
+			position.setX(x);
+		}
+		if (array.getType(x, y++) == "Avoid") {
+			y++;
+			position.setY(y);
+		}
+
 	}
 }
