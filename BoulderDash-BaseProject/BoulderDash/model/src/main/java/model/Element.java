@@ -7,7 +7,9 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Element implements IElement {
-	private Position position;
+	protected Position position;
+	protected Array array;
+	protected Gravity gravity;
 
 	private IModelFacade model;
 	protected BufferedImage image;
@@ -64,4 +66,8 @@ public class Element implements IElement {
 		this.image = (imageSource).getSubimage(imagePositionX * 16, imagePositionY * 16, 16, 16);
 	}
 
+	public void gravity(Position position, Array array) {
+		gravity(position, array);
+		
+	}
 }

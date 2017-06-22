@@ -2,12 +2,10 @@ package model;
 
 import java.util.Random;
 
-public abstract class Gravity extends Element {
+public class Gravity implements IGravity {
 
 	private int posX, posY;
-	public Gravity(Position position, Array array) {
-		// initialize superclass
-		super(position);
+	public void gravity(Position position, Array array) {
 	//	initialize variable
 		this.posX = position.getX();
 		this.posY = position.getY();
@@ -23,15 +21,15 @@ public abstract class Gravity extends Element {
 	}
 	public void verticalFall(Position position, Array array) {
 	//	case where your object fall on a rock/diamond
-		if(array.getType(posX++, posY++) == 'X' && array.getType(posX++, posY)=='X')
+		if(array.getType(posX++, posY++) == "Empty" && array.getType(posX++, posY)=="Empty")
 		{
 			this.fallRight(position, array);
 		}
-	else if(array.getType(posX--, posY++)=='X' && array.getType(posX++, posY)=='X')
+	else if(array.getType(posX--, posY++)=="Empty" && array.getType(posX++, posY)=="Empty")
 		{
 			this.fallLeft(position, array);
 		}
-	else if(array.getType(posX--, posY++)=='X' && array.getType(posX--, posY)=='X' && array.getType(posX++, posY++) =='X' && array.getType(posX++, posY)=='X')
+	else if(array.getType(posX--, posY++)=="Empty" && array.getType(posX--, posY)=="Empty" && array.getType(posX++, posY++) =="Empty" && array.getType(posX++, posY)=="Empty")
 		{
 			this.randomFall(position, array);
 		}
@@ -42,7 +40,7 @@ public abstract class Gravity extends Element {
 	}
 	public void fallDown(Position position, Array array){
 	//	object fall
-		this.getPosition().setY(posY++);;
+		this.getPosition.setY(posY++);;
 	}
 	public void fallLeft(Position position, Array array){
 	//	object go Left
