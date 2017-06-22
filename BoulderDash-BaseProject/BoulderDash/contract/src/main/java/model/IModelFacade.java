@@ -9,17 +9,9 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public interface IModelFacade {
-	public void buildArea(final Dimension dimension);
-
-	public IArea getArea();
-
-	public void addMobile(final IMobile mobile);
-
-	public void removeMobile(final IMobile mobile);
-
-	public ArrayList<IMobile> getMobiles();
-
-	public void setMobilesHavesMoved();
+	public Object[][] getTab();
+	public void setType(final int i, final int j, final char c);
+	public String getType(final int x, final int y);
 }
 /**
  * Gets the example by id.

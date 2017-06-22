@@ -1,13 +1,13 @@
 package model;
 
-public class Array {
+public class Array implements IModelFacade {
 
 	private char chartab[][];
-	private Object tab[][];
+	private Element tab[][];
 
 	public Array(final int width, final int height, final String string) {
 		this.chartab = new char[width][height];
-		this.tab = new Object[width][height];
+		this.tab = new Element[width][height];
 		try {
 			int a = 0, i = 0, j = 0;
 			char n;
@@ -23,35 +23,35 @@ public class Array {
 					switch (n) {
 					case 'O':
 						this.tab[i][j] = new Mud(new Position(i, j));
-						tab[j][i] = n;
+						this.chartab[j][i] = n;
 						break;
 					case 'W':
 						this.tab[i][j] = new Wall(new Position(i, j));
-						tab[j][i] = n;
+						this.chartab[j][i] = n;
 						break;
 					case 'R':
 						this.tab[i][j] = new Rock(new Position(i, j));
-						tab[j][i] = n;
+						this.chartab[j][i] = n;
 						break;
 					case 'E':
-						this.tab[i][j] = new Enemy(new Position(i, j));
-						tab[j][i] = n;
+						this.tab[i][j] = new Enemy(new Position(i, j), this);
+						this.chartab[j][i] = n;
 						break;
 					case 'D':
 						this.tab[i][j] = new Diamond(new Position(i, j));
-						tab[j][i] = n;
+						this.chartab[j][i] = n;
 						break;
 					case 'X':
 						this.tab[i][j] = new Empty(new Position(i, j));
-						tab[j][i] = n;
+						this.chartab[j][i] = n;
 						break;
 					case 'P':
 						this.tab[i][j] = new Player(new Position(i, j), Direction.UP);
-						tab[j][i] = n;
+						this.chartab[j][i] = n;
 						break;
 					case 'S':
 						this.tab[i][j] = new Exit(new Position(i, j));
-						tab[j][i] = n;
+						this.chartab[j][i] = n;
 						break;
 					default:
 						a++;
@@ -111,7 +111,7 @@ public class Array {
 				this.tab[i][j] = new Rock(new Position(i, j));
 				break;
 			case 'E':
-				this.tab[i][j] = new Enemy(new Position(i, j));
+				this.tab[i][j] = new Enemy(new Position(i, j), this);
 				break;
 			case 'D':
 				this.tab[i][j] = new Diamond(new Position(i, j));
@@ -133,6 +133,11 @@ public class Array {
 			System.exit(1);
 		}
 
+	}
+
+	@Override
+	public Element[][] getTab() {
+		return this.tab;
 	}
 
 }

@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 import controller.IControllerFacade;
-
 import model.IModelFacade;
 
 /**
@@ -21,6 +20,8 @@ public class ViewFacade implements IViewFacade, Runnable {
 	private final EventPerformer eventPerformer;
 	private final Observable observable;
 	private GameFrame gameFrame;
+	private IModelFacade model;
+	private Object[][] tab;
 	
 	
 	/**
@@ -32,9 +33,11 @@ public class ViewFacade implements IViewFacade, Runnable {
 		this.observable = (Observable) model;
 		this.graphicsBuilder = new GraphicsBuilder(model);
 		this.eventPerformer = new EventPerformer(orderPerformer);
+		this.model = model;
+		this.tab = model.getTab();
 		SwingUtilities.invokeLater(this);
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 * 
