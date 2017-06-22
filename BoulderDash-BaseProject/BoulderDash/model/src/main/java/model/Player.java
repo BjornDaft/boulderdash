@@ -19,7 +19,7 @@ public class Player extends Element implements IMove {
 	private Direction direction;
 	
 	
-	public Player(Position position, final int imagePositionXUP, final int imagePositionYUP, final Direction direction){
+	public Player(Position position,final Direction direction){
 			super(position, IMAGEPOSITIONXUP, IMAGEPOSITIONYUP);
 			this.direction = direction;
 	}

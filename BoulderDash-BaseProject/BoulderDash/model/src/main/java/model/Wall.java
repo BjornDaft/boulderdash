@@ -5,7 +5,7 @@ public class Wall extends Element {
  private static int IMAGEPOSITIONY = 0;
 
 
-	public Wall(Position position, final int imagePositionX, final int imagePositionY){
+	public Wall(Position position){
 		super(position, IMAGEPOSITIONX,IMAGEPOSITIONY );
 	}
 }
