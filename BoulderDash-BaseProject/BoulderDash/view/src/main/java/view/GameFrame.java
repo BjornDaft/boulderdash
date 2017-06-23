@@ -70,7 +70,7 @@ public class GameFrame extends JFrame implements KeyListener{
         ObjectInputStream ois = null;
 
         try {
-            final FileInputStream fichier = new FileInputStream("tab");
+            final FileInputStream fichier = new FileInputStream("../model/tab");
             ois = new ObjectInputStream(fichier);
             final char chartabtest[][] = (char[][]) ois.readObject();
 
