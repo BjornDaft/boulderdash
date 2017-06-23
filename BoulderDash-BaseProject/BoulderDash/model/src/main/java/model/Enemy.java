@@ -4,8 +4,8 @@ public class Enemy extends Element implements IMove {
 
 	private static int IMAGEPOSITIONX = 16;
 	private static int IMAGEPOSITIONY = 1;
-	int x = position.getX();
-	int y = position.getY();
+	private int x = position.getX();
+	private int y = position.getY();
 
 	public Enemy(Position position, Array array) {
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
@@ -83,6 +83,6 @@ public class Enemy extends Element implements IMove {
 
 	@Override
 	public void gravity(Position position, Array array) {
-
+		this.gravity = new NoGravity();
 	}
 }

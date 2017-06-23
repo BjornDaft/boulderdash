@@ -40,15 +40,15 @@ public class Gravity implements IGravity {
 	}
 	public void fallDown(Position position, Array array){
 	//	object fall
-		this.getPosition.setY(posY++);;
+		position.setY(posY++);;
 	}
 	public void fallLeft(Position position, Array array){
 	//	object go Left
-		this.getPosition().setX(posX--);
+		position.setX(posX--);
 	}
 	public void fallRight(Position position, Array array){
 	// object go Right
-		this.getPosition().setX(posX++);
+		position.setX(posX++);
 	}
 	public void randomFall(Position position, Array array){
 		Random rand =new Random();

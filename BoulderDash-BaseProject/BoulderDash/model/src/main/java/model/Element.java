@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 public class Element {
 	protected Position position;
 	protected Array array;
-	protected Gravity gravity;
+	protected IGravity gravity;
 
 	private IModelFacade model;
 	protected BufferedImage image;
@@ -57,9 +57,8 @@ ImageIO.read(new File(f.getCanonicalPath() +
 imagePositionY * 16, 16, 16);
 	}
 
-	public void gravity(Position position, Array 
-array) {
-		gravity(position, array);
+	public void gravity(Position position, Array array) {
+			this.gravity = new NoGravity();
 		
 	}
 }
