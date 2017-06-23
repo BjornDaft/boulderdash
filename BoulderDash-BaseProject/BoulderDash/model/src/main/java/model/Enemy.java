@@ -8,8 +8,7 @@ public class Enemy extends Element implements IMove {
 	int y = position.getY();
 
 	public Enemy(Position position, Array array) {
-		super(position, IMAGEPOSITIONX, 
-IMAGEPOSITIONY);
+		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
 		this.position = position;
 	}
 
@@ -18,33 +17,24 @@ IMAGEPOSITIONY);
 		Boolean previousDirectionX;
 		Boolean previousDirectionY;
 
-		if (array.getType(x, y++) != "Avoid") 
-{
+		if (array.getType(x, y++) != "Avoid") {
 			x++;
-			previousDirectionX = true; // 
-waasgoingtoright
+			previousDirectionX = true; // wasgoingtoright
 			position.setX(x);
-		} else if (array.getType(x++, y) != 
-"Avoid") {
+		} else if (array.getType(x++, y) != "Avoid") {
 			y--;
-			previousDirectionY = false; // 
-wasgoingdown
+			previousDirectionY = false; // wasgoingdown
 			position.setY(y);
-		} else if (array.getType(x, y--) != 
-"Avoid") {
+		} else if (array.getType(x, y--) != "Avoid") {
 			x--;
-			previousDirectionX = false; // 
-wasgoingtoleft
+			previousDirectionX = false; // wasgoingtoleft
 			position.setX(x);
-		} else if (array.getType(x--, y) != 
-"Avoid") {
+		} else if (array.getType(x--, y) != "Avoid") {
 			y++;
-			previousDirectionY = true; // 
-wasgoingup
+			previousDirectionY = true; // wasgoingup
 			position.setY(y);
 		}
-		if (array.getType(x, y++) == "Avoid" 
-&& array.getType(x, y--) == "Avoid") {
+		if (array.getType(x, y++) == "Avoid" && array.getType(x, y--) == "Avoid") {
 			if (previousDirectionX = true)
 				y++;
 			else
@@ -52,8 +42,7 @@ wasgoingup
 			position.setY(y);
 
 		}
-		if (array.getType(x++, y) == "Avoid" 
-&& array.getType(x--, y) == "Avoid") {
+		if (array.getType(x++, y) == "Avoid" && array.getType(x--, y) == "Avoid") {
 			if (previousDirectionY = true)
 				x--;
 			else
@@ -63,49 +52,37 @@ wasgoingup
 	}
 
 	public void giveDiamond(Array array) {
-		if (array.getType(x, y--) == "Player" 
-|| array.getType(x, y++) == "Player" || 
-array.getType(x++, y) == "Player"
-				|| array.getType(x--, 
-y) == "Player" || array.getType(x, y--) == "Rock") {
+		if (array.getType(x, y--) == "Player" || array.getType(x, y++) == "Player" || array.getType(x++, y) == "Player"
+				|| array.getType(x--, y) == "Player" || array.getType(x, y--) == "Rock") {
 			for (x--; x == x++; x++) {
-				for (y--; x == x++; 
-x++) {
-					if 
-(array.getType(x, y) == "Player") {
-						// 
-death case
+				for (y--; x == x++; x++) {
+					if (array.getType(x, y) == "Player") {
+						// death case
 					}
-					
-array.setType(x, y, 'D');
+
+					array.setType(x, y, 'D');
 				}
 			}
 		}
 	}
 
 	public void kill(Array array) {
-		if (array.getType(x, y--) == "Player" 
-|| array.getType(x, y++) == "Player" || 
-array.getType(x++, y) == "Player"
-				|| array.getType(x--, 
-y) == "Player" || array.getType(x, y--) == "Rock") {
+		if (array.getType(x, y--) == "Player" || array.getType(x, y++) == "Player" || array.getType(x++, y) == "Player"
+				|| array.getType(x--, y) == "Player" || array.getType(x, y--) == "Rock") {
 			for (x--; x == x++; x++) {
-				for (y--; x == x++; 
-x++) {
-					if 
-(array.getType(x, y) == "Player") {
-						// 
-death case
+				for (y--; x == x++; x++) {
+					if (array.getType(x, y) == "Player") {
+						// death case
 					}
-					
-array.setType(x, y, 'X');
+
+					array.setType(x, y, 'X');
 				}
 			}
 		}
 	}
+
 	@Override
-	public void gravity(Position position, Array 
-array) {
-		
+	public void gravity(Position position, Array array) {
+
 	}
 }
