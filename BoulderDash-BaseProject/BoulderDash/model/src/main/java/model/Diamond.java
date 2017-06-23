@@ -4,11 +4,7 @@ public class Diamond extends Element implements IGravity {
 	private static int IMAGEPOSITIONX = 10;
 	private static int IMAGEPOSITIONY = 0;
 	private boolean collected = false;
-	/**
-	 * @author group4
-	 * <h6>description</h6>
-	 * the diamond class. affected with gravity but not by move. Player need to collect if for finish the game
-	**/
+
 	public Diamond(Position position) {
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
 	}
