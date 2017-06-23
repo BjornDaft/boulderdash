@@ -22,7 +22,7 @@ public class MovePlayer implements IMove {
 			int y = position.getY();
 			if (array.getType(x,y --) =="Empty" || array.getType(x, y--) =="Mud") {
 			array.setType(x, y --,'P');
-			array.setType(x, y --, 'X');
+			array.setType(x, y, 'X');
 			position.setY(y--);
 			}
 		}
@@ -31,7 +31,7 @@ public class MovePlayer implements IMove {
 			int y = position.getY();
 			if (array.getType(x,y ++) =="Empty" || array.getType(x, y++) =="Mud") {
 			array.setType(x, y ++,'P');
-			array.setType(x, y ++, 'X');
+			array.setType(x, y , 'X');
 			position.setY(y--);
 			}
 		}
@@ -40,7 +40,7 @@ public class MovePlayer implements IMove {
 			int y = position.getY();
 			if (array.getType(x--,y) =="Empty" || array.getType(x--, y) =="Mud") {
 			array.setType(x--, y,'P');
-			array.setType(x--, y, 'X');
+			array.setType(x, y, 'X');
 			position.setY(x--);
 			}
 		}
@@ -49,7 +49,7 @@ public class MovePlayer implements IMove {
 			int y = position.getY();
 			if (array.getType(x,y ++) =="Empty" || array.getType(x, y++) =="Mud") {
 			array.setType(x, y ++,'P');
-			array.setType(x, y ++, 'X');
+			array.setType(x, y , 'X');
 			position.setY(y++);
 			}
 		}
