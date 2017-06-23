@@ -1,5 +1,12 @@
 package model;
-
+/**
+ * @author Tristan Lefèvre
+ * <h6>description</h6>
+ * class from Move behavior.
+ * this move is used by the player
+ * 
+ * the move player check the player's direction
+**/
 public class MovePlayer implements IMove {
 	public void move(Position position, Array array, Direction direction) {
 			switch (direction) {
@@ -17,6 +24,9 @@ public class MovePlayer implements IMove {
 				break;
 			}
 		}
+	/**
+	 * the player is go to up
+ **/
 		public void moveUp(Position position, Array array) {
 			int x = position.getX();
 			int y = position.getY();
@@ -26,6 +36,9 @@ public class MovePlayer implements IMove {
 			position.setY(y--);
 			}
 		}
+		/**
+		 * player go to down
+		 **/
 		public void moveDown(Position position, Array array) {
 			int x = position.getX();
 			int y = position.getY();
@@ -36,6 +49,9 @@ public class MovePlayer implements IMove {
 			}
 			
 		}
+		/**
+		 * the player go to left 
+	 **/
 		public void moveLeft(Position position, Array array) {
 			int x = position.getX();
 			int y = position.getY();
@@ -49,6 +65,9 @@ public class MovePlayer implements IMove {
 				array.setType(x-2, x, 'R');
 			}
 		}
+		/**
+		 * theplayer go to right
+		 **/
 		public void moveRight(Position position, Array array) {
 			int x = position.getX();
 			int y = position.getY();

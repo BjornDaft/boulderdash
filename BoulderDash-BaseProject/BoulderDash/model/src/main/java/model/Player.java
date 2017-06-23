@@ -15,6 +15,7 @@ public class Player extends Element {
 	private static int IMAGEPOSITIONXLEFT = 2;
 	private static int IMAGEPOSITIONYLEFT = 1;
 	private String direction;
+	private static boolean isAlive;
 
 	int x = position.getX();
 	int y = position.getY();
@@ -55,5 +56,11 @@ public class Player extends Element {
 	}
 	public void move() {
 		this.move = new MovePlayer();
+	}
+	public static boolean getIsAlive() {
+		return isAlive;
+	}
+	public static void setIsAlive(boolean alive) {
+		isAlive = alive;
 	}
 }
