@@ -20,7 +20,7 @@ public class MovePlayer implements IMove {
 		public void moveUp(Position position, Array array) {
 			int x = position.getX();
 			int y = position.getY();
-			if (array.getType(x,y --) =="Empty" || array.getType(x, y--) =="Mud") {
+			if (array.getType(x,y --) =="Empty" || array.getType(x, y++) =="Mud" || array.getType(x, y--) =="Diamond" || array.getType(x, y--) =="Exit" && Exit.getOpen() == true) {
 			array.setType(x, y --,'P');
 			array.setType(x, y, 'X');
 			position.setY(y--);
@@ -29,16 +29,16 @@ public class MovePlayer implements IMove {
 		public void moveDown(Position position, Array array) {
 			int x = position.getX();
 			int y = position.getY();
-			if (array.getType(x,y ++) =="Empty" || array.getType(x, y++) =="Mud") {
+			if (array.getType(x,y ++) =="Empty" || array.getType(x, y++) =="Mud"|| array.getType(x, y++) =="Diamond" || array.getType(x, y--) =="Exit" && Exit.getOpen() == true) {
 			array.setType(x, y ++,'P');
 			array.setType(x, y , 'X');
-			position.setY(y--);
+			position.setY(y++);
 			}
 		}
 		public void moveLeft(Position position, Array array) {
 			int x = position.getX();
 			int y = position.getY();
-			if (array.getType(x--,y) =="Empty" || array.getType(x--, y) =="Mud") {
+			if (array.getType(x--,y) =="Empty" || array.getType(x--, y) =="Mud" || array.getType(x--, y) =="Diamond" || array.getType(x--, y) =="Exit" && Exit.getOpen() == true) {
 			array.setType(x--, y,'P');
 			array.setType(x, y, 'X');
 			position.setY(x--);
@@ -47,10 +47,10 @@ public class MovePlayer implements IMove {
 		public void moveRight(Position position, Array array) {
 			int x = position.getX();
 			int y = position.getY();
-			if (array.getType(x,y ++) =="Empty" || array.getType(x, y++) =="Mud") {
-			array.setType(x, y ++,'P');
+			if (array.getType(x++,y) =="Empty" || array.getType(x++, y) =="Mud" || array.getType(x++, y) =="Diamond" || array.getType(x++, y) =="Exit" && Exit.getOpen() == true ) {
+			array.setType(x++, y,'P');
 			array.setType(x, y , 'X');
-			position.setY(y++);
+			position.setY(x++);
 			}
 		}
 

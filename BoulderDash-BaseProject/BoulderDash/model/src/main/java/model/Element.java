@@ -58,11 +58,11 @@ ImageIO.read(new File(f.getCanonicalPath() +
 imagePositionY * 16, 16, 16);
 	}
 
-	public void gravity() {
+	public void gravity(Position position, Array array) {
 			this.gravity = new NoGravity();
 		
 	}
-	public void move() {
+	public void move(Position position, Array array, Direction direction) {
 			this.move = new NoMove();
 	}
 }

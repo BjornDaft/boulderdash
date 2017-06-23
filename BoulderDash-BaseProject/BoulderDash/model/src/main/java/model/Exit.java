@@ -8,12 +8,13 @@ public class Exit extends Element {
 	private static int IMAGEPOSITIONX = 13;
 	private static int IMAGEPOSITIONY = 1;
 	private static boolean open = false;
+	private static int collectedDiamond = 0;
 	
 	public Exit(Position position) {
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
 	}
 	public void state(Map map1) {
-		if (map1.getNbdiamond() == Player.collectDiamond()) {
+		if (map1.getNbdiamond() == getCollectedDiamond()) {
 			open = true;
 			}
 		}
@@ -26,4 +27,13 @@ public class Exit extends Element {
 		public void gravity(Position position, Array array) {
 			this.gravity = new NoGravity();
 	}
+		public static int getCollectedDiamond() {
+			return collectedDiamond;
+		}
+		public static void setCollectedDiamond() {
+			collectedDiamond ++;
+		}
+		public static boolean getOpen() {
+			return open;
+		}
 }
