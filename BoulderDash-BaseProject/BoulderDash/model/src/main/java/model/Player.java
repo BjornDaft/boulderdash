@@ -4,6 +4,12 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+/**
+ * @author group 4 
+ * <h6>description</h6>
+ * the player class
+ * The player can move but he's not affected by gravity
+**/
 
 public class Player extends Element {
 	private static int IMAGEPOSITIONXUP = 2;
@@ -19,7 +25,7 @@ public class Player extends Element {
 
 	int x = position.getX();
 	int y = position.getY();
-
+	
 	public Player(Position position, final String string) {
 		super(position, IMAGEPOSITIONXUP, IMAGEPOSITIONYUP);
 		this.direction = string;
