@@ -1,7 +1,7 @@
 package model;
 
 
-public class Position {
+public class Position implements IPosition {
 	private int	x;
 	private int	y;
 	private int	maxX	= 1;

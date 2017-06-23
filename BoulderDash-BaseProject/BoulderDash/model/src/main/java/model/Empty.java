@@ -8,4 +8,10 @@ public class Empty extends Element {
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
 
 	}
+	public void gravity(Position position, Array array) {
+		this.gravity = new NoGravity();
+	}
+	public void move(Position position, Array array, Direction direction) {
+		this.move = new NoMove();
+	}
 }

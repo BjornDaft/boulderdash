@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-public class Player extends Element implements IMove {
+public class Player extends Element {
 	private static int IMAGEPOSITIONXUP = 2;
 	private static int IMAGEPOSITIONYUP = 2;
 	private static int IMAGEPOSITIONXDOWN = 4;
@@ -50,44 +50,10 @@ public class Player extends Element implements IMove {
 			break;
 		}
 	}
-	
+	public void gravity() {
+		this.gravity = new NoGravity();
+	}
 	public void move() {
-		switch (this.direction) {
-			case UP:
-				this.moveUp(position, array);
-			break;
-			case DOWN:
-				this.moveDown(position, array);
-			break;
-			case LEFT:
-				this.moveLeft(position, array);
-			break;
-			case RIGHT:
-				this.moveRight(position, array);
-			break;
-		}
-	}
-	public void moveUp(Position position, Array array) {
-		if (array.getType(x,y --) =="Empty" || array.getType(x, y--) =="Mud") {
-		array.setType(x, y --,'P');
-		}
-	}
-	public void moveDown(Position position, Array array) {
-		if (array.getType(x,y ++) =="Empty" || array.getType(x, y++) =="Mud") {
-		array.setType(x, y ++,'P');
-		}
-	}
-	public void moveLeft(Position position, Array array) {
-		if (array.getType(x--,y) =="Empty" || array.getType(x--, y) =="Mud") {
-		array.setType(x--, y,'P');
-		}
-	}
-	public void moveRight(Position position, Array array) {
-		if (array.getType(x,y ++) =="Empty" || array.getType(x, y++) =="Mud") {
-		array.setType(x, y ++,'P');
-		}
-	}
-	public void gravity(Position position, Array array) {
-			this.gravity = new NoGravity();
+		this.move = new MovePlayer();
 	}
 }

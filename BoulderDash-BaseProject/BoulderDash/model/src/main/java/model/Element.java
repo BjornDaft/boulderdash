@@ -9,6 +9,7 @@ public class Element {
 	protected Position position;
 	protected Array array;
 	protected IGravity gravity;
+	protected IMove move;
 
 	private IModelFacade model;
 	protected BufferedImage image;
@@ -57,8 +58,11 @@ ImageIO.read(new File(f.getCanonicalPath() +
 imagePositionY * 16, 16, 16);
 	}
 
-	public void gravity(Position position, Array array) {
+	public void gravity() {
 			this.gravity = new NoGravity();
 		
+	}
+	public void move() {
+			this.move = new NoMove();
 	}
 }

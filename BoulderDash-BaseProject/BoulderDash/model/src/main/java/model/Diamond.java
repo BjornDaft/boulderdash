@@ -11,4 +11,7 @@ public class Diamond extends Element implements IGravity {
 	public void gravity() {
 		this.gravity = new Gravity();
 	}
+	public void move() {
+		this.move = new NoMove();
+	}
 }

@@ -8,4 +8,10 @@ public class Wall extends Element {
 	public Wall(Position position){
 		super(position, IMAGEPOSITIONX,IMAGEPOSITIONY );
 	}
+	public void gravity() {
+		this.gravity = new NoGravity();
+	}
+	public void move () {
+		this.move = new NoMove();
+	}
 }
