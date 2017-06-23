@@ -17,7 +17,7 @@ public class Rock extends Element {
 	}
 	public void push(Position position, Array array)
 	{
-		if Player.getDirection == Left) {
+		if (Player.getDirection == Left) {
 			
 		}
 	}

@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Element implements IElement {
+public class Element {
 	protected Position position;
 	protected Array array;
 	protected Gravity gravity;
