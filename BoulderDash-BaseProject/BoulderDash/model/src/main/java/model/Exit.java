@@ -22,4 +22,8 @@ public class Exit extends Element {
 			System.exit(0);
 		}
 	}
+		@Override
+		public void gravity(Position position, Array array) {
+			this.gravity = new NoGravity();
+	}
 }

@@ -50,7 +50,7 @@ public class Player extends Element implements IMove {
 			break;
 		}
 	}
-	@Override
+	
 	public void move() {
 		switch (this.direction) {
 			case UP:
@@ -87,5 +87,7 @@ public class Player extends Element implements IMove {
 		array.setType(x, y ++,'P');
 		}
 	}
-	public void gravity(Position position, Array array) {}
+	public void gravity(Position position, Array array) {
+			this.gravity = new NoGravity();
+	}
 }

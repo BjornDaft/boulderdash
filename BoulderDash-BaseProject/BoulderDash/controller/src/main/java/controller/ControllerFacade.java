@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import model.IModelFacade;
 import view.IViewFacade;
+import view.UserOrder;
 import controller.IControllerFacade;
 
 /**

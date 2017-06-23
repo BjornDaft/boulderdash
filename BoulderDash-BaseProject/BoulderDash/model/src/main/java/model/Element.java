@@ -8,18 +8,19 @@ import javax.imageio.ImageIO;
 public class Element {
 	protected Position position;
 	protected Array array;
-	protected Gravity gravity;
+	protected IGravity gravity;
 
 	private IModelFacade model;
 	protected BufferedImage image;
 
-	public Element(final Position position, final int imagePositionX, final int imagePositionY) {
+	public Element(final Position position, final 
+int imagePositionX, final int imagePositionY) {
 
 		this.position = position;
 
 		try {
-
-			this.buildImage(imagePositionX, imagePositionY);
+			
+this.buildImage(imagePositionX, imagePositionY);
 		} catch (final IOException e) {
 			e.printStackTrace();
 		}
@@ -30,6 +31,7 @@ public class Element {
 		return this.position;
 	}
 
+
 	public BufferedImage getImage() {
 		// TODO Auto-generated method stub
 		return this.image;
@@ -39,18 +41,24 @@ public class Element {
 		return this.model;
 	}
 
-	public void buildImage(final int imagePositionX, final int imagePositionY) throws IOException {
+	public void buildImage(final int 
+imagePositionX, final int imagePositionY) throws 
+IOException {
 
 		File f = new File(".");
+		
+System.out.println(f.getCanonicalPath() + "/");
 
-		System.out.println(f.getCanonicalPath() + "/");
-
-		BufferedImage imageSource = ImageIO.read(new File(f.getCanonicalPath() + "/Image/BoulderDash.png"));
-		this.image = (imageSource).getSubimage(imagePositionX * 16, imagePositionY * 16, 16, 16);
+		BufferedImage imageSource = 
+ImageIO.read(new File(f.getCanonicalPath() + 
+"/Image/BoulderDash.png"));
+		this.image = 
+(imageSource).getSubimage(imagePositionX * 16, 
+imagePositionY * 16, 16, 16);
 	}
 
 	public void gravity(Position position, Array array) {
-		gravity(position, array);
-
+			this.gravity = new NoGravity();
+		
 	}
 }
