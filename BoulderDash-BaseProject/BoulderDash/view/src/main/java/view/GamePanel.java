@@ -10,6 +10,7 @@ public class GamePanel extends JPanel implements Observer {
 	private static final long serialVersionUID = 3987064896591403626L;
 	private final IGraphicsBuilder graphicsBuilder;
 
+	
 	public GamePanel(IGraphicsBuilder graphicBuilder) {
 		this.graphicsBuilder = graphicBuilder;
 	}

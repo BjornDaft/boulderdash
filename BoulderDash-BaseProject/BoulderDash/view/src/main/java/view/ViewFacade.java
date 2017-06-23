@@ -10,7 +10,7 @@ import model.IOrderPerformer;
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+ * @author Group 4
  * @version 1.0
  */
 public class ViewFacade implements IViewFacade, Runnable {
@@ -38,20 +38,22 @@ public class ViewFacade implements IViewFacade, Runnable {
 	
 	
 	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see view.IViewFacade#displayMessage(java.lang.String)
+	 * Instantiates a object JFrame
 	 */
 
 	public void run() {
 		this.gameFrame = new GameFrame("Boulder Dash", this.eventPerformer, this.graphicsBuilder, this.observable);
 	}
-
+	/**
+	 * Display a pop up
+	 */
 	@Override
 	public final void displayMessage(final String message) {
 		JOptionPane.showMessageDialog(null, message);
 	}
-
+	/**
+	 * Close the JFrame 
+	 */
 	@Override
 	public void closeAll() {
 		// TODO Auto-generated method stub

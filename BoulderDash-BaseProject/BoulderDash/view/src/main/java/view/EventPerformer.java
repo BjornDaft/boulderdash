@@ -10,12 +10,18 @@ import model.Order;
 
 public class EventPerformer implements IEventPerformer{
 	
+	 
 	private final IOrderPerformer orderPerformer;
-	
+	/**
+	 *  instantiate EventPerformer
+	 * @param orderPerformer
+	 */
 	public EventPerformer(IOrderPerformer orderPerformer){
 		this.orderPerformer = orderPerformer;
 	}
-	
+	/**
+	 * instantiate userOrder with the keycode with new order, if no key pressed return nothing
+	 */
 	@Override
 	public void eventPerform(KeyEvent keyCode) {
 		
@@ -24,7 +30,11 @@ public class EventPerformer implements IEventPerformer{
 			this.orderPerformer.orderPerform(userOrder);
 		}		
 	}
-	
+	/**
+	 * Convert the keycode number from user to a object Order
+	 * @param keyCode int who represent the number of a key
+	 * @return
+	 */
 	private IUserOrder keyCodeToUserOrder(int keyCode){
 		
 		IUserOrder userOrder;
