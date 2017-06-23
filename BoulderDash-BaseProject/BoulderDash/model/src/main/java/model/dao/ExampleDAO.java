@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import model.Array;
+import model.ModelFacade;
 
 import java.io.Serializable;
 
@@ -126,11 +127,7 @@ public class ExampleDAO implements Serializable {
 	    final Map map1 = new Map("LELELE", 10, 18, 12, "REOOOOOOOOOOOOOOORPREOOOOOOOOOOOOORSDOREOOOOOOOOOOORODRDOREOOOOOOOOORODRORDOREOOOOOOORODROOORDOREOOOOORODROOOOORDOREOOORODROOOOOOORDOREORODROOOOOOOOORDORRODROOOOOOOOOOORDOOOROOOOOO", 1);
 	    ObjectOutputStream oos = null;
 	    PrintWriter writer = null;
-		try {
-			writer = new PrintWriter(new OutputStreamWriter(new BufferedOutputStream(new FileOutputStream("RECEIVED.txt"))));
-		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
-		}
+
 	    try {
 	      final FileOutputStream fichier = new FileOutputStream("donnees.txt");
 	      oos = new ObjectOutputStream(fichier);
@@ -158,7 +155,7 @@ public class ExampleDAO implements Serializable {
 	 */
 	 public static void generateObjectsFromMap(int width, int height, String string){
 
-	        Array map = new Array(width,height, string);
+	        ModelFacade array = new ModelFacade(width, height, string);
 
 }
 }
