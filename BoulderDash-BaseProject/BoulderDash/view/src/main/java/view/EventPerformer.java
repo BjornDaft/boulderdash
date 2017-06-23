@@ -3,22 +3,31 @@ package view;
 
 import java.awt.event.KeyEvent;
 
-import controller.IControllerFacade;
+import model.IOrderPerformer;
+import model.IUserOrder;
 import model.Order;
-import model.UserOrder;
 
 
 public class EventPerformer implements IEventPerformer{
 	
-	private final IControllerFacade orderPerformer;
+	private final IOrderPerformer orderPerformer;
 	
-	public EventPerformer(IControllerFacade orderPerformer){
+	public EventPerformer(IOrderPerformer orderPerformer){
 		this.orderPerformer = orderPerformer;
 	}
 	
-	private UserOrder keyCodeToUserOrder(int keyCode){
+	@Override
+	public void eventPerform(KeyEvent keyCode) {
 		
-		UserOrder userOrder;
+		final IUserOrder userOrder = this.keyCodeToUserOrder(keyCode.getKeyCode());
+		if (userOrder != null) {
+			this.orderPerformer.orderPerform(userOrder);
+		}		
+	}
+	
+	private IUserOrder keyCodeToUserOrder(int keyCode){
+		
+		IUserOrder userOrder;
 		switch (keyCode) {
 			case KeyEvent.VK_UP:
 				userOrder = new UserOrder(Order.UP);
@@ -41,12 +50,5 @@ public class EventPerformer implements IEventPerformer{
 		return userOrder;
 	}
 
-	@Override
-	public void eventPerform(KeyEvent keyCode) {
-		
-		final UserOrder userOrder = this.keyCodeToUserOrder(keyCode.getKeyCode());
-		if (userOrder != null) {
-			this.orderPerformer.orderPerform(userOrder);
-		}		
-	}
+
 }

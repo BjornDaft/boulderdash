@@ -50,7 +50,7 @@ public class Player extends Element implements IMove {
 			break;
 		}
 	}
-	@Override
+	
 	public void move() {
 		switch (this.direction) {
 			case UP:

@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import model.IModelFacade;
-import model.UserOrder;
 import view.IViewFacade;
+import view.UserOrder;
 import controller.IControllerFacade;
 
 /**
