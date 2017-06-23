@@ -13,6 +13,7 @@ public interface IModelFacade {
 	public void setType(final int i, final int j, final char c);
 	public String getType(final int x, final int y);
 	public char[][] getCharTab();
+	public IElement[] getElement();
 }
 /**
  * Gets the example by id.

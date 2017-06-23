@@ -24,7 +24,7 @@ public abstract class Main {
 	/*private final IViewFacade view;
 	private final IModelFacade model;*/
     public static void main(final String[] args) {
-        final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
+        final ControllerFacade controller = new ControllerFacade(new ViewFacade(null,null), new ModelFacade(0,0,""));
 
         try {
             controller.start();

@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -252,5 +253,16 @@ public class ModelFacade implements Serializable, IModelFacade {
 				ex.printStackTrace();
 			}
 		}
+	}
+
+	@Override
+	public IElement[] getElement() {
+		ArrayList<Element> list = new ArrayList<Element>();
+		for(int i = 0; i < this.tab.length; i++) {
+	        for(int j = 0; j < this.tab[i].length; j++){
+	            list.add((Element) this.tab[i][j]);
+	        }
+	    }
+		return list.toArray(new IElement[0]);
 	}
 }
