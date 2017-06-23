@@ -199,4 +199,10 @@ public class ModelFacade extends Observable implements IModelFacade {
 		return null;
 	}
 
+	@Override
+	public Object[][] getTab() {
+		// TODO Auto-generated method stub
+		return this.tab;
+	}
+
 }
