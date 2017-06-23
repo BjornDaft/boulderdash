@@ -1,12 +1,14 @@
-package model;
+package model.test;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import model.Array;
+
 public class ArrayTest {
 
-	private Array array = new Array(5, 5);
+	private Array array = new Array(2, 2, "WWWW");
 
 	@Test
 	public void testGetChar() {
