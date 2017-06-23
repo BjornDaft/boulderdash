@@ -19,7 +19,10 @@ public class Mud extends Element {
 			array.setType(x, y, 'X');
 		}
 	}
-	public void gravity(Position position, Array array) {
-		
+	public void gravity() {
+		this.gravity = new NoGravity();
+	}
+	public void move () {
+		this.move = new NoMove();
 	}
 }
