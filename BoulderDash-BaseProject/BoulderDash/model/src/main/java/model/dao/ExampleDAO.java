@@ -120,6 +120,7 @@ public class ExampleDAO {
 		
 	    final Map map1 = new Map("LELELE", 10, 18, 12, "REOOOOOOOOOOOOOOORPREOOOOOOOOOOOOORSDOREOOOOOOOOOOORODRDOREOOOOOOOOORODRORDOREOOOOOOORODROOORDOREOOOOORODROOOOORDOREOOORODROOOOOOORDOREORODROOOOOOOOORDORRODROOOOOOOOOOORDOOOROOOOOO", 1);
 	    ObjectOutputStream oos = null;
+	    @SuppressWarnings("unused")
 	    PrintWriter writer = null;
 
 	    try {
@@ -149,6 +150,7 @@ public class ExampleDAO {
 	 */
 	 public static void generateObjectsFromMap(int width, int height, String string){
 
+		    @SuppressWarnings("unused")
 	        ModelFacade array = new ModelFacade(width, height, string);
 
 }

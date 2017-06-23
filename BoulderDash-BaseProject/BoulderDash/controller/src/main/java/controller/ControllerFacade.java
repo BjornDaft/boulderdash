@@ -1,18 +1,15 @@
 package controller;
 
-import java.io.IOException;
 import java.sql.SQLException;
 
 import model.IModelFacade;
 import view.IViewFacade;
-import view.UserOrder;
-import controller.IControllerFacade;
 
 /**
  * <h1>The Class ControllerFacade provides a facade of the Controller
  * component.</h1>
  *
- * @author Jean-Aymeric DIET jadiet@cesi.fr
+ * @author Group 4
  * @version 1.0
  */
 public class ControllerFacade implements IControllerFacade {
@@ -24,6 +21,16 @@ public class ControllerFacade implements IControllerFacade {
 	private final IModelFacade model;
 
 	/**
+	 * Boolean which indicates if game is over
+	 */
+	private boolean isGameOver = false;
+	
+	/**
+	 * Constant integer which sets milliseconds of pause between each iteration of the gameloop.
+	 */
+	private static int TIME_SLEEP = 50;
+	
+	/**
 	 * Instantiates a new controller facade.
 	 *
 	 * @param view
@@ -31,9 +38,6 @@ public class ControllerFacade implements IControllerFacade {
 	 * @param model
 	 *            the model
 	 */
-	private boolean isGameOver = false;
-	private static int TIME_SLEEP = 50;
-
 	public ControllerFacade(final IViewFacade view, final IModelFacade model) {
 		// super();
 		this.view = view;
@@ -75,6 +79,9 @@ public class ControllerFacade implements IControllerFacade {
 
 	}
 
+	/**
+	 * Game infinite loop while it isn't over
+	 */
 	private void gameLoop() {
 		while (!this.isGameOver) {
 			try {

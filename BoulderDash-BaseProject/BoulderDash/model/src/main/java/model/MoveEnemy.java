@@ -3,7 +3,9 @@ package model;
 public class MoveEnemy implements IMove{
 		private int x;
 		private int y;
+		@SuppressWarnings("unused")
 		private boolean previousDirectionX;
+		@SuppressWarnings("unused")
 		private boolean previousDirectionY;
 	public void move(Position position, Array array, Direction direction) {
 		

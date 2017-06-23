@@ -5,6 +5,7 @@ package model;
 public class Rock extends Element {
 	private static int IMAGEPOSITIONX = 9;
 	private static int IMAGEPOSITIONY = 0;
+	@SuppressWarnings("unused")
 	private int posX, posY;
 	public Rock(Position position) {
 		super(position,IMAGEPOSITIONX, IMAGEPOSITIONY );
