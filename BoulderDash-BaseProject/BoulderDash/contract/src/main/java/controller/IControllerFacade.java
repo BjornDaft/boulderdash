@@ -7,5 +7,4 @@ package controller;
  * @version 1.0
  */
 public interface IControllerFacade {
-	public void orderPerform(UserOrder userOrder);
 }
