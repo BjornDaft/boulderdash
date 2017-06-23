@@ -14,17 +14,11 @@ import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.Array;
 import model.ModelFacade;
 
-import java.io.Serializable;
 
-public class ExampleDAO implements Serializable {
+public class ExampleDAO {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -1798087170011107198L;
 
 	/**
 	 * This function will received the serialized map from database.
