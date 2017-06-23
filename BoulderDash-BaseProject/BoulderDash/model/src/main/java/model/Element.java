@@ -3,10 +3,9 @@ package model;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 
-public class Element implements IElement {
+public class Element {
 	protected Position position;
 	protected Array array;
 	protected Gravity gravity;
@@ -27,36 +26,15 @@ this.buildImage(imagePositionX, imagePositionY);
 		}
 	}
 
-	@Override
 	public Position getPosition() {
 		// TODO Auto-generated method stub
 		return this.position;
 	}
 
-	@Override
+
 	public BufferedImage getImage() {
 		// TODO Auto-generated method stub
 		return this.image;
-	}
-
-	@Override
-	public void placeInArea(IArea area) {
-		// TODO Auto-generated method stub
-		
-this.position.setMaxX(area.getDimension().getWidth());
-		
-this.position.setMaxY(area.getDimension().getHeight());
-
-	}
-
-	@Override
-	public void setModel(IModelFacade model) {
-		// TODO Auto-generated method stub
-		this.model = model;
-		
-this.getPosition().setMaxX(this.getModelFacade().getArea().getDimension().getWidth());
-		
-this.getPosition().setMaxY(this.getModelFacade().getArea().getDimension().getHeight());
 	}
 
 	public IModelFacade getModelFacade() {

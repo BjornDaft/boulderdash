@@ -86,36 +86,5 @@ public class ControllerFacade implements IControllerFacade {
 		//
 	}
 
-	public void orderPerform(UserOrder userOrder) {
-		if (userOrder != null) {
-			final IMobile plane = this.model.getMobilePlayer(userOrder);
-			if (player != null) {
-				Direction direction;
-				switch (userOrder.getOrder()) {
-				case UP:
-					direction = Direction.UP;
-					break;
-				case RIGHT:
-					direction = Direction.RIGHT;
-					break;
-				case DOWN:
-					direction = Direction.DOWN;
-					break;
-				case LEFT:
-					direction = Direction.LEFT;
-					break;
-				/*
-				 * case PUSH: try { this. }
-				 */
-				
-				
-				default:
-					//
-					break;
-			}
-				player.setDirection(direction);
-		}
-	}
-
-}
+	
 }
