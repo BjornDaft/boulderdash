@@ -4,9 +4,8 @@ import java.util.Observable;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
-
-import controller.IControllerFacade;
 import model.IModelFacade;
+import model.IOrderPerformer;
 
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
@@ -20,8 +19,7 @@ public class ViewFacade implements IViewFacade, Runnable {
 	private final EventPerformer eventPerformer;
 	private final Observable observable;
 	private GameFrame gameFrame;
-	private IModelFacade model;
-	private Object[][] tab;
+
 	
 	
 	/**
@@ -29,14 +27,15 @@ public class ViewFacade implements IViewFacade, Runnable {
 	 * 
 	 * 
 	 */
-	public ViewFacade(final IControllerFacade orderPerformer, final IModelFacade model) {
+	public ViewFacade(final IOrderPerformer orderPerformer, final IModelFacade model) {
 		this.observable = (Observable) model;
 		this.graphicsBuilder = new GraphicsBuilder(model);
 		this.eventPerformer = new EventPerformer(orderPerformer);
-		this.model = model;
-		this.tab = model.getTab();
+		
 		SwingUtilities.invokeLater(this);
 	}
+	
+	
 	
 	/*
 	 * (non-Javadoc)
