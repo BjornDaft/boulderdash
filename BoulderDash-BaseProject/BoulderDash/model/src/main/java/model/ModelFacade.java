@@ -79,7 +79,7 @@ public class ModelFacade implements Serializable, IModelFacade {
 						break;
 					case 'P':
 
-						this.tab[i][j] = new Player(new Position(i, j), Direction.UP);
+						this.tab[i][j] = new Player(new Position(i, j), "UP");
 						this.chartab[j][i] = n;
 						break;
 					case 'S':
@@ -159,7 +159,7 @@ public class ModelFacade implements Serializable, IModelFacade {
 				this.tab[i][j] = new Empty(new Position(i, j));
 				break;
 			case 'P':
-				this.tab[i][j] = new Player(new Position(i, j), Direction.UP);
+				this.tab[i][j] = new Player(new Position(i, j), "UP");
 				break;
 			case 'S':
 				this.tab[i][j] = new Exit(new Position(i, j));
@@ -192,11 +192,10 @@ public class ModelFacade implements Serializable, IModelFacade {
 	 * @Override public ArrayList<IMobile> getMobiles() { // TODO Auto-generated
 	 * method stub return this.mobiles; }
 	 */
-
 	@Override
-	public Object getElement() {
+	public char[][] getCharTab() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.chartab;
 	}
 
 	@Override
