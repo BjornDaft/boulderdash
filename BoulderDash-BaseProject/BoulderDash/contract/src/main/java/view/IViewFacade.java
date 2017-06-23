@@ -1,5 +1,7 @@
 package view;
 
+
+
 /**
  * <h1>The Interface IViewFacade.</h1>
  *
@@ -14,7 +16,7 @@ public interface IViewFacade {
      * @param message
      *            the message
      */
-
+	//public void orderPerform(UserOrder userOrder);
     public void displayMessage(String message);
 	public void closeAll();
 }

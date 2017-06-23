@@ -1,4 +1,4 @@
-package controller;
+package model;
 
 public class UserOrder implements IUserOrder {
 	private final Order order;

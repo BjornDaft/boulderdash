@@ -3,6 +3,10 @@ package model;
 import java.util.ArrayList;
 import java.util.Observable;
 
+import controller.Direction;
+import controller.IMobile;
+import controller.UserOrder;
+
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -204,5 +208,32 @@ public class ModelFacade extends Observable implements IModelFacade {
 		// TODO Auto-generated method stub
 		return this.tab;
 	}
+	public void orderPerform(UserOrder userOrder) {
+		if (userOrder != null) {
+			final IMobile plane = this.model.getMobilePlayer(userOrder);
+			if (player != null) {
+				Direction direction;
+				switch (userOrder.getOrder()) {
+				case UP:
+					direction = Direction.UP;
+					break;
+				case RIGHT:
+					direction = Direction.RIGHT;
+					break;
+				case DOWN:
+					direction = Direction.DOWN;
+					break;
+				case LEFT:
+					direction = Direction.LEFT;
+					break;			
+				
+				default:
+					
+					break;
+			}
+				player.setDirection(direction);
+		}
+	}
 
+}
 }

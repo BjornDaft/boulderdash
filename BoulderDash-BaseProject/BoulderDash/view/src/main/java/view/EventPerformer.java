@@ -4,8 +4,8 @@ package view;
 import java.awt.event.KeyEvent;
 
 import controller.IControllerFacade;
-import controller.Order;
-import controller.UserOrder;
+import model.Order;
+import model.UserOrder;
 
 
 public class EventPerformer implements IEventPerformer{
