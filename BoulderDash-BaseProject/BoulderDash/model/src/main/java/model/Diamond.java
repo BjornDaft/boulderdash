@@ -20,6 +20,7 @@ public class Diamond extends Element implements IGravity {
 	public void setCollectDiamond() {
 		if (array.getType(position.getX(), position.getY()) == "Player" && collected == false) {
 			Exit.setCollectedDiamond();
+			Exit.state(null);
 			collected = true;
 		}
 	}

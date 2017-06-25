@@ -14,7 +14,7 @@ public class Exit extends Element {
 	public Exit(Position position) {
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
 	}
-	public void state(Map map1) {
+	public static void state(Map map1) {
 		if (map1.getNbdiamond() == getCollectedDiamond()) {
 			open = true;
 			}
