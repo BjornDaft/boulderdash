@@ -56,7 +56,7 @@ public class Array {
 				this.tab[i][j] = new Rock(new Position(i, j));
 				break;
 			case 'E':
-				this.tab[i][j] = new Enemy(new Position(i, j),null);
+				this.tab[i][j] = new Enemy(new Position(i, j));
 				break;
 			case 'D':
 				this.tab[i][j] = new Diamond(new Position(i, j));

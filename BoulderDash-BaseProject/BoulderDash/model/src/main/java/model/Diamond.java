@@ -7,6 +7,9 @@ public class Diamond extends Element implements IGravity {
 
 	public Diamond(Position position) {
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
+		this.gravity();
+		this.move();
+		this.setCollectDiamond();
 	}
 
 	public void gravity() {

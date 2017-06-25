@@ -14,7 +14,7 @@ public class Player extends Element {
 	private static int IMAGEPOSITIONYRIGHT = 3;
 	private static int IMAGEPOSITIONXLEFT = 2;
 	private static int IMAGEPOSITIONYLEFT = 1;
-	private String direction;
+	private static String direction;
 	private static boolean isAlive;
 
 	int x = position.getX();
@@ -22,8 +22,10 @@ public class Player extends Element {
 
 	public Player(Position position, final String string) {
 		super(position, IMAGEPOSITIONXUP, IMAGEPOSITIONYUP);
-		this.direction = string;
+		this.setDirection(string);
 		this.position = position;
+		this.gravity();
+		this.move();
 	}
 
 	@Override
@@ -34,7 +36,7 @@ public class Player extends Element {
 
 		BufferedImage imageSource = ImageIO.read(new File(f.getCanonicalPath() + "/Image/BoulderDash.png"));
 
-		switch (this.direction) {
+		switch (Player.getDirection()) {
 		case "UP":
 			this.image = (imageSource).getSubimage(IMAGEPOSITIONXUP * 16, IMAGEPOSITIONYUP * 16, 16, 16);
 			break;
@@ -62,5 +64,13 @@ public class Player extends Element {
 	}
 	public static void setIsAlive(boolean alive) {
 		isAlive = alive;
+	}
+
+	public static String getDirection() {
+		return direction;
+	}
+
+	public void setDirection(String direction) {
+		Player.direction = direction;
 	}
 }

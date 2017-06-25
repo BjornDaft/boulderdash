@@ -14,9 +14,13 @@ public class Enemy extends Element {
 	private int x = position.getX();
 	private int y = position.getY();
 
-	public Enemy(Position position, Array array) {
+	public Enemy(Position position) {
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
 		this.position = position;
+		this.move(position, array);
+		this.gravity(position, array);
+		this.kill(array);
+		
 	}
 	/**
 	 * <h6>target</h6>
@@ -49,7 +53,7 @@ public class Enemy extends Element {
 			for (x--; x == x++; x++) {
 				for (y--; x == x++; x++) {
 					if (array.getType(x, y) == "Player") {
-						// death case
+						Player.setIsAlive(false);
 					}
 
 					array.setType(x, y, 'X');
@@ -62,7 +66,7 @@ public class Enemy extends Element {
 	public void gravity(Position position, Array array) {
 		this.gravity = new NoGravity();
 	}
-	public void move(Position position, Array array, Direction direction){
+	public void move(Position position, Array array){
 		this.move = new MoveEnemy();
 	}
 }

@@ -7,6 +7,8 @@ public class Wall extends Element {
 
 	public Wall(Position position){
 		super(position, IMAGEPOSITIONX,IMAGEPOSITIONY );
+		this.gravity();
+		this.move();
 	}
 	public void gravity() {
 		this.gravity = new NoGravity();
