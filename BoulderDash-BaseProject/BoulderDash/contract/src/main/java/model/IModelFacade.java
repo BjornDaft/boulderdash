@@ -14,6 +14,7 @@ public interface IModelFacade {
 	public String getType(final int x, final int y);
 	public char[][] getCharTab();
 	public IElement[] getElement();
+	public boolean isGameOver();
 }
 /**
  * Gets the example by id.

@@ -9,6 +9,7 @@ public class Exit extends Element {
 	private static int IMAGEPOSITIONY = 1;
 	private static boolean open = false;
 	private static int collectedDiamond = 0;
+	private static boolean win = false;
 	
 	public Exit(Position position) {
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
@@ -20,7 +21,7 @@ public class Exit extends Element {
 		}
 	public void win(Position position, Array array) {
 		if (array.getType(this.position.getX(), this.position.getY()) == "Player" && open == true) {
-			System.exit(0);
+			setWin(true);
 		}
 	}
 		@Override
@@ -35,5 +36,11 @@ public class Exit extends Element {
 		}
 		public static boolean getOpen() {
 			return open;
+		}
+		public static boolean getWin() {
+			return win;
+		}
+		public static void setWin(boolean winner) {
+		win = winner;
 		}
 }

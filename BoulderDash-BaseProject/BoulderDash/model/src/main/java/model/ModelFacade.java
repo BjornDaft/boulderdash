@@ -265,4 +265,10 @@ public class ModelFacade implements Serializable, IModelFacade {
 	    }
 		return list.toArray(new IElement[0]);
 	}
+	public boolean isGameOver() {
+		if (Player.getIsAlive() == false || Exit.getWin() == true) {
+			return true;
+		}
+		return false;
+	}
 }

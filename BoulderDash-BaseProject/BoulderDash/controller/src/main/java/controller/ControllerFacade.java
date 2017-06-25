@@ -86,6 +86,10 @@ public class ControllerFacade implements IControllerFacade {
 		while (!this.isGameOver) {
 			try {
 				Thread.sleep(TIME_SLEEP);
+				if ( model.isGameOver() == true ) {
+					this.isGameOver = true;
+				}
+					
 			} catch (final InterruptedException ex) {
 				Thread.currentThread().interrupt();
 			}
