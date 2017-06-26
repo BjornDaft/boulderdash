@@ -26,7 +26,7 @@ public abstract class Main {
 	private final IModelFacade model;*/
     @SuppressWarnings("unused")
 	public static void main(final String[] args) {
-        final ControllerFacade controller = new ControllerFacade(new ViewFacade(null,null), new ModelFacade(0,0,""));
+        final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade(0,0,""));
         try {
             controller.start();
         } catch (final SQLException exception) {

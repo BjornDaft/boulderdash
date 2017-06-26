@@ -53,9 +53,7 @@ public class EventPerformer implements IEventPerformer{
 			case KeyEvent.VK_LEFT:
 				userOrder = new UserOrder(Order.LEFT);
 				break;
-			case KeyEvent.VK_CONTROL:
-				userOrder = new UserOrder(Order.PUSH);
-				break;
+			
 			default:
 				userOrder = null;
 		}

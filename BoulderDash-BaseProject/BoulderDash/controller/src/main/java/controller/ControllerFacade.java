@@ -12,8 +12,9 @@ import view.IViewFacade;
  * @author Group 4
  * @version 1.0
  */
-public class ControllerFacade implements IControllerFacade {
-
+public class ControllerFacade implements IOrderPerformer {
+	private IMap map;
+	private OrderController orderController;
 	/** The view. */
 	private final IViewFacade view;
 
@@ -24,24 +25,18 @@ public class ControllerFacade implements IControllerFacade {
 	 * Boolean which indicates if game is over
 	 */
 	private boolean isGameOver = false;
-	
-	/**
-	 * Constant integer which sets milliseconds of pause between each iteration of the gameloop.
-	 */
-	private static int TIME_SLEEP = 50;
-	
+
 	/**
 	 * Instantiates a new controller facade.
-	 *
-	 * @param view
-	 *            the view
 	 * @param model
 	 *            the model
-	 */
-	public ControllerFacade(final IViewFacade view, final IModelFacade model) {
+	 */	
+	public ControllerFacade(final IModelFacade model) {
 		// super();
-		this.view = view;
+
 		this.model = model;
+		this.map = model.getTheMap();
+
 	}
 
 	/**
@@ -86,10 +81,10 @@ public class ControllerFacade implements IControllerFacade {
 		while (!this.isGameOver) {
 			try {
 				Thread.sleep(TIME_SLEEP);
-				if ( model.isGameOver() == true ) {
+				if (model.isGameOver() == true) {
 					this.isGameOver = true;
 				}
-					
+
 			} catch (final InterruptedException ex) {
 				Thread.currentThread().interrupt();
 			}
@@ -97,5 +92,22 @@ public class ControllerFacade implements IControllerFacade {
 		//
 	}
 
-	
+	@Override
+	public IMap getTheMap() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void orderPerform(IUserOrder userOrder) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public OrderController getOrderController() {
+		if (orderController == null)
+			orderController = new OrderController(build);
+		return orderController;
+	}
+
 }
