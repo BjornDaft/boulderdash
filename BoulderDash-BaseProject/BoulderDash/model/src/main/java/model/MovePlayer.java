@@ -1,6 +1,6 @@
 package model;
 /**
- * @author Tristan Lefèvre
+ * @author Tristan Lefevre
  * <h6>description</h6>
  * class from Move behavior.
  * this move is used by the player
