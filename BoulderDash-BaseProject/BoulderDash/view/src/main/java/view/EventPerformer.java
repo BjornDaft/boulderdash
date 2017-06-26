@@ -3,9 +3,11 @@ package view;
 
 import java.awt.event.KeyEvent;
 
-import model.IOrderPerformer;
-import model.IUserOrder;
-import model.Order;
+import controller.IEventPerformer;
+import controller.IOrderPerformer;
+import controller.IUserOrder;
+import controller.Order;
+import controller.UserOrder;
 
 
 public class EventPerformer implements IEventPerformer{
@@ -33,7 +35,7 @@ public class EventPerformer implements IEventPerformer{
 	/**
 	 * Convert the keycode number from user to a object Order
 	 * @param keyCode int who represent the number of a key
-	 * @return
+	 * @return return userOrder
 	 */
 	private IUserOrder keyCodeToUserOrder(int keyCode){
 		

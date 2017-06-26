@@ -2,93 +2,69 @@ package view;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.util.Observable;
-
 import javax.swing.JFrame;
 
+import controller.IEventPerformer;
+import model.IModelFacade;
 
-
-
-
-public class GameFrame extends JFrame implements KeyListener{
-	private static final long serialVersionUID	= -1112124206501543946L;
+@SuppressWarnings("serial")
+public class GameFrame extends JFrame implements KeyListener {
+	
 	private final IEventPerformer eventPerformer;
+	private GamePanel gamePanel;
 	/**
 	 * instantiate GameFrame to create a JFrame with the panel
-	 * @param title   the title of the windows
-	 * @param eventPerformer  
+	 * 
+	 * @param title
+	 *            the title of the windows
+	 * @param eventPerformer
 	 * @param graphicsBuilder
 	 * @param observable
 	 */
-	public GameFrame(final String title, final IEventPerformer eventPerformer, final IGraphicsBuilder graphicsBuilder, final Observable observable){
+	public GameFrame(final IEventPerformer eventPerformer, final IModelFacade model) {
+		super();
 		this.eventPerformer = eventPerformer;
-
-		this.setTitle(title);
+		this.addKeyListener(this);
+		this.setTitle("Boulder Dash");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
+		gamePanel = new GamePanel(model);
 		this.addKeyListener(this);
-
-
-
-		this.setSize(1000,1000);
-		this.setLocationRelativeTo(null);
-		decrypt();
-		final GamePanel gamePanel = new GamePanel(graphicsBuilder);
-		gamePanel.setDoubleBuffered(true);
-		observable.addObserver(gamePanel);
-
+		this.setSize(600,700);	
+		this.setLocation(100, 100);
 		this.setContentPane(gamePanel);
 
 		this.setVisible(true);
 	}
+
 	/**
 	 * get KeyListener result
+	 * 
+	 * @param keyEvent
 	 */
 	@Override
 	public void keyPressed(final KeyEvent keyEvent) {
-		this.eventPerformer.eventPerform(keyEvent);
+
+			this.eventPerformer.eventPerform(keyEvent);
+
 	}
+
 	@Override
 	public void keyReleased(final KeyEvent keyEvent) {
-		  
-		
+
 	}
+
 	@Override
 	public void keyTyped(final KeyEvent keyEvent) {
-		  
-		
+
 	}
-	
+	  public GamePanel getGamePanel() {
+	        return gamePanel;
+	    }
+
 	/**
-	 *Getting data from swapping files 
+	 * Getting data from swapping files
+	 *
 	 */
-	public static void decrypt() {
 
-        ObjectInputStream ois = null;
-
-        try {
-            final FileInputStream fichier = new FileInputStream("../model/tab");
-            ois = new ObjectInputStream(fichier);
-            final char chartabtest[][] = (char[][]) ois.readObject();
-
-            System.out.println("Test = " + chartabtest[0][0]);
-            System.out.println("Test = " + chartabtest[0][1]);
-
-        } catch (final java.io.IOException e) {
-            e.printStackTrace();
-        } catch (final ClassNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (ois != null) {
-                    ois.close();
-                }
-            } catch (final IOException ex) {
-                ex.printStackTrace();
-            }
-        }
-    }
 }

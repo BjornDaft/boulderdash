@@ -1,7 +1,4 @@
-package view;
-
-import model.IUserOrder;
-import model.Order;
+package controller;
 
 public class UserOrder implements IUserOrder {
 	private final Order order;

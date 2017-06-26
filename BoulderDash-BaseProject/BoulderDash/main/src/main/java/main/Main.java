@@ -4,6 +4,7 @@ import java.sql.SQLException;
 
 import controller.ControllerFacade;
 import model.ModelFacade;
+import view.GraphicsBuilder;
 import view.ViewFacade;
 
 /**
@@ -23,13 +24,15 @@ public abstract class Main {
 	//hello
 	/*private final IViewFacade view;
 	private final IModelFacade model;*/
-    public static void main(final String[] args) {
+    @SuppressWarnings("unused")
+	public static void main(final String[] args) {
         final ControllerFacade controller = new ControllerFacade(new ViewFacade(null,null), new ModelFacade(0,0,""));
-
+        // ExampleDAO exampledao = new ExampleDAO(); 
         try {
             controller.start();
         } catch (final SQLException exception) {
             exception.printStackTrace();
         }
+        GraphicsBuilder graph = new GraphicsBuilder(IModelFacade model);
     }
 }

@@ -1,6 +1,6 @@
 package view;
 
-
+import java.awt.image.BufferedImage;
 
 /**
  * <h1>The Interface IViewFacade.</h1>
@@ -18,5 +18,6 @@ public interface IViewFacade {
      */
 	//public void orderPerform(UserOrder userOrder);
     public void displayMessage(String message);
-	public void closeAll();
+    void drawImage(BufferedImage image, int x, int y);
+
 }
