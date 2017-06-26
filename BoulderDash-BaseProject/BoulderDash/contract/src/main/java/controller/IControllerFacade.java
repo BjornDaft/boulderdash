@@ -7,5 +7,5 @@ package controller;
  * @version 1.0
  */
 public interface IControllerFacade {
-	
+	IMap getTheMap();
 }

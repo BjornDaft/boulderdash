@@ -27,12 +27,10 @@ public abstract class Main {
     @SuppressWarnings("unused")
 	public static void main(final String[] args) {
         final ControllerFacade controller = new ControllerFacade(new ViewFacade(null,null), new ModelFacade(0,0,""));
-        // ExampleDAO exampledao = new ExampleDAO(); 
         try {
             controller.start();
         } catch (final SQLException exception) {
             exception.printStackTrace();
         }
-        GraphicsBuilder graph = new GraphicsBuilder(IModelFacade model);
     }
 }
