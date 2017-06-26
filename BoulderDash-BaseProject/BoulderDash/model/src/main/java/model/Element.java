@@ -6,15 +6,15 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Element {
-	protected Position position;
-	protected Array array;
+	protected IPosition position;
+	protected IMap map;
 	protected IGravity gravity;
 	protected IMove move;
 
 	private IModelFacade model;
 	protected BufferedImage image;
 
-	public Element(final Position position, final int imagePositionX, final int imagePositionY) {
+	public Element(final IPosition position, final int imagePositionX, final int imagePositionY) {
 
 		this.position = position;
 
@@ -26,7 +26,7 @@ public class Element {
 		}
 	}
 
-	public Position getPosition() {
+	public IPosition getPosition() {
 		// TODO Auto-generated method stub
 		return this.position;
 	}
@@ -50,12 +50,12 @@ public class Element {
 		this.image = (imageSource).getSubimage(imagePositionX * 16, imagePositionY * 16, 16, 16);
 	}
 
-	public void gravity(Position position, Array array) {
+	public void gravity(IPosition position, IMap map) {
 		this.gravity = new NoGravity();
 
 	}
 
-	public void move(Position position, Array array, Direction direction) {
+	public void move(IPosition position, IMap map, Direction direction) {
 		this.move = new NoMove();
 	}
 }

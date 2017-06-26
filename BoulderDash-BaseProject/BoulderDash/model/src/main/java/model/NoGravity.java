@@ -6,6 +6,6 @@ package model;
 **/
 public class NoGravity implements IGravity{
 
-	public void gravity(Position position, Array array) {}
+	public void gravity(IPosition position, IMap map) {}
 
 }

@@ -14,7 +14,9 @@ import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class MapDAO {
+import model.IMap;
+
+public class MapDAO implements IMap{
 
 	private char tab[][];
 

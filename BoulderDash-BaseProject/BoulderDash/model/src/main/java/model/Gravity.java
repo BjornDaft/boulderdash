@@ -12,61 +12,61 @@ public class Gravity implements IGravity {
 	 * if 
 	 **/
 	private int posX, posY;
-	public void gravity(Position position, Array array) {
+	public void gravity(IPosition position, IMap map) {
 	//	initialize variable
 		this.posX = position.getX();
 		this.posY = position.getY();
 	//	begin of
-		while(array.getType(posX,posY++) == "Empty" || array.getType(posX, posY++) =="Rock") {
-			if(array.getType(posX,posY++) == "Empty" ) {
-				this.fallDown(position, array);
+		while(map.getChar(posX,posY++) == 'X' || map.getChar(posX, posY++) =='R') {
+			if(map.getChar(posX,posY++) == 'X' ) {
+				this.fallDown(position, map);
 			}
-			else if (array.getType(posX,posY++) =="Rock" || array.getType(posX,posY++) =="Diamond") {
-				this.verticalFall(position, array);
+			else if (map.getChar(posX,posY++) =='R' || map.getChar(posX,posY++) =='D') {
+				this.verticalFall(position, map);
 			}
-			else if (array.getType(posX, posY) == "Player")
+			else if (map.getChar(posX, posY) == 'P')
 				Player.setIsAlive(false);
 		}
 	}
-	public void verticalFall(Position position, Array array) {
+	public void verticalFall(IPosition position, IMap map) {
 	//	case where your object fall on a rock/diamond
-		if(array.getType(posX++, posY++) == "Empty" && array.getType(posX++, posY)=="Empty")
+		if(map.getChar(posX++, posY++) == 'X' && map.getChar(posX++, posY)=='X')
 		{
-			this.fallRight(position, array);
+			this.fallRight(position, map);
 		}
-	else if(array.getType(posX--, posY++)=="Empty" && array.getType(posX++, posY)=="Empty")
+	else if(map.getChar(posX--, posY++)=='X' && map.getChar(posX++, posY)=='X')
 		{
-			this.fallLeft(position, array);
+			this.fallLeft(position, map);
 		}
-	else if(array.getType(posX--, posY++)=="Empty" && array.getType(posX--, posY)=="Empty" && array.getType(posX++, posY++) =="Empty" && array.getType(posX++, posY)=="Empty")
+	else if(map.getChar(posX--, posY++)=='X' && map.getChar(posX--, posY)=='X' && map.getChar(posX++, posY++) =='X' && map.getChar(posX++, posY)=='X')
 		{
-			this.randomFall(position, array);
+			this.randomFall(position, map);
 		}
-	else if(array.getType(posX--, posY) != "Empty" && array.getType(posX++, posY)!="Empty")
+	else if(map.getChar(posX--, posY) != 'X' && map.getChar(posX++, posY)!='X')
 		{
 		return;
 		}
 	}
-	public void fallDown(Position position, Array array){
+	public void fallDown(IPosition position, IMap map){
 	//	object fall
 		position.setY(posY++);;
 	}
-	public void fallLeft(Position position, Array array){
+	public void fallLeft(IPosition position, IMap map){
 	//	object go Left
 		position.setX(posX--);
 	}
-	public void fallRight(Position position, Array array){
+	public void fallRight(IPosition position, IMap map){
 	// object go Right
 		position.setX(posX++);
 	}
-	public void randomFall(Position position, Array array){
+	public void randomFall(IPosition position, IMap map){
 		Random rand =new Random();
 		boolean gauche = rand.nextBoolean();
 		if (gauche == true) {
-			this.fallLeft(position, array);
+			this.fallLeft(position, map);
 		}
 		else {
-			this.fallRight(position, array);
+			this.fallRight(position, map);
 		}
 	}
 }

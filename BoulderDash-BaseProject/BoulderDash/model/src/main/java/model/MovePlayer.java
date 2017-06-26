@@ -8,43 +8,43 @@ package model;
  * the move player check the player's direction
 **/
 public class MovePlayer implements IMove {
-	public void move(Position position, Array array, Direction direction) {
+	public void move(IPosition position, IMap map, Direction direction) {
 			switch (direction) {
 				case UP:
-					this.moveUp(position, array);
+					this.moveUp(position, map);
 				break;
 				case DOWN:
-					this.moveDown(position, array);
+					this.moveDown(position, map);
 				break;
 				case LEFT:
-					this.moveLeft(position, array);
+					this.moveLeft(position, map);
 				break;
 				case RIGHT:
-					this.moveRight(position, array);
+					this.moveRight(position, map);
 				break;
 			}
 		}
 	/**
 	 * the player is go to up
  **/
-		public void moveUp(Position position, Array array) {
+		public void moveUp(IPosition position, IMap map) {
 			int x = position.getX();
 			int y = position.getY();
-			if (array.getType(x,y --) =="Empty" || array.getType(x, y++) =="Mud" || array.getType(x, y--) =="Diamond" || array.getType(x, y--) =="Exit" && Exit.getOpen() == true) {
-			array.setType(x, y --,'P');
-			array.setType(x, y, 'X');
+			if (map.getChar(x,y --) =='X' || map.getChar(x, y++) =='O' || map.getChar(x, y--) =='D' || map.getChar(x, y--) =='S' && Exit.getOpen() == true) {
+			map.setChar(x, y --,'P');
+			map.setChar(x, y, 'X');
 			position.setY(y--);
 			}
 		}
 		/**
 		 * player go to down
 		 **/
-		public void moveDown(Position position, Array array) {
+		public void moveDown(IPosition position, IMap map) {
 			int x = position.getX();
 			int y = position.getY();
-			if (array.getType(x,y ++) =="Empty" || array.getType(x, y++) =="Mud"|| array.getType(x, y++) =="Diamond" || array.getType(x, y--) =="Exit" && Exit.getOpen() == true) {
-			array.setType(x, y ++,'P');
-			array.setType(x, y , 'X');
+			if (map.getChar(x,y ++) =='X' || map.getChar(x, y++) =='O'|| map.getChar(x, y++) =='D' || map.getChar(x, y--) =='S' && Exit.getOpen() == true) {
+			map.setChar(x, y ++,'P');
+			map.setChar(x, y , 'X');
 			position.setY(y++);
 			}
 			
@@ -52,33 +52,33 @@ public class MovePlayer implements IMove {
 		/**
 		 * the player go to left 
 	 **/
-		public void moveLeft(Position position, Array array) {
+		public void moveLeft(IPosition position, IMap map) {
 			int x = position.getX();
 			int y = position.getY();
-			if (array.getType(x--,y) =="Empty" || array.getType(x--, y) =="Mud" || array.getType(x--, y) =="Diamond" || array.getType(x--, y) =="Exit" && Exit.getOpen() == true) {
-			array.setType(x--, y,'P');
-			array.setType(x, y, 'X');
+			if (map.getChar(x--,y) =='X' || map.getChar(x--, y) =='O' || map.getChar(x--, y) =='D' || map.getChar(x--, y) =='S' && Exit.getOpen() == true) {
+			map.setChar(x--, y,'P');
+			map.setChar(x, y, 'X');
 			position.setY(x--);
 			}
-			else if(array.getType(x--, y) =="Rock" && array.getType(x-2, x) == "Empty") {
-				array.setType(x--, x, 'P');
-				array.setType(x-2, x, 'R');
+			else if(map.getChar(x--, y) =='R' && map.getChar(x-2, x) == 'X') {
+				map.setChar(x--, x, 'P');
+				map.setChar(x-2, x, 'R');
 			}
 		}
 		/**
 		 * theplayer go to right
 		 **/
-		public void moveRight(Position position, Array array) {
+		public void moveRight(IPosition position, IMap map) {
 			int x = position.getX();
 			int y = position.getY();
-			if (array.getType(x++,y) =="Empty" || array.getType(x++, y) =="Mud" || array.getType(x++, y) =="Diamond" || array.getType(x++, y) =="Exit" && Exit.getOpen() == true ) {
-				array.setType(x++, y,'P');
-				array.setType(x, y , 'X');
+			if (map.getChar(x++,y) =='X' || map.getChar(x++, y) =='O' || map.getChar(x++, y) =='D' || map.getChar(x++, y) =='S' && Exit.getOpen() == true ) {
+				map.setChar(x++, y,'P');
+				map.setChar(x, y , 'X');
 				position.setY(x++);
 			}
-			else if(array.getType(x++, y) =="Rock" && array.getType(x+2, x) == "Empty") {
-				array.setType(x--, x, 'P');
-				array.setType(x+2, x, 'R');
+			else if(map.getChar(x++, y) =='R' && map.getChar(x+2, x) == 'X') {
+				map.setChar(x--, x, 'P');
+				map.setChar(x+2, x, 'R');
 			}
 		}
 

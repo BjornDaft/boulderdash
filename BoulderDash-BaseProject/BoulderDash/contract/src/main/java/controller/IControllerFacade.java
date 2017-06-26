@@ -1,5 +1,7 @@
 package controller;
 
+import model.IMap;
+
 /**
  * <h1>The Interface IControllerFacade.</h1>
  * 

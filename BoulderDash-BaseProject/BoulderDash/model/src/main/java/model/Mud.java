@@ -8,19 +8,19 @@ public class Mud extends Element {
 	private boolean dig = false;
 	
 	
-	public Mud(Position position) {
+	public Mud(IPosition position) {
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
-		this.canBeDig(array);
+		this.canBeDig(map);
 		this.gravity();
 		this.move();
 
 	}
-	public void canBeDig( Array array){
-		if (array.getType(x,y) == "Player") {
-			while(array.getType(x, y) =="Player") {
+	public void canBeDig( IMap map){
+		if (map.getChar(x,y) == 'P') {
+			while(map.getChar(x, y) =='P') {
 				
 			}
-			array.setType(x, y, 'X');
+			map.setChar(x, y, 'X');
 			this.setDig(true);
 		}
 	}

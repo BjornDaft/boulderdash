@@ -11,9 +11,9 @@ public class Exit extends Element {
 	private static int collectedDiamond = 0;
 	private static boolean win = false;
 	
-	public Exit(Position position) {
+	public Exit(IPosition position) {
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
-		this.win(position, array);
+		this.win(position, map);
 		Exit.state(null);
 	}
 	public static void state(Map map1) {
@@ -21,13 +21,13 @@ public class Exit extends Element {
 			open = true;
 			}
 		}
-	public void win(Position position, Array array) {
-		if (array.getType(this.position.getX(), this.position.getY()) == "Player" && open == true) {
+	public void win(IPosition position, IMap map) {
+		if (map.getChar(this.position.getX(), this.position.getY()) == 'P' && open == true) {
 			setWin(true);
 		}
 	}
 		@Override
-		public void gravity(Position position, Array array) {
+		public void gravity(IPosition position, IMap map) {
 			this.gravity = new NoGravity();
 	}
 		public static int getCollectedDiamond() {

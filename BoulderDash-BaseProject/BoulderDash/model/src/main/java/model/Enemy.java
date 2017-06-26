@@ -4,7 +4,7 @@ public class Enemy extends Element {
 
 	/**
 	 * <h1>Enemy</h1>
-	 * @author group 4 - Tristan Lefèvre
+	 * @author group 4
 	 * <h6>description</h6>
 	 * the Enemy class
 	 * The enemy can kill the player with explosion. sometime, he can give diamond. Diamond and Reward range is 1 frame aroud him (diagonale include)
@@ -16,10 +16,9 @@ public class Enemy extends Element {
 
 	public Enemy(Position position) {
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
-		this.position = position;
-		this.move(position, array);
-		this.gravity(position, array);
-		this.kill(array);
+		this.move(position, map);
+		this.gravity(position, map);
+		this.kill(map);
 		
 	}
 	/**
@@ -27,17 +26,17 @@ public class Enemy extends Element {
 	 * create diamond in range of 1 around enemy (diagonal include). This method work is a player is around him (diagonal excluded) or a stone is above him
 	 * if a player is in range, he die.
 	 **/
-	public void giveDiamond(Array array) {
+	public void giveDiamond(IMap map) {
 
-		if (array.getType(x, y--) == "Player" || array.getType(x, y++) == "Player" || array.getType(x++, y) == "Player"
-				|| array.getType(x--, y) == "Player" || array.getType(x, y--) == "Rock" || array.getType(x, y--) == "Diamond") {
+		if (map.getChar(x, y--) == 'P' || map.getChar(x, y++) == 'P' || map.getChar(x++, y) == 'P'
+				|| map.getChar(x--, y) == 'P' || map.getChar(x, y--) == 'R' || map.getChar(x, y--) == 'D') {
 			for (x--; x == x++; x++) {
 				for (y--; x == x++; x++) {
-					if (array.getType(x, y) == "Player") {
+					if (map.getChar(x, y) == 'P') {
 						Player.setIsAlive(false);
 					}
 
-					array.setType(x, y, 'D');
+					map.setChar(x, y, 'D');
 				}
 			}
 		}
@@ -47,26 +46,25 @@ public class Enemy extends Element {
 	 * explode and replace all object in range of 1 around enemy (diagonal include) into void. This method work if a player is around him (diagonal excluded) or a stone is above him
 	 * if a player is in range, he die.
 	 **/
-	public void kill(Array array) {
-		if (array.getType(x, y--) == "Player" || array.getType(x, y++) == "Player" || array.getType(x++, y) == "Player"
-				|| array.getType(x--, y) == "Player" || array.getType(x, y--) == "Rock" || array.getType(x, y--) == "Diamond") {
+	public void kill(IMap map) {
+		if (map.getChar(x, y--) == 'P' || map.getChar(x, y++) == 'P' || map.getChar(x++, y) == 'P'
+				|| map.getChar(x--, y) == 'P' || map.getChar(x, y--) == 'R' || map.getChar(x, y--) == 'D') {
 			for (x--; x == x++; x++) {
 				for (y--; x == x++; x++) {
-					if (array.getType(x, y) == "Player") {
+					if (map.getChar(x, y) == 'P') {
 						Player.setIsAlive(false);
 					}
 
-					array.setType(x, y, 'X');
+					map.setChar(x, y, 'X');
 				}
 			}
 		}
 	}
 
-	@Override
-	public void gravity(Position position, Array array) {
+	public void gravity(IPosition position, IMap map) {
 		this.gravity = new NoGravity();
 	}
-	public void move(Position position, Array array){
+	public void move(IPosition position, IMap map){
 		this.move = new MoveEnemy();
 	}
 }

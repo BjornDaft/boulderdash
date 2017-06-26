@@ -117,4 +117,10 @@ public class ModelFacade implements Serializable, IModelFacade {
 		}
 		return false;
 	}
+
+	@Override
+	public IPosition getPosition(int x, int y) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

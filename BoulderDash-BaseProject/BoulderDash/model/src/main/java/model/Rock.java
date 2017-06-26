@@ -14,11 +14,11 @@ public class Rock extends Element {
 	private static int IMAGEPOSITIONY = 0;
 	@SuppressWarnings("unused")
 	private int posX, posY;
-	public Rock(Position position) {
+	public Rock(IPosition position) {
 		super(position,IMAGEPOSITIONX, IMAGEPOSITIONY );
-		this.gravity(position, array);
-		this.move(position, array, null);
-		this.push(position, array);
+		this.gravity(position, map);
+		this.move(position, map, null);
+		this.push(position, map);
 
 	}
 	public void move() {
@@ -26,7 +26,7 @@ public class Rock extends Element {
 	}
 
 	@Override
-	public void gravity(Position position, Array array) {
+	public void gravity(IPosition position, IMap map) {
 		
 		this.gravity = new Gravity();
 		
@@ -35,14 +35,14 @@ public class Rock extends Element {
 	 * modify rock position depending of where the player move the rock (direction)
 	**/
 
-	public void push(Position position, Array array)
+	public void push(IPosition position, IMap map)
 	{
 		posX = position.getX();
 		posY = position.getY();
-		if(array.getType(position.getX(), position.getY()) == "Player"/* && Player.getDirection() == "Left"*/) {
+		if(map.getChar(position.getX(), position.getY()) == 'P'/* && Player.getDirection() == "Left"*/) {
 			position.setX(posX--);
 	}
-		else if(array.getType(position.getX(), position.getY()) == "Player"/* && Player.getDirection() =="Right"*/) {
+		else if(map.getChar(position.getX(), position.getY()) == 'P'/* && Player.getDirection() =="Right"*/) {
 			position.setX(posX++);
 		}
 	}
