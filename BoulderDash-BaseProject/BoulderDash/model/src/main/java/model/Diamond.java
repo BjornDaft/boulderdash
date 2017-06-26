@@ -1,9 +1,10 @@
 package model;
 
-public class Diamond extends Element implements IGravity {
+public class Diamond extends Element implements IGravity, IsetCollectedDiamond{
 	private static int IMAGEPOSITIONX = 10;
 	private static int IMAGEPOSITIONY = 0;
 	private boolean collected = false;
+	private IExit exit;
 
 	public Diamond(IPosition position) {
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
@@ -22,8 +23,8 @@ public class Diamond extends Element implements IGravity {
 	}
 	public void setCollectDiamond() {
 		if (map.getChar(position.getX(), position.getY()) == 'P' && collected == false) {
-			Exit.setCollectedDiamond();
-			Exit.state(null);
+			this.exit.setCollectedDiamond();
+			this.exit.state(map);
 			collected = true;
 		}
 	}

@@ -18,7 +18,6 @@ public class Rock extends Element {
 		super(position,IMAGEPOSITIONX, IMAGEPOSITIONY );
 		this.gravity(position, map);
 		this.move(position, map, null);
-		this.push(position, map);
 
 	}
 	public void move() {

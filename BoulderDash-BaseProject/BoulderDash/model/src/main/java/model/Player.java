@@ -23,7 +23,6 @@ public class Player extends Element {
 	public Player(Position position, final String string) {
 		super(position, IMAGEPOSITIONXUP, IMAGEPOSITIONYUP);
 		this.setDirection(string);
-		this.position = position;
 		this.gravity();
 		this.move();
 	}

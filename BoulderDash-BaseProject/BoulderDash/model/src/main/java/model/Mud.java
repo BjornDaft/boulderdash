@@ -1,6 +1,6 @@
 package model;
 
-public class Mud extends Element {
+public class Mud extends Element implements IDig {
 	private static int IMAGEPOSITIONX = 7;
 	private static int IMAGEPOSITIONY = 0;
 	private int x = position.getX();
@@ -10,7 +10,6 @@ public class Mud extends Element {
 	
 	public Mud(IPosition position) {
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
-		this.canBeDig(map);
 		this.gravity();
 		this.move();
 

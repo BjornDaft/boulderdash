@@ -2,8 +2,10 @@ package model.dao;
 
 import java.io.Serializable;
 
+import model.InbDiamond;
+
 @SuppressWarnings("serial")
-public class Map implements Serializable {
+public class Map implements Serializable,InbDiamond {
 
 	private String name;
 	private int id;

@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -17,6 +16,8 @@ import java.util.ArrayList;
 
 public class ModelFacade implements Serializable, IModelFacade {
 
+	private IExit exit;
+	private IPlayer player;
 	/**
 	 * 
 	 */
@@ -112,7 +113,7 @@ public class ModelFacade implements Serializable, IModelFacade {
 		return list.toArray(new IElement[0]);
 	}*/
 	public boolean isGameOver() {
-		if (Player.getIsAlive() == false || Exit.getWin() == true) {
+		if (player.getIsAlive() == false || this.exit.getWin() == true) {
 			return true;
 		}
 		return false;

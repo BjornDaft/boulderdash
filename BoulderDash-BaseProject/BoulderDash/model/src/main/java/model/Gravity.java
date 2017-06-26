@@ -49,7 +49,8 @@ public class Gravity implements IGravity {
 	}
 	public void fallDown(IPosition position, IMap map){
 	//	object fall
-		position.setY(posY++);;
+		position.setY(posY++);
+		map.setChar(posX, posY, 'X');
 	}
 	public void fallLeft(IPosition position, IMap map){
 	//	object go Left

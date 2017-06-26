@@ -1,24 +1,21 @@
 package model;
 
-import model.dao.Map;
 
-
-
-public class Exit extends Element {
+public class Exit extends Element implements IExit {
 	private static int IMAGEPOSITIONX = 13;
 	private static int IMAGEPOSITIONY = 1;
-	private static boolean open = false;
-	private static int collectedDiamond = 0;
+	private boolean open = false;
+	private int collectedDiamond = 0;
 	private static boolean win = false;
-	
+	private InbDiamond nbDiamond;
 	public Exit(IPosition position) {
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
-		this.win(position, map);
-		Exit.state(null);
+		this.gravity(position, map);
+		this.move();
 	}
-	public static void state(Map map1) {
-		if (map1.getNbdiamond() == getCollectedDiamond()) {
-			open = true;
+	public void state(IMap map1) {
+		if (this.nbDiamond.getNbdiamond() == this.getCollectedDiamond()) {
+			this.open = true;
 			}
 		}
 	public void win(IPosition position, IMap map) {
@@ -30,19 +27,23 @@ public class Exit extends Element {
 		public void gravity(IPosition position, IMap map) {
 			this.gravity = new NoGravity();
 	}
-		public static int getCollectedDiamond() {
+		public int getCollectedDiamond() {
 			return collectedDiamond;
 		}
-		public static void setCollectedDiamond() {
+		public void setCollectedDiamond() {
 			collectedDiamond ++;
 		}
-		public static boolean getOpen() {
+		public boolean getOpen() {
 			return open;
 		}
-		public static boolean getWin() {
+		public boolean getWin() {
 			return win;
 		}
-		public static void setWin(boolean winner) {
+		public void setWin(boolean winner) {
 		win = winner;
 		}
+		public void move() {
+			this.move = new NoMove();
+		}
+		
 }

@@ -1,6 +1,6 @@
 package model;
 
-public class Enemy extends Element {
+public class Enemy extends Element implements Ikill{
 
 	/**
 	 * <h1>Enemy</h1>
@@ -18,7 +18,6 @@ public class Enemy extends Element {
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
 		this.move(position, map);
 		this.gravity(position, map);
-		this.kill(map);
 		
 	}
 	/**
