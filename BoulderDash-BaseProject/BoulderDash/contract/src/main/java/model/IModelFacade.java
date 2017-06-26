@@ -9,11 +9,11 @@ package model;
  * @version 1.0
  */
 public interface IModelFacade {
-	public Object[][] getTab();
+	/*public Object[][] getTab();
 	public void setType(final int i, final int j, final char c);
 	public String getType(final int x, final int y);
 	public char[][] getCharTab();
-	public IElement[] getElement();
+	public IElement[] getElement();*/
 	public boolean isGameOver();
 }
 /**

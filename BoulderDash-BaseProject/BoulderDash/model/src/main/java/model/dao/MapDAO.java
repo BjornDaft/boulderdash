@@ -14,17 +14,85 @@ import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import model.ModelFacade;
 
+public class MapDAO {
 
-public class ExampleDAO {
+	private char tab[][];
+	
+	
+	public void buildtab(final int width, final int height,final String string){
+	this.tab = new char[width][height];
+	try {
+		int a = 0, i = 0, j = 0;
+		char n;
+		if (string.length() != width * height) {
+			throw new Exception(
 
+					"Inexact number of chars, there are " + string.length() + " in place of " + width * height);
+		}
 
+		for (j = 0; j < height; j++) {
+			for (i = 0; i < width; i++) {
+
+				n = string.charAt(a);
+				switch (n) {
+				case 'O':
+
+					this.tab[j][i] = n;
+					break;
+				case 'W':
+
+					this.tab[j][i] = n;
+					break;
+				case 'R':
+
+					this.tab[j][i] = n;
+					break;
+				case 'E':
+
+					this.tab[j][i] = n;
+					break;
+				case 'D':
+
+					this.tab[j][i] = n;
+					break;
+				case 'X':
+
+					this.tab[j][i] = n;
+					break;
+				case 'P':
+
+					this.tab[j][i] = n;
+					break;
+				case 'S':
+
+					this.tab[j][i] = n;
+					break;
+				default:
+					a++;
+					throw new Exception("Unrecognized char at position " + a + "(that's a " + n + ")");
+				}
+				a++;
+			}
+		}
+	} catch (Exception e) {
+
+		System.err.println(e.getMessage());
+		System.exit(1);
+	}
+}
+	public char getChar(final int x, final int y) {
+		return this.tab[x][y];
+	}
+
+	public void setChar(final int x, final int y, final char c) {
+		this.tab[x][y] = c;
+	}
 	/**
 	 * This function will received the serialized map from database.
 	 * @param idLvl 	Id du niveau choisi.
 	 */
- 	public static void getMap(int idLvl) throws SQLException, IOException{
+ 	public void getMap(int idLvl) throws SQLException, IOException{
  	// to test : int idLvl = "what you want to force to start"
     // to test : public static void main(final String argv[]) throws SQLException, IOException {
  	
@@ -64,7 +132,6 @@ public class ExampleDAO {
 		writer.close();
 	}
  
- decrypt();
 
  // use this to generate the map : generatelvl();   
     
@@ -73,7 +140,7 @@ public class ExampleDAO {
 	/**
 	 * This function will create an object map1 from binary received
 	 */
- 	public static void decrypt(){
+ 	public void decrypt(){
 		
 	    ObjectInputStream ois = null;
 	     
@@ -94,7 +161,7 @@ public class ExampleDAO {
 		  int height = map1.getHeight();
 		  String mapCode = map1.getMapCode();
 		  
-		  generateObjectsFromMap(width, height, mapCode);
+		  this.buildtab(width, height, mapCode);
 		  // This function will get the mapCode, then create an array of object using width and height
 	      
 	    } catch (final java.io.IOException e) {
@@ -116,7 +183,7 @@ public class ExampleDAO {
 	/**
 	 * Test function, used to generate a binary of the map
 	 */
-	public static void generatelvl(){		
+	public void generatelvl(){		
 		
 	    final Map map1 = new Map("LELELE", 10, 18, 12, "REOOOOOOOOOOOOOOORPREOOOOOOOOOOOOORSDOREOOOOOOOOOOORODRDOREOOOOOOOOORODRORDOREOOOOOOORODROOORDOREOOOOORODROOOOORDOREOOORODROOOOOOORDOREORODROOOOOOOOORDORRODROOOOOOOOOOORDOOOROOOOOO", 1);
 	    ObjectOutputStream oos = null;
@@ -148,10 +215,5 @@ public class ExampleDAO {
 	 * @param height 	Hauteur du niveau choisi.
 	 * @param string 	mapCode du niveau choisi.
 	 */
-	 public static void generateObjectsFromMap(int width, int height, String string){
-
-		    @SuppressWarnings("unused")
-	        ModelFacade array = new ModelFacade(width, height, string);
-
-}
+	
 }
