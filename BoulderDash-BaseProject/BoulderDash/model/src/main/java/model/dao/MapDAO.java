@@ -21,27 +21,26 @@ public class MapDAO implements IMap{
 	private char tab[][];
 
 	public void buildtab(final int width, final int height, final String string) {
-		this.tab = new char[width][height];
+		this.tab = new char[height][width];
 		try {
 			int a = 0, i = 0, j = 0;
 			char n;
 			if (string.length() != width * height) {
 				throw new Exception(
 
-						"Inexact number of chars, there are " + string.length() + " in place of " + width * height);
+					"Inexact number of chars, there are " + string.length() + " in place of " + width * height);
 			}
 
-			for (j = 0; j < height; j++) {
-				for (i = 0; i < width; i++) {
+			for (i = 0; i < height; i++) {
+				for (j = 0; j < width; j++) {
 
 					n = string.charAt(a);
 					if (n == 'O' || n == 'W' || n == 'R' || n == 'E' || n == 'D' || n == 'X' || n == 'P' || n == 'S') {
-						this.tab[j][i] = n;
+						this.tab[i][j] = n;
 						a++;
 					} else {
 						throw new Exception("Unrecognized char at position " + a + "(that's a " + n + ")");
 					}
-					a++;
 				}
 			}
 		} catch (Exception e) {
@@ -64,7 +63,7 @@ public class MapDAO implements IMap{
 	 * @param map
 	 * 			the sat map
 	 */
-	public void setMap(char[][] map) {
+	public void setTab(char[][] map) {
 		this.tab = map;
 	}
 
@@ -153,12 +152,12 @@ public class MapDAO implements IMap{
 			ois = new ObjectInputStream(fichier);
 			final Map map1 = (Map) ois.readObject();
 
-			System.out.println("Lvl name = " + map1.getName());
-			System.out.println("Id = " + map1.getId());
-			System.out.println("Nbdiamond = " + map1.getNbdiamond());
-			System.out.println("width = " + map1.getWidth());
-			System.out.println("height = " + map1.getHeight());
-			System.out.println("code map = " + map1.getMapCode());
+//			System.out.println("Lvl name = " + map1.getName());
+//			System.out.println("Id = " + map1.getId());
+//			System.out.println("Nbdiamond = " + map1.getNbdiamond());
+//			System.out.println("width = " + 	map1.getWidth());
+//			System.out.println("height = " + map1.getHeight());
+//			System.out.println("code map = " + map1.getMapCode());
 
 			int width = map1.getWidth();
 			int height = map1.getHeight();
@@ -188,7 +187,7 @@ public class MapDAO implements IMap{
 	 */
 	public void generatelvl() {
 
-		final Map map1 = new Map("LELELE", 10, 18, 12, "REOOOOOOOOOOOOOOORPREOOOOOOOOOOOOORSDOREOOOOOOOOOOORODRDOREOOOOOOOOORODRORDOREOOOOOOORODROOORDOREOOOOORODROOOOORDOREOOORODROOOOOOORDOREORODROOOOOOOOORDORRODROOOOOOOOOOORDOOOROOOOOO000000000000000000000000000000000000",1);
+		final Map map1 = new Map("LELELE", 10, 18, 10, "REOOOOOOOOOOOOOOORPREOOOOOOOOOOOOORSDOREOOOOOOOOOOORODRDOREOOOOOOOOORODRORDOREOOOOOOORODROOORDOREOOOOORODROOOOORDOREOOORODROOOOOOORDOREORODROOOOOOOOORDORRODROOOOOOOOOOORDOOOROOOOOO",1);
 		ObjectOutputStream oos = null;
 		@SuppressWarnings("unused")
 		PrintWriter writer = null;
@@ -197,6 +196,31 @@ public class MapDAO implements IMap{
 			final FileOutputStream fichier = new FileOutputStream("GeneratedLVL");
 			oos = new ObjectOutputStream(fichier);
 			oos.writeObject(map1);
+			oos.flush();
+		} catch (final java.io.IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (oos != null) {
+					oos.flush();
+					oos.close();
+				}
+			} catch (final IOException ex) {
+				ex.printStackTrace();
+			}
+		}
+	}
+	
+	public void updatelvl(char[][] tab) {
+
+		ObjectOutputStream oos = null;
+		@SuppressWarnings("unused")
+		PrintWriter writer = null;
+
+		try {
+			final FileOutputStream fichier = new FileOutputStream("tab");
+			oos = new ObjectOutputStream(fichier);
+			oos.writeObject(tab);
 			oos.flush();
 		} catch (final java.io.IOException e) {
 			e.printStackTrace();

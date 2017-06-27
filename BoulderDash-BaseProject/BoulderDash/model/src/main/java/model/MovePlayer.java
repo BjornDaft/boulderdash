@@ -142,5 +142,5 @@ public class MovePlayer implements IMove {
 			map.setChar(x,y, 'X');
 			position.setY(x++);
 		}
-
+		
 }

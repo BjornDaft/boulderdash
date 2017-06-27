@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * <h1>The Class ModelFacade provides a facade of the Model component.</h1>
@@ -52,7 +53,7 @@ public class ModelFacade implements Serializable, IModelFacade {
 	 * 
 	 * @Override public ArrayList<IMobile> getMobiles() { // TODO Auto-generated
 	 * method stub return this.mobiles; }
-	 */
+	 
 
 	public static void generateArrayMap(char chartab[][]) {
 
@@ -75,7 +76,7 @@ public class ModelFacade implements Serializable, IModelFacade {
 				ex.printStackTrace();
 			}
 		}
-	}
+	}*/
 
 	public static void decrypt() {
 
@@ -103,7 +104,7 @@ public class ModelFacade implements Serializable, IModelFacade {
 			}
 		}
 	}
-
+	
 /*@Override
 	public IElement[] getElement() {
 		ArrayList<Element> list = new ArrayList<Element>();
@@ -131,5 +132,11 @@ public class ModelFacade implements Serializable, IModelFacade {
 	public IMap getMap() {
 		// TODO Auto-generated method stub
 		return this.map;
+	}
+
+	@Override
+	public ArrayList<IElement> createElements() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

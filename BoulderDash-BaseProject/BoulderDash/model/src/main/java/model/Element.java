@@ -25,6 +25,9 @@ public class Element {
 			e.printStackTrace();
 		}
 	}
+	public Element(final IPosition position, char type){
+		this.position = position;
+	}
 
 	public IPosition getPosition() {
 		// TODO Auto-generated method stub

@@ -35,6 +35,7 @@ public abstract class Main {
         ControllerFacade controller = new ControllerFacade(model,view);
         try {
             controller.test();
+            controller.start();
         } catch (final SQLException exception) {
             exception.printStackTrace();
         }

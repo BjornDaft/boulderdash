@@ -1,10 +1,17 @@
 package controller;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Arrays;
 
+import model.IGravity;
 import model.IMap;
 import model.IModelFacade;
+import model.IMove;
+import model.IPlayer;
+import model.IPosition;
 import view.IViewFacade;
 
 /**
@@ -23,6 +30,11 @@ public class ControllerFacade implements IControllerFacade {
 
 	/** The model. */
 	private IModelFacade model;
+
+	private IPosition position;
+	private IGravity gravity;
+	private IMove move;
+	boolean key_right, key_left, key_down, key_up;
 
 	/**
 	 * Boolean which indicates if game is over
@@ -49,8 +61,10 @@ public class ControllerFacade implements IControllerFacade {
 	 *
 	 * @throws SQLException
 	 *             the SQL exception
+	 * @throws IOException 
+	 * @throws InterruptedException 
 	 */
-	public void start() throws SQLException {
+	public void start() throws SQLException, InterruptedException, IOException {
 		this.gameLoop();
 		this.view.displayMessage("Game Over!");
 		//this.view.closeAll();
@@ -63,10 +77,16 @@ public class ControllerFacade implements IControllerFacade {
 		char[][] mapFirst = this.map.getTab();
 		for (int i=0;i<mapFirst.length;i++){
 			for (int j=0;j<mapFirst[0].length;j++){
+				this.position.setX(i);
+				this.position.setY(j);
+				
+				
 				System.out.print(mapFirst[i][j]);
 			}
 			System.out.println();
 		}
+		this.map.setTab(mapFirst);
+		this.map.updatelvl(mapFirst);
 	}
 
 	/**
@@ -94,9 +114,24 @@ public class ControllerFacade implements IControllerFacade {
 	/**
 	 * Game infinite loop while it isn't over
 	 */
-	private void gameLoop() {
+	private void gameLoop() throws SQLException,InterruptedException,IOException{
 		while (!this.isGameOver) {
 			try {
+				this.map.decrypt();
+				char[][] mapFirst = this.map.getTab();
+				for (int i=0;i<mapFirst.length;i++){
+					for (int j=0;j<mapFirst[0].length;j++){
+						System.out.print(mapFirst[i][j]);
+						this.position.setX(i);
+						this.position.setY(j);
+						this.gravity.gravity(this.position, this.map);
+						//java.awt.Component.addKeyListener(new GameInput());
+						//this.movePlayer.move(this.position, this.map, null);
+					}
+					System.out.println();
+				}
+				this.map.setTab(mapFirst);
+				this.map.updatelvl(mapFirst);
 				Thread.sleep(TIME_SLEEP);
 				if (model.isGameOver() == true) {
 					this.isGameOver = true;
@@ -125,5 +160,21 @@ public class ControllerFacade implements IControllerFacade {
 			orderController = new OrderController();
 		return orderController;
 	}
+	private class GameInput implements KeyListener {
+        public void keyTyped(KeyEvent e) {}
 
+        public void keyReleased(KeyEvent e) {
+            if (e.getKeyCode() == e.VK_DOWN) key_down = false;
+            if (e.getKeyCode() == e.VK_UP) key_up = false;
+            if (e.getKeyCode() == e.VK_RIGHT) key_right = false;
+            if (e.getKeyCode() == e.VK_LEFT) key_left = false;
+        }
+
+        public void keyPressed(KeyEvent e) {
+            if (e.getKeyCode() == e.VK_DOWN) key_down = true;
+            if (e.getKeyCode() == e.VK_UP) key_up = true;
+            if (e.getKeyCode() == e.VK_RIGHT) key_right = true;
+            if (e.getKeyCode() == e.VK_LEFT) key_left = true;
+        }
+	}
 }

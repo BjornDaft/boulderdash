@@ -42,7 +42,7 @@ public class OrderController extends java.util.Observable {
         this.view = view;
         this.model = model;
 
-        switch (userOrder.getOrder()) {
+       /* switch (userOrder.getOrder()) {
             case UP:
                 character.moveUp(movable, position);
                 if (character.getDiamond()) {
@@ -80,6 +80,6 @@ public class OrderController extends java.util.Observable {
         character.refreshAround(position);
         build.setPos(x, y);
         setChanged();
-        notifyObservers();
+        notifyObservers();*/
     }
 }
