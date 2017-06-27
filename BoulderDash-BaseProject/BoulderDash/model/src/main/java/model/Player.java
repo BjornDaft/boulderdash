@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-public class Player extends Element {
+public class Player extends Element implements IPlayer {
 	private static int IMAGEPOSITIONXUP = 2;
 	private static int IMAGEPOSITIONYUP = 2;
 	private static int IMAGEPOSITIONXDOWN = 4;
@@ -14,15 +14,14 @@ public class Player extends Element {
 	private static int IMAGEPOSITIONYRIGHT = 3;
 	private static int IMAGEPOSITIONXLEFT = 2;
 	private static int IMAGEPOSITIONYLEFT = 1;
-	private static String direction;
-	private static boolean isAlive;
+	private String direction;
+	private boolean isAlive;
 
 	int x = position.getX();
 	int y = position.getY();
 
 	public Player(Position position, final String string) {
 		super(position, IMAGEPOSITIONXUP, IMAGEPOSITIONYUP);
-		this.setDirection(string);
 		this.gravity();
 		this.move();
 	}
@@ -35,7 +34,7 @@ public class Player extends Element {
 
 		BufferedImage imageSource = ImageIO.read(new File(f.getCanonicalPath() + "/Image/BoulderDash.png"));
 
-		switch (Player.getDirection()) {
+		switch (this.getDirection()) {
 		case "UP":
 			this.image = (imageSource).getSubimage(IMAGEPOSITIONXUP * 16, IMAGEPOSITIONYUP * 16, 16, 16);
 			break;
@@ -58,18 +57,19 @@ public class Player extends Element {
 	public void move() {
 		this.move = new MovePlayer();
 	}
-	public static boolean getIsAlive() {
-		return isAlive;
+	public boolean getIsAlive() {
+		return this.isAlive;
 	}
-	public static void setIsAlive(boolean alive) {
-		isAlive = alive;
+	public void setIsAlive(boolean alive) {
+		this.isAlive = alive;
 	}
 
-	public static String getDirection() {
-		return direction;
+	public String getDirection() {
+		return this.direction;
 	}
 
 	public void setDirection(String direction) {
-		Player.direction = direction;
+		this.direction = direction;
 	}
+
 }

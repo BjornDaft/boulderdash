@@ -12,6 +12,7 @@ public class Gravity implements IGravity {
 	 * if 
 	 **/
 	private int posX, posY;
+	private IPlayer player;
 	public void gravity(IPosition position, IMap map) {
 	//	initialize variable
 		this.posX = position.getX();
@@ -25,7 +26,7 @@ public class Gravity implements IGravity {
 				this.verticalFall(position, map);
 			}
 			else if (map.getChar(posX, posY) == 'P')
-				Player.setIsAlive(false);
+				this.player.setIsAlive(false);
 		}
 	}
 	public void verticalFall(IPosition position, IMap map) {

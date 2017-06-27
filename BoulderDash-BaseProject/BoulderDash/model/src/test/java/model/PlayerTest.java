@@ -13,31 +13,24 @@ import org.junit.Test;
 	 **/
 public class PlayerTest {
 	private Player player;
+	private IPlayer behavior;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		Player.setIsAlive(true);
 	}
 
 	@Before
 	public void setUp() throws Exception {
-		player = new Player(new Position(1,1), "UP");
-
-	}
-	@Test
-	public void testGravity() {
-		assertNotNull(this.player.gravity);
-	}
-	@Test
-	public void testmove() {
-		assertNotNull(this.player.move);
+		this.player = new Player(new Position(1,1), "UP");
+		this.behavior = this.player;
+		this.behavior.setIsAlive(true);
 	}
 	/**
 	 * test for getter getIsAlive()
-	 * expected outcomes must have the same value as isAlive method
+	 * expected outcomes must have the same value as isAlive attribute
 	**/
 	@Test
 	public void testGetIsAlive() {
-		assertEquals(true ,Player.getIsAlive());
+		assertEquals(true ,this.behavior.getIsAlive());
 	}
 	/**
 	 * test for setter setIsAlive()
@@ -46,7 +39,7 @@ public class PlayerTest {
 	 **/
 	@Test
 	public void testSetIsAlive() {
-		Player.setIsAlive(false);
-		assertEquals(false, Player.getIsAlive());
+		this.player.setIsAlive(false);
+		assertEquals(false, this.behavior.getIsAlive());
 	}
 }

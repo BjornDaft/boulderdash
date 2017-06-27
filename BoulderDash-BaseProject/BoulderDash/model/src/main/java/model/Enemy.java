@@ -13,6 +13,7 @@ public class Enemy extends Element implements Ikill{
 	private static int IMAGEPOSITIONY = 1;
 	private int x = position.getX();
 	private int y = position.getY();
+	private IPlayer player;
 
 	public Enemy(Position position) {
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
@@ -32,7 +33,7 @@ public class Enemy extends Element implements Ikill{
 			for (x--; x == x++; x++) {
 				for (y--; x == x++; x++) {
 					if (map.getChar(x, y) == 'P') {
-						Player.setIsAlive(false);
+						this.player.setIsAlive(false);
 					}
 
 					map.setChar(x, y, 'D');
@@ -51,7 +52,7 @@ public class Enemy extends Element implements Ikill{
 			for (x--; x == x++; x++) {
 				for (y--; x == x++; x++) {
 					if (map.getChar(x, y) == 'P') {
-						Player.setIsAlive(false);
+						this.player.setIsAlive(false);
 					}
 
 					map.setChar(x, y, 'X');

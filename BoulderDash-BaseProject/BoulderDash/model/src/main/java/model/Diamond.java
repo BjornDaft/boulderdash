@@ -1,6 +1,6 @@
 package model;
 
-public class Diamond extends Element implements IGravity, IsetCollectedDiamond{
+public class Diamond extends Element implements IGravity, ICollectedDiamond{
 	private static int IMAGEPOSITIONX = 10;
 	private static int IMAGEPOSITIONY = 0;
 	private boolean collected = false;
@@ -10,7 +10,6 @@ public class Diamond extends Element implements IGravity, IsetCollectedDiamond{
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
 		this.gravity();
 		this.move();
-		this.setCollectDiamond();
 	}
 
 	public void gravity() {
@@ -27,5 +26,8 @@ public class Diamond extends Element implements IGravity, IsetCollectedDiamond{
 			this.exit.state(map);
 			collected = true;
 		}
+	}
+	public boolean getCollectDiamond() {
+		return collected;
 	}
 }

@@ -9,11 +9,12 @@ package model;
  * The player can't cross it but he can push it if the frame on the other side is empty
  * The rock is affected by the gravity but not by the move. His push method move the rock depending at te player position
  */
-public class Rock extends Element {
+public class Rock extends Element implements IPush {
 	private static int IMAGEPOSITIONX = 9;
 	private static int IMAGEPOSITIONY = 0;
 	@SuppressWarnings("unused")
 	private int posX, posY;
+	private IPlayer player;
 	public Rock(IPosition position) {
 		super(position,IMAGEPOSITIONX, IMAGEPOSITIONY );
 		this.gravity(position, map);
@@ -38,10 +39,10 @@ public class Rock extends Element {
 	{
 		posX = position.getX();
 		posY = position.getY();
-		if(map.getChar(position.getX(), position.getY()) == 'P'/* && Player.getDirection() == "Left"*/) {
+		if(map.getChar(position.getX(), position.getY()) == 'P' && this.player.getDirection() == "LEFT") {
 			position.setX(posX--);
 	}
-		else if(map.getChar(position.getX(), position.getY()) == 'P'/* && Player.getDirection() =="Right"*/) {
+		else if(map.getChar(position.getX(), position.getY()) == 'P' && this.player.getDirection() =="Right") {
 			position.setX(posX++);
 		}
 	}

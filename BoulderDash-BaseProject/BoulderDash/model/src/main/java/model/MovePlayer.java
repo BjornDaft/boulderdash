@@ -9,7 +9,7 @@ package model;
 **/
 public class MovePlayer implements IMove {
 	private IExit exit;
-	private IsetCollectedDiamond collectedDiamond;
+	private ICollectedDiamond collectedDiamond;
 	private IDig dig;
 	private IPush push;
 	public void move(IPosition position, IMap map, Direction direction) {
@@ -46,6 +46,8 @@ public class MovePlayer implements IMove {
 			case 'S' :
 				if (this.exit.getOpen() == true) {
 					this.exit.setWin(true);
+				} else {
+					return;
 				}
 				break;
 			}
@@ -71,6 +73,8 @@ public class MovePlayer implements IMove {
 			case 'S' :
 				if (this.exit.getOpen() == true) {
 					this.exit.setWin(true);
+				} else {
+					return;
 				}
 				break;
 			}
@@ -97,6 +101,8 @@ public class MovePlayer implements IMove {
 			case 'S' :
 				if (this.exit.getOpen() == true) {
 					this.exit.setWin(true);
+				} else {
+					return;
 				}
 			case 'R' :
 				this.push.push(position, map);
@@ -125,6 +131,8 @@ public class MovePlayer implements IMove {
 			case 'S' :
 				if (this.exit.getOpen() == true) {
 					this.exit.setWin(true);
+				} else {
+					return;
 				}
 			case 'R' :
 				this.push.push(position, map);
