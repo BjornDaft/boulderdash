@@ -55,7 +55,7 @@ public class MapDAO implements IMap{
 	 * Get the map
 	 * @return tab
 	 */
-	public char[][] getMap() {
+	public char[][] getTab() {
 		return this.tab;
 	}
 
