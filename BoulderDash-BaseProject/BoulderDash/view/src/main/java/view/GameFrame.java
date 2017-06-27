@@ -15,10 +15,7 @@ public class GameFrame extends JFrame implements KeyListener {
 	/**
 	 * instantiate GameFrame to create a JFrame with the panel
 	 * 
-	 * @param title
-	 *            the title of the windows
 	 * @param eventPerformer
-	 * @param graphicsBuilder
 	 * @param observable
 	 */
 	public GameFrame(final IEventPerformer eventPerformer, final IModelFacade model) {
@@ -61,10 +58,5 @@ public class GameFrame extends JFrame implements KeyListener {
 	  public GamePanel getGamePanel() {
 	        return gamePanel;
 	    }
-
-	/**
-	 * Getting data from swapping files
-	 *
-	 */
 
 }

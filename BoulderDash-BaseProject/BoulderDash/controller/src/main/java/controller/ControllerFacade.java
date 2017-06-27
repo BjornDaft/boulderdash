@@ -2,6 +2,7 @@ package controller;
 
 import java.sql.SQLException;
 
+import model.IMap;
 import model.IModelFacade;
 import view.IViewFacade;
 
@@ -12,7 +13,8 @@ import view.IViewFacade;
  * @author Group 4
  * @version 1.0
  */
-public class ControllerFacade implements IOrderPerformer {
+public class ControllerFacade implements IControllerFacade {
+	private static final long TIME_SLEEP = 500;
 	private IMap map;
 	private OrderController orderController;
 	/** The view. */
@@ -31,11 +33,11 @@ public class ControllerFacade implements IOrderPerformer {
 	 * @param model
 	 *            the model
 	 */	
-	public ControllerFacade(final IModelFacade model) {
+	public ControllerFacade(IModelFacade model) {
 		// super();
 
 		this.model = model;
-		this.map = model.getTheMap();
+		this.map = model.getMap();
 
 	}
 
@@ -48,7 +50,7 @@ public class ControllerFacade implements IOrderPerformer {
 	public void start() throws SQLException {
 		this.gameLoop();
 		this.view.displayMessage("Game Over!");
-		this.view.closeAll();
+		//this.view.closeAll();
 
 	}
 
@@ -93,9 +95,9 @@ public class ControllerFacade implements IOrderPerformer {
 	}
 
 	@Override
-	public IMap getTheMap() {
+	public IMap getMap() {
 		// TODO Auto-generated method stub
-		return null;
+		return map;
 	}
 
 	@Override

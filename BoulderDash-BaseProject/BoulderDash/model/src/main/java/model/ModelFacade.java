@@ -18,6 +18,7 @@ public class ModelFacade implements Serializable, IModelFacade {
 
 	private IExit exit;
 	private IPlayer player;
+	private IMap map;
 	/**
 	 * 
 	 */
@@ -28,7 +29,8 @@ public class ModelFacade implements Serializable, IModelFacade {
 	
 	// ModelFacade array = new ModelFacade(2, 2, "AAAA");
 
-	public ModelFacade() {
+	public ModelFacade(IMap map) {
+		this.map = map;
 	}
 
 	// to serial HERE !! Because InterLulz don't work.
@@ -123,5 +125,11 @@ public class ModelFacade implements Serializable, IModelFacade {
 	public IPosition getPosition(int x, int y) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public IMap getMap() {
+		// TODO Auto-generated method stub
+		return this.map;
 	}
 }

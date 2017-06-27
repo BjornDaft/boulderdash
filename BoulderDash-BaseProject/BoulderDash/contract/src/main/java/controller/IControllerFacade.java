@@ -9,5 +9,5 @@ import model.IMap;
  * @version 1.0
  */
 public interface IControllerFacade {
-	IMap getTheMap();
+	IMap getMap();
 }
