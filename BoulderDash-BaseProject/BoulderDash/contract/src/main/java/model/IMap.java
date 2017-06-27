@@ -11,4 +11,5 @@ public interface IMap {
 	public void getMap(int idLvl) throws SQLException, IOException;
 	public void setMap(char[][] tab);
 	public void decrypt();
+	public void generatelvl();
 }

@@ -57,7 +57,8 @@ public class ControllerFacade implements IControllerFacade {
 
 	}
 	public void test() throws SQLException,InterruptedException,IOException{
-		this.map.getMap(1);
+		this.map.generatelvl();
+		this.map.getMap(2);
 		this.map.decrypt();
 		char[][] mapFirst = this.map.getTab();
 		for (int i=0;i<mapFirst.length;i++){

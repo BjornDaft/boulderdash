@@ -149,7 +149,7 @@ public class MapDAO implements IMap{
 		ObjectInputStream ois = null;
 
 		try {
-			final FileInputStream fichier = new FileInputStream("RECEIVED.txt");
+			final FileInputStream fichier = new FileInputStream("../main/RECEIVED.txt");
 			ois = new ObjectInputStream(fichier);
 			final Map map1 = (Map) ois.readObject();
 
@@ -188,15 +188,13 @@ public class MapDAO implements IMap{
 	 */
 	public void generatelvl() {
 
-		final Map map1 = new Map("LELELE", 10, 18, 12,
-				"REOOOOOOOOOOOOOOORPREOOOOOOOOOOOOORSDOREOOOOOOOOOOORODRDOREOOOOOOOOORODRORDOREOOOOOOORODROOORDOREOOOOORODROOOOORDOREOOORODROOOOOOORDOREORODROOOOOOOOORDORRODROOOOOOOOOOORDOOOROOOOOO",
-				1);
+		final Map map1 = new Map("LELELE", 10, 18, 12, "REOOOOOOOOOOOOOOORPREOOOOOOOOOOOOORSDOREOOOOOOOOOOORODRDOREOOOOOOOOORODRORDOREOOOOOOORODROOORDOREOOOOORODROOOOORDOREOOORODROOOOOOORDOREORODROOOOOOOOORDORRODROOOOOOOOOOORDOOOROOOOOO000000000000000000000000000000000000",1);
 		ObjectOutputStream oos = null;
 		@SuppressWarnings("unused")
 		PrintWriter writer = null;
 
 		try {
-			final FileOutputStream fichier = new FileOutputStream("donnees.txt");
+			final FileOutputStream fichier = new FileOutputStream("GeneratedLVL");
 			oos = new ObjectOutputStream(fichier);
 			oos.writeObject(map1);
 			oos.flush();
