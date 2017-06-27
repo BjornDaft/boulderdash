@@ -19,9 +19,9 @@ public class ViewFacade implements IViewFacade{
 	 * 
 	 * 
 	 */
-	public ViewFacade(final IOrderPerformer orderPerformer, final IModelFacade model) {
+	public ViewFacade(final IOrderPerformer orderPerformer) {
 		super();
-		gameFrame = new GameFrame(new EventPerformer(orderPerformer), model);
+		gameFrame = new GameFrame(new EventPerformer(orderPerformer));
 
 	}
 	

@@ -10,4 +10,6 @@ import model.IMap;
  */
 public interface IControllerFacade {
 	IMap getMap();
+
+	void orderPerform(IUserOrder userOrder);
 }

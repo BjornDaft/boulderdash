@@ -5,7 +5,6 @@ import java.awt.event.KeyListener;
 import javax.swing.JFrame;
 
 import controller.IEventPerformer;
-import model.IModelFacade;
 
 @SuppressWarnings("serial")
 public class GameFrame extends JFrame implements KeyListener {
@@ -18,14 +17,14 @@ public class GameFrame extends JFrame implements KeyListener {
 	 * @param eventPerformer
 	 * @param observable
 	 */
-	public GameFrame(final IEventPerformer eventPerformer, final IModelFacade model) {
+	public GameFrame(final IEventPerformer eventPerformer) {
 		super();
 		this.eventPerformer = eventPerformer;
 		this.addKeyListener(this);
 		this.setTitle("Boulder Dash");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
-		gamePanel = new GamePanel(model);
+		gamePanel = new GamePanel();
 		this.addKeyListener(this);
 		this.setSize(600,700);	
 		this.setLocation(100, 100);

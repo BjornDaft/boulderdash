@@ -13,7 +13,7 @@ public class GamePanel extends JPanel implements IViewFacade {
 	private int ypos;
 
 
-	public GamePanel(IModelFacade model) {
+	public GamePanel() {
 		image = new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
 	}
 

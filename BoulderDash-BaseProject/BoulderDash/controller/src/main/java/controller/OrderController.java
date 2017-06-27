@@ -3,6 +3,7 @@ package controller;
 import model.IModelFacade;
 import model.IPosition;
 import model.IMove;
+import model.IPlayer;
 import view.IViewFacade;
 
 import java.io.IOException;
@@ -14,6 +15,7 @@ public class OrderController extends java.util.Observable {
     private IModelFacade model;
     private IViewFacade view;
     private IPosition position;
+    private IPlayer character;
     private int scoreContr;
     private ControllerFacade controllerFacade;
 
@@ -51,7 +53,6 @@ public class OrderController extends java.util.Observable {
 
             case DOWN:
                 character.moveDown(movable, position);
-                collision = character.getColli();
                 if (character.getDiamond()) {
                     this.scoreContr++;
                     view.setScore(scoreContr);

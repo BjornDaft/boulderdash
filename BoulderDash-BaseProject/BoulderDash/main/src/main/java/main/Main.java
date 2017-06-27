@@ -1,10 +1,11 @@
 package main;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import controller.ControllerFacade;
 import model.ModelFacade;
-import view.GraphicsBuilder;
+import model.dao.MapDAO;
 import view.ViewFacade;
 
 /**
@@ -20,15 +21,20 @@ public abstract class Main {
      *
      * @param args
      *            the arguments
+     * @throws IOException 
+     * @throws InterruptedException 
      */
 	//hello
 	/*private final IViewFacade view;
 	private final IModelFacade model;*/
     @SuppressWarnings("unused")
-	public static void main(final String[] args) {
-        final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade(0,0,""));
+	public static void main(final String[] args) throws InterruptedException, IOException{
+    	MapDAO map = new MapDAO();
+    	ModelFacade model = new ModelFacade(map);
+    	ViewFacade view = new ViewFacade(null);
+        ControllerFacade controller = new ControllerFacade(model,view);
         try {
-            controller.start();
+            controller.test();
         } catch (final SQLException exception) {
             exception.printStackTrace();
         }

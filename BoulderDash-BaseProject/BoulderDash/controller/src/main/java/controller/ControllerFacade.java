@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import model.IMap;
@@ -21,7 +22,7 @@ public class ControllerFacade implements IControllerFacade {
 	private final IViewFacade view;
 
 	/** The model. */
-	private final IModelFacade model;
+	private IModelFacade model;
 
 	/**
 	 * Boolean which indicates if game is over
@@ -33,11 +34,13 @@ public class ControllerFacade implements IControllerFacade {
 	 * @param model
 	 *            the model
 	 */	
-	public ControllerFacade(IModelFacade model) {
+	public ControllerFacade(IModelFacade model,IViewFacade view) {
 		// super();
 
 		this.model = model;
 		this.map = model.getMap();
+		this.view = view;
+		
 
 	}
 
@@ -52,6 +55,16 @@ public class ControllerFacade implements IControllerFacade {
 		this.view.displayMessage("Game Over!");
 		//this.view.closeAll();
 
+	}
+	public void test() throws SQLException,InterruptedException,IOException{
+		this.map.decrypt();
+		char[][] mapFirst = this.map.getMap();
+		for (int i=0;i<mapFirst.length;i++){
+			for (int j=0;j<mapFirst[0].length;j++){
+				System.out.print(mapFirst[i][j]);
+			}
+			System.out.println();
+		}
 	}
 
 	/**
@@ -94,13 +107,12 @@ public class ControllerFacade implements IControllerFacade {
 		//
 	}
 
-	@Override
+	
 	public IMap getMap() {
 		// TODO Auto-generated method stub
 		return map;
 	}
 
-	@Override
 	public void orderPerform(IUserOrder userOrder) {
 		// TODO Auto-generated method stub
 
@@ -108,7 +120,7 @@ public class ControllerFacade implements IControllerFacade {
 
 	public OrderController getOrderController() {
 		if (orderController == null)
-			orderController = new OrderController(build);
+			orderController = new OrderController();
 		return orderController;
 	}
 

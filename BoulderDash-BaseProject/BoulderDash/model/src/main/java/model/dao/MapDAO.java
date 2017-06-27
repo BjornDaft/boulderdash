@@ -138,7 +138,6 @@ public class MapDAO implements IMap{
 			writer.close();
 		}
 
-		// use this to generate the map : generatelvl();
 
 	}
 
