@@ -9,7 +9,6 @@ public class Element {
 	protected IPosition position;
 	protected IMap map;
 	protected IGravity gravity;
-	protected IMove move;
 
 	private IModelFacade model;
 	protected BufferedImage image;
@@ -56,9 +55,5 @@ public class Element {
 	public void gravity(IPosition position, IMap map) {
 		this.gravity = new NoGravity();
 
-	}
-
-	public void move(IPosition position, IMap map, Direction direction) {
-		this.move = new NoMove();
 	}
 }

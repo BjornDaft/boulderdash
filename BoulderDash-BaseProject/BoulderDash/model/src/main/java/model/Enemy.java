@@ -14,6 +14,8 @@ public class Enemy extends Element implements Ikill{
 	private int x = position.getX();
 	private int y = position.getY();
 	private IPlayer player;
+	@SuppressWarnings("unused")
+	private IMoveEnemy move;
 
 	public Enemy(Position position) {
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);

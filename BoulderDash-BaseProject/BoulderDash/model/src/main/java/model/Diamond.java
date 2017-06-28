@@ -5,7 +5,6 @@ public class Diamond extends Element implements IGravity, ICollectedDiamond{
 	private static int IMAGEPOSITIONY = 0;
 	private boolean collected = false;
 	private IExit exit;
-
 	public Diamond(IPosition position) {
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
 		this.gravity();
@@ -18,7 +17,7 @@ public class Diamond extends Element implements IGravity, ICollectedDiamond{
 		}
 	}
 	public void move() {
-		this.move = new NoMove();
+		new NoMove();
 	}
 	public void setCollectDiamond() {
 		if (map.getChar(position.getX(), position.getY()) == 'P' && collected == false) {

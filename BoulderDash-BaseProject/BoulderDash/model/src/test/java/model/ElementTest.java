@@ -36,10 +36,4 @@ public class ElementTest {
 	public void testGravity() {
 		assertNotNull(this.element.gravity);
 	}
-
-	@Test
-	public void testMove() {
-		assertNotNull(this.element.move);
-	}
-
 }
