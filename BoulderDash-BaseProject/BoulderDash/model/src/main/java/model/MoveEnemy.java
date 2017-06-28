@@ -1,6 +1,6 @@
 package model;
 
-public class MoveEnemy implements IMove{
+public class MoveEnemy implements IMoveEnemy{
 		private int x;
 		private int y;
 		private Ikill kill;

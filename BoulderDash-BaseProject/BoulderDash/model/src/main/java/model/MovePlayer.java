@@ -7,7 +7,7 @@ package model;
  * 
  * the move player check the player's direction
 **/
-public class MovePlayer implements IMove {
+public class MovePlayer implements IMovePlayer {
 	private IExit exit;
 	private ICollectedDiamond collectedDiamond;
 	private IDig dig;
