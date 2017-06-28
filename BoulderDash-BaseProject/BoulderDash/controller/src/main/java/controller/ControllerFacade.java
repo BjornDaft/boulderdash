@@ -4,13 +4,14 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Arrays;
 
+import model.Direction;
 import model.IGravity;
 import model.IMap;
 import model.IModelFacade;
-import model.IMove;
-import model.IPlayer;
+import model.IMoveEnemy;
+import model.IMoveNo;
+import model.IMovePlayer;
 import model.IPosition;
 import view.IViewFacade;
 
@@ -24,16 +25,18 @@ import view.IViewFacade;
 public class ControllerFacade implements IControllerFacade {
 	private static final long TIME_SLEEP = 500;
 	private IMap map;
-	private OrderController orderController;
 	/** The view. */
 	private final IViewFacade view;
 
 	/** The model. */
 	private IModelFacade model;
 
-	private IPosition position;
+	private IUserOrder order;
+	private final IPosition position;
 	private IGravity gravity;
-	private IMove move;
+	private IMovePlayer movePlayer;
+	private IMoveEnemy moveEnemy;
+	private IMoveNo noMove;
 	boolean key_right, key_left, key_down, key_up;
 
 	/**
@@ -52,7 +55,7 @@ public class ControllerFacade implements IControllerFacade {
 		this.model = model;
 		this.map = model.getMap();
 		this.view = view;
-		
+		this.position = model.setPosition();
 
 	}
 
@@ -71,8 +74,8 @@ public class ControllerFacade implements IControllerFacade {
 
 	}
 	public void test() throws SQLException,InterruptedException,IOException{
-		this.map.generatelvl();
-		this.map.getMap(2);
+		//this.map.generatelvl();
+		//this.map.getMap(2);
 		this.map.decrypt();
 		char[][] mapFirst = this.map.getTab();
 		for (int i=0;i<mapFirst.length;i++){
@@ -124,9 +127,14 @@ public class ControllerFacade implements IControllerFacade {
 						System.out.print(mapFirst[i][j]);
 						this.position.setX(i);
 						this.position.setY(j);
-						this.gravity.gravity(this.position, this.map);
-						//java.awt.Component.addKeyListener(new GameInput());
-						//this.movePlayer.move(this.position, this.map, null);
+						//this.gravity.gravity(this.position, this.map);
+						/*if (key_down) this.movePlayer.move(this.position, this.map, Direction.DOWN);
+						if (key_up) this.movePlayer.move(this.position, this.map, Direction.UP);
+						if (key_left) this.movePlayer.move(this.position, this.map, Direction.LEFT);
+						if (key_right) this.movePlayer.move(this.position, this.map, Direction.RIGHT);*/
+						this.performOrder(this.order, this.model, this.view);
+						//this.moveEnemy.move(this.position, this.map, null);
+						//this.noMove.move(this.position, this.map, null);
 					}
 					System.out.println();
 				}
@@ -150,16 +158,23 @@ public class ControllerFacade implements IControllerFacade {
 		return map;
 	}
 
-	public void orderPerform(IUserOrder userOrder) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public OrderController getOrderController() {
-		if (orderController == null)
-			orderController = new OrderController();
-		return orderController;
-	}
+	public void performOrder(IUserOrder userOrder, IModelFacade model, IViewFacade view) throws IOException {
+   	 switch (userOrder.getOrder()) {
+   	case DOWN: 
+   		this.movePlayer.move(this.position, this.map, Direction.DOWN);
+   		break;
+   	case UP: 
+   		this.movePlayer.move(this.position, this.map, Direction.UP);
+		break;
+   	case LEFT:
+   		this.movePlayer.move(this.position, this.map, Direction.LEFT);
+		break;
+   	case RIGHT:
+   		this.movePlayer.move(this.position, this.map, Direction.RIGHT);
+   		break;
+   	 }
+   }
+	
 	private class GameInput implements KeyListener {
         public void keyTyped(KeyEvent e) {}
 

@@ -9,8 +9,8 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public interface IModelFacade {
-	IPosition getPosition(int x, int y);
 	IMap getMap();
 	boolean isGameOver();  
 	ArrayList<IElement> createElements();
+	IPosition setPosition();
 }

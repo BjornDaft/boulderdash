@@ -38,21 +38,21 @@ public class ModelFacade implements Serializable, IModelFacade {
 
 
 	/*
-	 * public ModelFacade() { this.mobiles = new ArrayList<>(); }
-	 * 
-	 * 
-	 * public void addMobile(IMobile mobile) { // TODO Auto-generated method
-	 * stub
-	 * 
-	 * }
-	 * 
-	 * @Override public void removeMobile(IMobile mobile) { // TODO
-	 * Auto-generated method stub
-	 * 
-	 * }
-	 * 
-	 * @Override public ArrayList<IMobile> getMobiles() { // TODO Auto-generated
-	 * method stub return this.mobiles; }
+	  public ModelFacade() { this.mobiles = new ArrayList<>(); }
+	  
+	  
+	  public void addMobile(IMobile mobile) { // TODO Auto-generated method
+	  stub
+	  
+	  }
+	  
+	  @Override public void removeMobile(IMobile mobile) { // TODO
+	  Auto-generated method stub
+	  
+	  }
+	  
+	  @Override public ArrayList<IMobile> getMobiles() { // TODO Auto-generated
+	  method stub return this.mobiles; }
 	 
 
 	public static void generateArrayMap(char chartab[][]) {
@@ -122,10 +122,10 @@ public class ModelFacade implements Serializable, IModelFacade {
 		return false;
 	}
 
-	@Override
-	public IPosition getPosition(int x, int y) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public IPosition setPosition(){
+		Position position = new Position(0,0);
+		return position;
 	}
 
 	@Override
