@@ -24,10 +24,6 @@ public abstract class Main {
      * @throws IOException 
      * @throws InterruptedException 
      */
-	//hello
-	/*private final IViewFacade view;
-	private final IModelFacade model;*/
-    @SuppressWarnings("unused")
 	public static void main(final String[] args) throws InterruptedException, IOException{
     	MapDAO map = new MapDAO();
     	ModelFacade model = new ModelFacade(map);

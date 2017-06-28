@@ -1,10 +1,6 @@
 package controller;
 
-import java.io.IOException;
-
 import model.IMap;
-import model.IModelFacade;
-import view.IViewFacade;
 
 /**
  * <h1>The Interface IControllerFacade.</h1>

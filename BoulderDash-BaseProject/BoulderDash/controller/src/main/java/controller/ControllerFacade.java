@@ -6,11 +6,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import model.Direction;
-import model.IGravity;
 import model.IMap;
 import model.IModelFacade;
-import model.IMoveEnemy;
-import model.IMoveNo;
 import model.IMovePlayer;
 import model.IPosition;
 import view.IViewFacade;
@@ -33,10 +30,7 @@ public class ControllerFacade implements IControllerFacade {
 
 	private IUserOrder order;
 	private final IPosition position;
-	private IGravity gravity;
 	private IMovePlayer movePlayer;
-	private IMoveEnemy moveEnemy;
-	private IMoveNo noMove;
 	boolean key_right, key_left, key_down, key_up;
 
 	/**
@@ -175,21 +169,22 @@ public class ControllerFacade implements IControllerFacade {
    	 }
    }
 	
+	@SuppressWarnings("unused")
 	private class GameInput implements KeyListener {
         public void keyTyped(KeyEvent e) {}
 
         public void keyReleased(KeyEvent e) {
-            if (e.getKeyCode() == e.VK_DOWN) key_down = false;
-            if (e.getKeyCode() == e.VK_UP) key_up = false;
-            if (e.getKeyCode() == e.VK_RIGHT) key_right = false;
-            if (e.getKeyCode() == e.VK_LEFT) key_left = false;
+            if (e.getKeyCode() == KeyEvent.VK_DOWN) key_down = false;
+            if (e.getKeyCode() == KeyEvent.VK_UP) key_up = false;
+            if (e.getKeyCode() == KeyEvent.VK_RIGHT) key_right = false;
+            if (e.getKeyCode() == KeyEvent.VK_LEFT) key_left = false;
         }
 
         public void keyPressed(KeyEvent e) {
-            if (e.getKeyCode() == e.VK_DOWN) key_down = true;
-            if (e.getKeyCode() == e.VK_UP) key_up = true;
-            if (e.getKeyCode() == e.VK_RIGHT) key_right = true;
-            if (e.getKeyCode() == e.VK_LEFT) key_left = true;
+            if (e.getKeyCode() == KeyEvent.VK_DOWN) key_down = true;
+            if (e.getKeyCode() == KeyEvent.VK_UP) key_up = true;
+            if (e.getKeyCode() == KeyEvent.VK_RIGHT) key_right = true;
+            if (e.getKeyCode() == KeyEvent.VK_LEFT) key_left = true;
         }
 	}
 }

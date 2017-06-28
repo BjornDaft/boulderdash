@@ -4,8 +4,6 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import javax.swing.JPanel;
 
-import model.IModelFacade;
-
 @SuppressWarnings("serial")
 public class GamePanel extends JPanel implements IViewFacade {
 	private BufferedImage image;

@@ -3,7 +3,6 @@ package view;
 import java.awt.image.BufferedImage;
 import javax.swing.JOptionPane;
 import controller.IOrderPerformer;
-import model.IModelFacade;
 
 /**
  * <h1>The Class ViewFacade provides a facade of the View component.</h1>
