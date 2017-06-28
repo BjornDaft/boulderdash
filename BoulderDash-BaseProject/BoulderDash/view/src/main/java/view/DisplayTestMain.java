@@ -3,8 +3,10 @@ package view;
 public class DisplayTestMain {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		
+		DisplayTab display = new DisplayTab();
+		System.out.println("AZEAZE");
+		
 	}
 
 }
