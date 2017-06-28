@@ -6,6 +6,8 @@ public class Mud extends Element implements IDig {
 	private int x = position.getX();
 	private int y = position.getY();
 	private boolean dig = false;
+	@SuppressWarnings("unused")
+	private IMoveNo move;
 	
 	
 	public Mud(IPosition position) {

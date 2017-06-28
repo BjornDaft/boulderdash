@@ -6,31 +6,29 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import model.dao.MapDAO;
+
 public class EnemyTest {
-	private Enemy enemy;
-	private char[][] tab ={{'O','R','O'},{'O','E','O'},{'O','O','O'}};
-	private Ikill behavior;
+	private MapDAO mapDAO;
 	private IMap map;
-	private int x, y;
+	private Enemy enemy;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-
+		
 	}
 	@Before
 	public void setUp() throws Exception {
+		this.mapDAO = new MapDAO();
 		this.enemy = new Enemy(new Position(1,1));
-		this.behavior = this.enemy;
-		
+		char[][] t={{'O','R','O'},{'O','E','O'},{'O','O','O'}};
+		this.mapDAO.setTab(t);
+		this.map=mapDAO;
 	}
 
+	
 	@Test
 	public void testKill() {
-		for (x=0; x<=3; x++) {
-			for (y=0; y<=3; y++) {
-					this.map.setTab(tab);
-				}
-			}
-		this.behavior.kill(map);
-		assertEquals(this.enemy.map.getChar(0, 0),'X');
+		this.enemy.kill(this.map,1,1);
+		assertEquals(this.map.getChar(1,1),this.mapDAO.getChar(1,1));
 	}
 }

@@ -22,8 +22,4 @@ public class EmptyTest {
 	public void testGravity() {
 		assertNotNull(this.empty.gravity);
 	}
-	@Test
-	public void testMove() {
-		assertNotNull(this.empty.move);
-	}
 }

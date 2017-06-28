@@ -5,11 +5,9 @@ import java.util.Random;
 public class Gravity implements IGravity {
 	/**
 	 * @author group4
-	 * 		/**
 	 * <h6>description</h6>
 	 * class from gravity behavior
 	 * if the case under him is empty , have diamond or rock, this method start.
-	 * if 
 	 **/
 	private int posX, posY;
 	private IPlayer player;

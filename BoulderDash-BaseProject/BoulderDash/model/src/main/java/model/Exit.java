@@ -8,6 +8,8 @@ public class Exit extends Element implements IExit {
 	private int collectedDiamond = 0;
 	private static boolean win = false;
 	private InbDiamond nbDiamond;
+	@SuppressWarnings("unused")
+	private IMoveNo move;
 	public Exit(IPosition position) {
 		super(position, IMAGEPOSITIONX, IMAGEPOSITIONY);
 		this.gravity(position, map);

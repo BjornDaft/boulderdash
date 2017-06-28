@@ -33,25 +33,25 @@ public class MoveEnemy implements IMoveEnemy{
 		y++;
 		previousDirectionY = true; // wasgoingup
 		position.setY(y);
-		this.kill.kill(map);
+		this.kill.kill(map,x,y);
 	}
 	public void moveDown(IPosition position, IMap map, Direction direction) {
 		y--;
 		previousDirectionY = false; // wasgoingdown
 		position.setY(y);
-		this.kill.kill(map);
+		this.kill.kill(map,x,y);
 	}
 	public void moveLeft(IPosition position, IMap map, Direction direction) {
 		x--;
 		previousDirectionX = false; // wasgoingtoleft
 		position.setX(x);
-		this.kill.kill(map);
+		this.kill.kill(map,x,y);
 	}
 	public void moveRight(IPosition position, IMap map, Direction direction) {
 		x++;
 		previousDirectionX = true; // wasgoingtoright
 		position.setX(x);
-		this.kill.kill(map);
+		this.kill.kill(map,x,y);
 	}
 	public void VerticalMove(IPosition position, IMap map, Direction direction) {
 		if (previousDirectionX = true)

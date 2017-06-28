@@ -1,6 +1,6 @@
 package model;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -22,15 +22,6 @@ public class ElementTest {
 		assertNotNull(this.element.position);
 	}
 
-	@Test
-	public void testGetImage() {
-		assertNotNull(this.element.image);
-	}
-
-	@Test
-	public void testGetModelFacade() {
-		assertNotNull(this.element.getModelFacade());
-	}
 
 	@Test
 	public void testGravity() {

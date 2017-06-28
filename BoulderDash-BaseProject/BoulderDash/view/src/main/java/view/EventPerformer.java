@@ -13,13 +13,16 @@ import controller.UserOrder;
 public class EventPerformer implements IEventPerformer{
 	
 	 
-	private final IOrderPerformer orderPerformer;
+	private IOrderPerformer orderPerformer;
 	/**
 	 *  instantiate EventPerformer
 	 * @param orderPerformer
 	 */
-	public EventPerformer(IOrderPerformer orderPerformer){
+	public EventPerformer(final IOrderPerformer orderPerformer){
 		this.orderPerformer = orderPerformer;
+	}
+	public EventPerformer(){
+		
 	}
 	/**
 	 * instantiate userOrder with the keycode with new order, if no key pressed return nothing
@@ -27,7 +30,7 @@ public class EventPerformer implements IEventPerformer{
 	@Override
 	public void eventPerform(KeyEvent keyCode) {
 		
-		final IUserOrder userOrder = this.keyCodeToUserOrder(keyCode.getKeyCode());
+		final IUserOrder userOrder = this.keyTyped(keyCode.getKeyCode());
 		if (userOrder != null) {
 			this.orderPerformer.orderPerform(userOrder);
 		}		
@@ -37,7 +40,7 @@ public class EventPerformer implements IEventPerformer{
 	 * @param keyCode int who represent the number of a key
 	 * @return return userOrder
 	 */
-	private IUserOrder keyCodeToUserOrder(int keyCode){
+	public IUserOrder keyTyped(final int keyCode){
 		
 		IUserOrder userOrder;
 		switch (keyCode) {

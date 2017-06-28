@@ -15,10 +15,12 @@ public class Rock extends Element implements IPush {
 	@SuppressWarnings("unused")
 	private int posX, posY;
 	private IPlayer player;
+	@SuppressWarnings("unused")
+	private IMoveNo move;
 	public Rock(IPosition position) {
 		super(position,IMAGEPOSITIONX, IMAGEPOSITIONY );
 		this.gravity(position, map);
-		this.move(position, map, null);
+		this.move();
 
 	}
 	public void move() {

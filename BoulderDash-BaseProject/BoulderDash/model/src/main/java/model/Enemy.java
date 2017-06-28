@@ -11,8 +11,6 @@ public class Enemy extends Element implements Ikill{
 	 **/
 	private static int IMAGEPOSITIONX = 16;
 	private static int IMAGEPOSITIONY = 1;
-	private int x = position.getX();
-	private int y = position.getY();
 	private IPlayer player;
 	@SuppressWarnings("unused")
 	private IMoveEnemy move;
@@ -27,18 +25,19 @@ public class Enemy extends Element implements Ikill{
 	 * <h6>target</h6>
 	 * create diamond in range of 1 around enemy (diagonal include). This method work is a player is around him (diagonal excluded) or a stone is above him
 	 * if a player is in range, he die.
+	 * @param map
 	 **/
 	public void giveDiamond(IMap map) {
 
 		if (map.getChar(x, y--) == 'P' || map.getChar(x, y++) == 'P' || map.getChar(x++, y) == 'P'
 				|| map.getChar(x--, y) == 'P' || map.getChar(x, y--) == 'R' || map.getChar(x, y--) == 'D') {
-			for (x--; x == x++; x++) {
-				for (y--; x == x++; x++) {
-					if (map.getChar(x, y) == 'P') {
+			for (int i = x--; i <= x++; i++) {
+				for (int j = y--; j <= x++; j++) {
+					if (map.getChar(i, j) == 'P') {
 						this.player.setIsAlive(false);
 					}
 
-					map.setChar(x, y, 'D');
+					map.setChar(i, j, 'D');
 				}
 			}
 		}
@@ -47,17 +46,21 @@ public class Enemy extends Element implements Ikill{
 	 * <h6>target</h6>
 	 * explode and replace all object in range of 1 around enemy (diagonal include) into void. This method work if a player is around him (diagonal excluded) or a stone is above him
 	 * if a player is in range, he die.
+	 * @param map
+	 * @param x
+	 * @param y
 	 **/
-	public void kill(IMap map) {
+	public void kill(IMap map,int x,int y) {
+		int i,j;
 		if (map.getChar(x, y--) == 'P' || map.getChar(x, y++) == 'P' || map.getChar(x++, y) == 'P'
-				|| map.getChar(x--, y) == 'P' || map.getChar(x, y--) == 'R' || map.getChar(x, y--) == 'D') {
-			for (x--; x == x++; x++) {
-				for (y--; x == x++; x++) {
-					if (map.getChar(x, y) == 'P') {
+				|| map.getChar(x--, y) == 'P' || map.getChar(x, y-1) == 'R' || map.getChar(x, y--) == 'D') {
+			for (i=x-1; i <= x+1; i++) {
+				for (j =y-1; j <= y+1; j++) {
+					if (map.getChar(i, j) == 'P') {
 						this.player.setIsAlive(false);
 					}
 
-					map.setChar(x, y, 'X');
+					map.setChar(i, j, 'X');
 				}
 			}
 		}
