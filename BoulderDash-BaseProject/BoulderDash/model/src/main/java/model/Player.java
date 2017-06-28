@@ -16,6 +16,8 @@ public class Player extends Element implements IPlayer {
 	private static int IMAGEPOSITIONYLEFT = 1;
 	private String direction;
 	private boolean isAlive;
+	@SuppressWarnings("unused")
+	private IMovePlayer move;
 
 	int x = position.getX();
 	int y = position.getY();
